@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4A7CBE0-0C8E-4CBC-87CD-0D73FE7C0C43}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArchNet</RootNamespace>
+    <AssemblyName>ArchNet</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '2Archive|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\WebArchiveR6.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;c:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ConnToBase-развертывание" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=NFK-ARCHIVES\SHAREPOINT%3bInitial Catalog=testbase%3bUser ID=fazlo%3bPassword=52772" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\2Archive\AutoScripts\ConnToBase-развертывание_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>C:\Users\FAZL\Desktop\56\Binaries\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>C:\Users\a.fazilyanov\Desktop\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.Office.Tools.Excel\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.Office.Tools.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Trirand.Web, Version=5.0.0.0, Culture=neutral, PublicKeyToken=e2819dc449af3295, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Trirand.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\JournalCommon.aspx" />
+    <Content Include="admin\SesVal.aspx" />
+    <Content Include="ajax\ac.aspx" />
+    <Content Include="ajax\dd.aspx" />
+    <Content Include="ajax\pinger.aspx" />
+    <Content Include="archive\ArchiveDel.aspx" />
+    <Content Include="archive\ArchiveBulkEdit.aspx" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.min.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.min.css" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\bootstrap-3.3.6\js\bootstrap.js" />
+    <Content Include="content\bootstrap-3.3.6\js\bootstrap.min.js" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqautocomplete.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqcombobox.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqdropdownlist.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqgrid-bootstrap.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqgrid.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqmultiselect.css" />
+    <Content Include="content\jqgrid-5.0.0\css\ui.jqtreeview.css" />
+    <Content Include="content\jqgrid-5.0.0\js\i18n\grid.locale-en.js" />
+    <Content Include="content\jqgrid-5.0.0\js\i18n\grid.locale-ru.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqAutoComplete.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqChart.exporting.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqChart.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqComboBox.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqDatePicker.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqDropDownList.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqGrid.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqMultiSelect.min.js" />
+    <Content Include="content\jqgrid-5.0.0\js\jquery.jqTreeView.min.js" />
+    <Content Include="content\jquery-2.2.3\jquery-2.2.3.min.js" />
+    <Content Include="content\other\js\jquery.maskedinput.min.js" />
+    <Content Include="archive\Docversion.aspx" />
+    <Content Include="content\other\js\accounting.min.js" />
+    <Content Include="sprav\Doctree.aspx" />
+    <Content Include="fonts\glyphicons-filetypes-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-regular.svg" />
+    <Content Include="fonts\glyphicons-social-regular.svg" />
+    <Content Include="content\other\js\jquery.md5.js" />
+    <Content Include="scripts\detect.min.js" />
+    <Content Include="scripts\jquery-1.3.2.min.js" />
+    <Content Include="content\other\js\jquery-ui.min.js" />
+    <Content Include="scripts\jquery.uploadify.js" />
+    <Content Include="archive\Archive.aspx" />
+    <Content Include="scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="content\other\js\jquery-ui-timepicker-addon.js" />
+    <Content Include="errorpages\AppError.aspx" />
+    <Content Include="errorpages\Error.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="scripts\GetWindowWH.js" />
+    <Content Include="scripts\trirand\jquery.jqGrid.min.js" />
+    <Content Include="content\other\js\site.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\jquery-1.11.0.min.js" />
+    <Content Include="scripts\jquery-1.9.0.min.js" />
+    <Content Include="scripts\jquery-ui-1.10.4.custom.js" />
+    <Content Include="scripts\trirand\i18n\grid.locale-en.js" />
+    <Content Include="scripts\trirand\i18n\grid.locale-ru.js" />
+    <Content Include="scripts\trirand\jquery.jqAutoComplete.min.js" />
+    <Content Include="scripts\trirand\jquery.jqChart.exporting.min.js" />
+    <Content Include="scripts\trirand\jquery.jqChart.min.js" />
+    <Content Include="scripts\trirand\jquery.jqDatePicker.min.js" />
+    <Content Include="scripts\trirand\jquery.jqDropDownList.min.js" />
+    <Content Include="scripts\trirand\jquery.jqGrid.min_old.js" />
+    <Content Include="scripts\trirand\jquery.jqTreeView.min.js" />
+    <Content Include="sprav\Frm.aspx" />
+    <Content Include="sprav\Person.aspx" />
+    <Content Include="Start.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\JournalCommon.aspx.cs">
+      <DependentUpon>JournalCommon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\JournalCommon.aspx.designer.cs">
+      <DependentUpon>JournalCommon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\SesVal.aspx.cs">
+      <DependentUpon>SesVal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SesVal.aspx.designer.cs">
+      <DependentUpon>SesVal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\ac.aspx.cs">
+      <DependentUpon>ac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\ac.aspx.designer.cs">
+      <DependentUpon>ac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\dd.aspx.cs">
+      <DependentUpon>dd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\dd.aspx.designer.cs">
+      <DependentUpon>dd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\pinger.aspx.cs">
+      <DependentUpon>pinger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\pinger.aspx.designer.cs">
+      <DependentUpon>pinger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faHeaderGroup.cs" />
+    <Compile Include="archive\ArchiveDel.aspx.cs">
+      <DependentUpon>ArchiveDel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="archive\ArchiveDel.aspx.designer.cs">
+      <DependentUpon>ArchiveDel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="archive\ArchiveBulkEdit.aspx.cs">
+      <DependentUpon>ArchiveBulkEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="archive\ArchiveBulkEdit.aspx.designer.cs">
+      <DependentUpon>ArchiveBulkEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faListDel.cs" />
+    <Compile Include="archive\Docversion.aspx.cs">
+      <DependentUpon>Docversion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="archive\Docversion.aspx.designer.cs">
+      <DependentUpon>Docversion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sprav\Doctree.aspx.cs">
+      <DependentUpon>Doctree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sprav\Doctree.aspx.designer.cs">
+      <DependentUpon>Doctree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faControl.cs" />
+    <Compile Include="base\faPage.cs" />
+    <Compile Include="base\faData.cs" />
+    <Compile Include="archive\Archive.aspx.cs">
+      <DependentUpon>Archive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="archive\Archive.aspx.designer.cs">
+      <DependentUpon>Archive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faCursor.cs" />
+    <Compile Include="base\faFilter.cs" />
+    <Compile Include="base\faLookUp.cs" />
+    <Compile Include="base\faView.cs" />
+    <Compile Include="base\faEdit.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="base\faField.cs" />
+    <Compile Include="errorpages\AppError.aspx.cs">
+      <DependentUpon>AppError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorpages\AppError.aspx.designer.cs">
+      <DependentUpon>AppError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorpages\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorpages\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faList.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sprav\Frm.aspx.cs">
+      <DependentUpon>Frm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sprav\Frm.aspx.designer.cs">
+      <DependentUpon>Frm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sprav\Person.aspx.cs">
+      <DependentUpon>Person.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sprav\Person.aspx.designer.cs">
+      <DependentUpon>Person.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Start.aspx.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Start.aspx.designer.cs">
+      <DependentUpon>Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="base\faFunc.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+    <Content Include="fonts\glyphicons-filetypes-regular.eot" />
+    <Content Include="fonts\glyphicons-filetypes-regular.ttf" />
+    <Content Include="fonts\glyphicons-filetypes-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-regular.eot" />
+    <Content Include="fonts\glyphicons-regular.ttf" />
+    <Content Include="fonts\glyphicons-regular.woff" />
+    <Content Include="fonts\glyphicons-social-regular.eot" />
+    <Content Include="fonts\glyphicons-social-regular.ttf" />
+    <Content Include="fonts\glyphicons-social-regular.woff" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.min.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.min.css.map" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\Рабочий.pubxml" />
+    <None Include="Properties\PublishProfiles\ТЕСТ.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Шаблон Профайлера.tdf" />
+    <Content Include="templates\torg31.xlsx" />
+    <None Include="Web.ToTest.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="content\other\css\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ToTest|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>7373</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://nfk-sp1.nfk.argus.cis</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

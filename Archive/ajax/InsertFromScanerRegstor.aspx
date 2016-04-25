@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="InsertFromScanerRegstor.aspx.cs" Inherits="WebArchiveR6.InsertFromScanerRegstor"%>

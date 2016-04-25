@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArchNet.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="filepath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\SKY-SP-SQL1.STG.LAN\ArchiveScanFiles$\</Value>
+    </Setting>
+    <Setting Name="filepathalt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\stg.lan\nfkdata\ArchiveScanFiles\</Value>
+    </Setting>
+    <Setting Name="constr1c" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=MSK-SQL1;Initial Catalog=Users;User ID=user_helpdesk;Password=wU9xS\ZnLFL2;Max Pool Size=200;Connect Timeout=120;</Value>
+    </Setting>
+    <Setting Name="Test" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="constr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=SKY-SP-SQL1\SHAREPOINT;Initial Catalog=ArchiveDevTest;User ID=fazl;Password=52772;Max Pool Size=200;Connect Timeout=120;</Value>
+    </Setting>
+    <Setting Name="AdminMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">a.fazilyanov@stg.ru</Value>
+    </Setting>
+    <Setting Name="ArchiveMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">archive@stg.ru</Value>
+    </Setting>
+    <Setting Name="ArchiveMailLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">archive</Value>
+    </Setting>
+    <Setting Name="ArchiveMailPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dywicaso</Value>
+    </Setting>
+    <Setting Name="MailServerHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SKY-EX-CAS1.stg.lan</Value>
+    </Setting>
+    <Setting Name="MailServerPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

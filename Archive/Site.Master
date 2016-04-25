@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ArchNet.Site" EnableViewState="false" ViewStateMode="Disabled" %>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Архив документов</title>
+
+    <link rel="icon" href="favicon.ico" type="image/ico" />
+
+    <link href="/content/bootstrap-3.3.6/css/bootstrap.min.css?ver=1.0.0" rel="stylesheet" type="text/css"/>
+    <link href="/content/jqgrid-5.0.0/css/ui.jqgrid-bootstrap.css?ver=1.0.0" rel="stylesheet" type="text/css"/>
+    <%--<link href="/styles/site.css?ver=1.0.0" rel="stylesheet" type="text/css" />--%>
+    
+    <script src="/content/jquery-2.2.3/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script src="content/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    
+    <script src="/content/jqgrid-5.0.0/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+    <script src="/content/jqgrid-5.0.0/js/i18n/grid.locale-ru.js" type="text/javascript"></script>
+    
+    <script src="/content/other/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/content/other/js/jquery-ui-timepicker-addon.js" type="text/javascript"></script>
+    <script src="/content/other/js/jquery.md5.js" type="text/javascript"></script>
+    <script src="/content/other/js/accounting.min.js" type="text/javascript"></script>
+    <script src="/content/other/js/jquery.maskedinput.min.js" type="text/javascript"></script>
+    <script src="content/other/js/site.js" type="text/javascript"></script>
+
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        function pinger() {
+            $.post('/ajax/pinger.aspx', function (result) { });
+        }    
+        setInterval(pinger, 300000);
+    </script>
+</head>
+<body>
+    
+
+        
+    <%if (Application["message4all"] != null)
+      { %>
+    <div style="position: fixed; left: 0; top: 0; z-index: 1100; background-color: #ff0000; padding: 0px 5px; color: #ffffff; font-size: 12px;line-height: 16px;"><%Response.Write(Application["message4all"].ToString());%></div>
+    <%} %>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <%if (Session["isTest"] != null)
+                    { %>
+                <a class="navbar-brand"  style="color:red;font-weight:800;" href="<%Response.Write(GetRouteUrl("default", new { p_base = "dbselect" }));%>">Тестовое приложение</a>
+                <% }
+    else {%>
+                 <a class="navbar-brand" href="<%Response.Write(GetRouteUrl("default", new { p_base = "dbselect" }));%>">Электронный Архив</a>
+                <%} %>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+                    <li class="dropdown"><a id="drop4" role="button" data-toggle="dropdown" href="#">База:  <%Response.Write((Session[cur_basename] ?? "Не выбрана").ToString());%> <b class="caret"></b></a>
+                        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                            <%Response.Write(Session["menubase"]);%>
+                        </ul>
+                    </li>
+                    <% if (Session["user_id"] != null)
+                       {
+                           if (cur_basename != "dbselect" && cur_basename != "")
+                           { %>
+
+                    <li class="dropdown"><a id="A3" role="button" data-toggle="dropdown" href="#">Документы
+                    <%  ArchNet.faPage page = ArchNet.faFunc.GetPageType((Page.RouteData.Values["p_page"] ?? "").ToString());
+                        if (page != ArchNet.faPage.none) Response.Write(": " + ArchNet.faFunc.GetDocTypeName(page));
+                    %>
+                        <b class="caret"></b></a>
+                        <ul id="Ul3" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+                            <%Response.Write(Session[cur_basename + "_menupage"]);%>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="A31" role="button" data-toggle="dropdown" href="#">Справочники<b class="caret"></b></a>
+                        <ul id="Ul12" class="dropdown-menu" role="menu">
+                            <%Response.Write("<li role='presentation' class='dropdown-header'>" + (Session[cur_basename] ?? "").ToString() + ":</li>" + Session[cur_basename + "_menusprav"].ToString() +
+                              "<li role='presentation' class='dropdown-header'>Общие:</li>" + (Session["menusprav"] ?? "").ToString());%>
+                        </ul>
+                        <li class="dropdown"><a id="A5" role="button" data-toggle="dropdown" href="#">Сервис<b class="caret"></b></a>
+                            <ul id="Ul4" class="dropdown-menu" role="menu">
+                                <%Response.Write("<li role='presentation' class='dropdown-header'>" + (Session[cur_basename] ?? "").ToString() + ":</li>" + Session[cur_basename + "_menuservice"].ToString() +
+                              "<li role='presentation' class='dropdown-header'>Общие:</li>" + (Session["menuservice"] ?? "").ToString());%>
+                            </ul>
+                        </li>
+                    <%}
+                            else
+                            {%>
+                    <li class="dropdown"><a id="A1" role="button" data-toggle="dropdown" href="#">Справочники<b class="caret"></b></a>
+                        <ul id="Ul2" class="dropdown-menu" role="menu">
+                            <%Response.Write(Session["menusprav"].ToString());%>
+                        </ul>
+                        <li class="dropdown"><a id="A11" role="button" data-toggle="dropdown" href="#">Сервис<b class="caret"></b></a>
+                            <ul id="Ul22" class="dropdown-menu" role="menu">
+                                <%Response.Write(Session["menuservice"].ToString());%>
+                            </ul>
+                            <%}%>
+                    <li class="dropdown"><a id="A13" role="button" data-toggle="dropdown" href="#">Архив<b class="caret"></b></a>
+                        <ul id="Ul13" class="dropdown-menu" role="menu">
+                            <%Response.Write(Session["menurealarchive"]);%>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a id="A7" role="button" data-toggle="dropdown" href="#">Комплекты<b class="caret"></b></a>
+                        <ul id="Ul1" class="dropdown-menu" role="menu">
+                            <%Response.Write(Session["menucomplect"]);%>
+                        </ul>
+                    </li>
+
+                    <% if (Session["common_access_admin_menu"] != null)
+                       {%>
+                    <li class="dropdown"><a id="A2" role="button" data-toggle="dropdown" href="#">Админ<b class="caret"></b></a>
+                        <ul id="Ul11" class="dropdown-menu" role="menu">
+                            <%Response.Write(Session["menuadmin"]);%>
+                        </ul>
+                    </li>
+                    <%
+                       }
+                        } %>
+                    <li class="dropdown"><a id="A4" role="button" data-toggle="dropdown" href="#">Справка<b class="caret"></b></a>
+                        <ul id="Ul5" class="dropdown-menu" role="menu">
+                            <li role="presentation"><a role="menuitem" target="_blank" href="<% Response.Write(GetRouteUrl("help", new { })); %>"><span class="gi gi-life_preserver"></span>&nbsp;&nbsp;Просмотр справки</a></li>
+                            <li role="presentation"><a role="menuitem" target="_blank" href="<% Response.Write(GetRouteUrl("blog", new { })); %>"><span class="gi gi-blank"></span>&nbsp;&nbsp;Последние изменения</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <asp:ContentPlaceHolder ID="cph" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <%--<div id="version" style="position: absolute; right: 10px; top: 35px; font-size: 12px;">
+        
+    </div>--%>
+    <%Response.Write(OpenHelp);%>
+</body>
+</html>

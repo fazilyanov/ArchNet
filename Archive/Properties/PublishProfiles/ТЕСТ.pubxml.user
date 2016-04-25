@@ -1,0 +1,1780 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Этот файл используется в процессе публикации или упаковки вашего веб-проекта. Вы можете настроить поведение процесса,
+изменив этот файл MSBuild. Дополнительные сведения см. по адресу http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>\\sky-sp1\webarchive$</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="admin/AccessKeys.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/AccessKeys.aspx.cs">
+      <publishTime>04/12/2016 14:29:26</publishTime>
+    </File>
+    <File Include="admin/AccessKeys.aspx.designer.cs">
+      <publishTime>03/16/2016 14:55:29</publishTime>
+    </File>
+    <File Include="admin/Base.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Base.aspx.cs">
+      <publishTime>04/12/2016 14:29:42</publishTime>
+    </File>
+    <File Include="admin/Base.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/BlockUser.aspx">
+      <publishTime>04/14/2016 10:36:21</publishTime>
+    </File>
+    <File Include="admin/BlockUser.aspx.cs">
+      <publishTime>04/14/2016 11:16:30</publishTime>
+    </File>
+    <File Include="admin/BlockUser.aspx.designer.cs">
+      <publishTime>04/14/2016 10:36:21</publishTime>
+    </File>
+    <File Include="admin/ClearCache.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/DeleteOldFiles.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/DeleteOldFiles.aspx.cs">
+      <publishTime>03/31/2016 16:13:17</publishTime>
+    </File>
+    <File Include="admin/DeleteOldFiles.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Field.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Field.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/Field.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/JournalCommon.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/JournalCommon.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/JournalCommon.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/LoadAD.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/LoadAD.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/LoadAD.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/NormHour.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/NormHour.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/NormHour.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Rating.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Rating.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Rating.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/RenameOldFile.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/RenameOldFile.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/RenameOldFile.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Role.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Role.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/Role.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/SesVal.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/SesVal.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/SesVal.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Table.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Table.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/Table.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Test.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Test.aspx.cs">
+      <publishTime>04/06/2016 14:16:25</publishTime>
+    </File>
+    <File Include="admin/Test.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Twit.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Twit.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/Twit.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UpdateDepartment1C.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UpdateDepartment1C.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UpdateDepartment1C.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UpdateUser1C.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UpdateUser1C.aspx.cs">
+      <publishTime>03/18/2016 10:58:27</publishTime>
+    </File>
+    <File Include="admin/UpdateUser1C.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/User.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/User.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/User.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserRoleBase.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserRoleBase.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/UserRoleBase.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserScore.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserScore.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/UserScore.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserSetting.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserSetting.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="admin/UserSetting.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserVisit.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserVisit.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="admin/UserVisit.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserWorkHour.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="admin/UserWorkHour.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="admin/UserWorkHour.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/ac.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/ac.aspx.cs">
+      <publishTime>04/06/2016 15:23:31</publishTime>
+    </File>
+    <File Include="ajax/ac.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/CopyCursorRow.aspx">
+      <publishTime>04/08/2016 10:46:01</publishTime>
+    </File>
+    <File Include="ajax/CopyCursorRow.aspx.cs">
+      <publishTime>04/08/2016 12:40:35</publishTime>
+    </File>
+    <File Include="ajax/CopyCursorRow.aspx.designer.cs">
+      <publishTime>04/08/2016 10:46:02</publishTime>
+    </File>
+    <File Include="ajax/copyses.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/copyses.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/copyses.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/dd.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/dd.aspx.cs">
+      <publishTime>02/26/2016 15:20:04</publishTime>
+    </File>
+    <File Include="ajax/dd.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/GetCard1C.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/GetCard1C.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/GetCard1C.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_prjcode_by_id_archive.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_prjcode_by_id_archive.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_prjcode_by_id_archive.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_user_by_barcode.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_user_by_barcode.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/get_user_by_barcode.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_archive.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_archive.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_archive.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_docversion.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_docversion.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/id_docversion.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCB.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCB.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCB.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor2.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor2.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRegstor2.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRepair.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRepair.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromCBRepair.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScaner.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScaner.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScaner.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRegstor.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRegstor.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRegstor.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRepair.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRepair.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/InsertFromScanerRepair.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCards.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCards.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCards.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAlt.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAlt.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAlt.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp0.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp0.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp0.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp1.aspx">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp1.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/LetGetCardsAltHelp1.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/MultipleUploadFile.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/MultipleUploadFile.aspx.cs">
+      <publishTime>03/02/2016 12:08:50</publishTime>
+    </File>
+    <File Include="ajax/MultipleUploadFile.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/pinger.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/pinger.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/pinger.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplect.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplect.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplect.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplectRepair.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplectRepair.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SendMailComplectRepair.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/setses.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/setses.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/setses.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SetSetting.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SetSetting.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/SetSetting.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/Torg31.aspx">
+      <publishTime>04/06/2016 11:18:18</publishTime>
+    </File>
+    <File Include="ajax/Torg31.aspx.cs">
+      <publishTime>04/11/2016 14:57:37</publishTime>
+    </File>
+    <File Include="ajax/Torg31.aspx.designer.cs">
+      <publishTime>04/06/2016 11:18:18</publishTime>
+    </File>
+    <File Include="ajax/UploadFile.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/UploadFile.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="ajax/UploadFile.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="Archive.csproj">
+      <publishTime>04/14/2016 17:03:33</publishTime>
+    </File>
+    <File Include="Archive.csproj.user">
+      <publishTime>04/14/2016 17:03:33</publishTime>
+    </File>
+    <File Include="archive/Archive.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Archive.aspx.cs">
+      <publishTime>04/04/2016 16:41:18</publishTime>
+    </File>
+    <File Include="archive/Archive.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveBulkEdit.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveBulkEdit.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveBulkEdit.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveCheckbox.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveCheckbox.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ArchiveCheckbox.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveDel.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveDel.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ArchiveDel.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveDepart.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveDepart.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="archive/ArchiveDepart.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveDub.aspx">
+      <publishTime>03/29/2016 14:43:25</publishTime>
+    </File>
+    <File Include="archive/ArchiveDub.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ArchiveDub.aspx.designer.cs">
+      <publishTime>03/29/2016 14:43:25</publishTime>
+    </File>
+    <File Include="archive/ArchiveDublicate.aspx">
+      <publishTime>03/29/2016 11:14:09</publishTime>
+    </File>
+    <File Include="archive/ArchiveDublicate.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ArchiveDublicate.aspx.designer.cs">
+      <publishTime>03/29/2016 11:14:09</publishTime>
+    </File>
+    <File Include="archive/ArchiveStructur.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveStructur.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ArchiveStructur.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ChangeDoctype.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ChangeDoctype.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ChangeDoctype.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Complect.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Complect.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/Complect.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectList.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectList.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ComplectList.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNew.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNew.aspx.cs">
+      <publishTime>04/14/2016 16:44:36</publishTime>
+    </File>
+    <File Include="archive/ComplectNew.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNewList.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNewList.aspx.cs">
+      <publishTime>04/06/2016 12:27:39</publishTime>
+    </File>
+    <File Include="archive/ComplectNewList.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNewListArchive.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectNewListArchive.aspx.cs">
+      <publishTime>04/06/2016 12:27:39</publishTime>
+    </File>
+    <File Include="archive/ComplectNewListArchive.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRegstorCompare.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRegstorCompare.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRegstorCompare.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRepair.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRepair.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="archive/ComplectRepair.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRepairList.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/ComplectRepairList.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="archive/ComplectRepairList.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/CopyToBase.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/CopyToBase.aspx.cs">
+      <publishTime>03/25/2016 11:58:22</publishTime>
+    </File>
+    <File Include="archive/CopyToBase.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Docversion.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Docversion.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="archive/Docversion.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFile.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFile.aspx.cs">
+      <publishTime>03/15/2016 11:36:41</publishTime>
+    </File>
+    <File Include="archive/GetFile.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFileMulti.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFileMulti.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFileMulti.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFileMultiList.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/GetFileMultiList.aspx.cs">
+      <publishTime>03/16/2016 15:43:10</publishTime>
+    </File>
+    <File Include="archive/GetFileMultiList.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Regstor.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Regstor.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="archive/Regstor.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/RegstorList.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/RegstorList.aspx.cs">
+      <publishTime>04/07/2016 16:09:31</publishTime>
+    </File>
+    <File Include="archive/RegstorList.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Restore.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Restore.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="archive/Restore.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="base/faControl.cs">
+      <publishTime>03/21/2016 17:48:10</publishTime>
+    </File>
+    <File Include="base/faCursor.cs">
+      <publishTime>03/28/2016 17:31:32</publishTime>
+    </File>
+    <File Include="base/faData.cs">
+      <publishTime>03/23/2016 10:19:58</publishTime>
+    </File>
+    <File Include="base/faEdit.cs">
+      <publishTime>04/06/2016 14:16:25</publishTime>
+    </File>
+    <File Include="base/faField.cs">
+      <publishTime>03/28/2016 15:24:30</publishTime>
+    </File>
+    <File Include="base/faFilter.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="base/faFunc.cs">
+      <publishTime>04/07/2016 17:41:00</publishTime>
+    </File>
+    <File Include="base/faHeaderGroup.cs">
+      <publishTime>03/29/2016 10:23:03</publishTime>
+    </File>
+    <File Include="base/faList.cs">
+      <publishTime>04/14/2016 14:59:30</publishTime>
+    </File>
+    <File Include="base/faListComplect.cs">
+      <publishTime>04/14/2016 16:47:07</publishTime>
+    </File>
+    <File Include="base/faListComplectRepair.cs">
+      <publishTime>04/08/2016 14:20:27</publishTime>
+    </File>
+    <File Include="base/faListDel.cs">
+      <publishTime>03/23/2016 14:41:08</publishTime>
+    </File>
+    <File Include="base/faListDublicate.cs">
+      <publishTime>03/29/2016 11:12:55</publishTime>
+    </File>
+    <File Include="base/faListNtd.cs">
+      <publishTime>03/24/2016 17:10:00</publishTime>
+    </File>
+    <File Include="base/faListRegstor.cs">
+      <publishTime>04/07/2016 17:41:17</publishTime>
+    </File>
+    <File Include="base/faLookUp.cs">
+      <publishTime>03/28/2016 15:11:48</publishTime>
+    </File>
+    <File Include="base/faPage.cs">
+      <publishTime>03/28/2016 12:39:56</publishTime>
+    </File>
+    <File Include="base/faView.cs">
+      <publishTime>04/06/2016 14:16:25</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="bin/Trirand.Web.dll">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="bin/WebArchiveR6.dll">
+      <publishTime>04/14/2016 17:03:34</publishTime>
+    </File>
+    <File Include="bin/WebArchiveR6.pdb">
+      <publishTime>04/14/2016 17:03:34</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>03/16/2016 11:56:09</publishTime>
+    </File>
+    <File Include="Default.aspx.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="Default.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="errorpages/404.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/404.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/404.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/AppError.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/AppError.aspx.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="errorpages/AppError.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/Error.aspx">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/Error.aspx.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="errorpages/Error.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:34</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-filetypes-regular.eot">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-filetypes-regular.svg">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-filetypes-regular.ttf">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-filetypes-regular.woff">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-regular.eot">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-regular.svg">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-regular.ttf">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-regular.woff">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-social-regular.eot">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-social-regular.svg">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-social-regular.ttf">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-social-regular.woff">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="Global.asax.cs">
+      <publishTime>04/14/2016 11:16:30</publishTime>
+    </File>
+    <File Include="ntd/Ntd.aspx">
+      <publishTime>03/09/2016 15:08:31</publishTime>
+    </File>
+    <File Include="ntd/Ntd.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="ntd/Ntd.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="ntd/NtdStart.aspx">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="ntd/NtdStart.aspx.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="ntd/NtdStart.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="Properties/AssemblyInfo.cs">
+      <publishTime>03/23/2016 14:45:43</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/Рабочий.pubxml">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="Properties/PublishProfiles/ТЕСТ.pubxml">
+      <publishTime>04/13/2016 11:34:30</publishTime>
+    </File>
+    <File Include="Properties/Settings.Designer.cs">
+      <publishTime>04/14/2016 17:00:12</publishTime>
+    </File>
+    <File Include="Properties/Settings.settings">
+      <publishTime>04/14/2016 17:00:12</publishTime>
+    </File>
+    <File Include="routine/UpdateDublicateArchiveTable.aspx">
+      <publishTime>03/29/2016 10:53:16</publishTime>
+    </File>
+    <File Include="routine/UpdateDublicateArchiveTable.aspx.cs">
+      <publishTime>03/29/2016 15:50:05</publishTime>
+    </File>
+    <File Include="routine/UpdateDublicateArchiveTable.aspx.designer.cs">
+      <publishTime>03/29/2016 10:53:16</publishTime>
+    </File>
+    <File Include="scripts/accounting.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/bootstrap.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/detect.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/GetWindowWH.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.11.0.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.3.2.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-1.9.0.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui-1.10.4.custom.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui-1.10.4.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui-timepicker-addon.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery-ui.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery.maskedinput.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery.md5.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/jquery.uploadify.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/site.js">
+      <publishTime>04/11/2016 15:20:36</publishTime>
+    </File>
+    <File Include="scripts/trirand/i18n/grid.locale-en.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/i18n/grid.locale-ru.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqAutoComplete.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqChart.exporting.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqChart.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqDatePicker.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqDropDownList.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqGrid.min.js">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqGrid.min_old.js">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="scripts/trirand/jquery.jqTreeView.min.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/ArchiveDocpackFileDownload.aspx">
+      <publishTime>04/13/2016 16:28:49</publishTime>
+    </File>
+    <File Include="service/ArchiveDocpackFileDownload.aspx.cs">
+      <publishTime>04/13/2016 15:59:20</publishTime>
+    </File>
+    <File Include="service/ArchiveDocpackFileDownload.aspx.designer.cs">
+      <publishTime>04/13/2016 16:25:36</publishTime>
+    </File>
+    <File Include="service/ArchivePerform.aspx">
+      <publishTime>04/11/2016 11:50:06</publishTime>
+    </File>
+    <File Include="service/ArchivePerform.aspx.cs">
+      <publishTime>04/11/2016 14:55:08</publishTime>
+    </File>
+    <File Include="service/ArchivePerform.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/BarcodeSearch.aspx">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/BarcodeSearch.aspx.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/BarcodeSearch.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/CheckByBarcode.aspx">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/CheckByBarcode.aspx.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/CheckByBarcode.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/FillByBarcode.aspx">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
+    <File Include="service/FillByBarcode.aspx.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/FillByBarcode.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Journal.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Journal.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="service/Journal.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Log.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Log.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="service/Log.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/MailGroup.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/MailGroup.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="service/MailGroup.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Monitor.aspx">
+      <publishTime>03/14/2016 11:25:11</publishTime>
+    </File>
+    <File Include="service/Monitor.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="service/Monitor.aspx.designer.cs">
+      <publishTime>03/14/2016 11:48:21</publishTime>
+    </File>
+    <File Include="service/Settings.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Settings.aspx.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/Settings.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/UpdateMonitor.aspx">
+      <publishTime>03/15/2016 13:57:21</publishTime>
+    </File>
+    <File Include="service/UpdateMonitor.aspx.cs">
+      <publishTime>03/21/2016 11:30:00</publishTime>
+    </File>
+    <File Include="service/UpdateMonitor.aspx.designer.cs">
+      <publishTime>03/15/2016 13:57:21</publishTime>
+    </File>
+    <File Include="service/UserBarcode.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="service/UserBarcode.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="service/UserBarcode.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>04/13/2016 12:02:44</publishTime>
+    </File>
+    <File Include="Site.Master.cs">
+      <publishTime>04/14/2016 11:25:14</publishTime>
+    </File>
+    <File Include="Site.Master.designer.cs">
+      <publishTime>04/11/2016 15:24:23</publishTime>
+    </File>
+    <File Include="site/About.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/About.aspx.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/About.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/Blog.aspx">
+      <publishTime>03/02/2016 12:06:03</publishTime>
+    </File>
+    <File Include="site/Blog.aspx.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/Blog.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/docs.min.css">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/Help%28old%29.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/Help%28old%29.aspx.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/Help%28old%29.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.aspx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/colorschememapping.xml">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/filelist.xml">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image001.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image002.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image003.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image004.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image005.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image006.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image007.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image008.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image009.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image010.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image011.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image012.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image013.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image014.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image015.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image016.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image017.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image018.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image019.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image020.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image021.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image022.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image023.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image024.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image025.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image026.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image027.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image028.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image029.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image030.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image031.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image032.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image033.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image034.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image035.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image036.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image037.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image038.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image039.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image040.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image041.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image042.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image043.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image044.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image045.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image046.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/image047.jpg">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/item0001.xml">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/props002.xml">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/help.files/themedata.thmx">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/1.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/10.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/11.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/12.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/13.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/14.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/15.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/2.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/3.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/4.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/5.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/6.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/7.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/8.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/9.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/engrus.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/hint.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/inputmask.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_0_1.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_0_2.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_1_1.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_1_2.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_1_3.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_docpack.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/LetGetCardsAlt_techbuh.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/me.png">
+      <publishTime>02/25/2016 15:42:36</publishTime>
+    </File>
+    <File Include="site/img/menu.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="site/img/textarea.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Depart.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Depart.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Depart.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Department.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Department.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Department.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Department1c.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Department1c.aspx.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Department1c.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/DepartmentPre.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/DepartmentPre.aspx.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/DepartmentPre.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Doctree.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Doctree.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Doctree.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Event.aspx">
+      <publishTime>03/21/2016 15:10:52</publishTime>
+    </File>
+    <File Include="sprav/Event.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="sprav/Event.aspx.designer.cs">
+      <publishTime>03/21/2016 14:23:36</publishTime>
+    </File>
+    <File Include="sprav/Frm.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Frm.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Frm.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Ntd_category.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Ntd_category.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Ntd_category.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Ntd_depart.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Ntd_depart.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="sprav/Ntd_depart.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Person.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Person.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="sprav/Person.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Person1c.aspx">
+      <publishTime>02/26/2016 13:21:05</publishTime>
+    </File>
+    <File Include="sprav/Person1c.aspx.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Person1c.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/PrjCode.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/PrjCode.aspx.cs">
+      <publishTime>04/01/2016 11:07:48</publishTime>
+    </File>
+    <File Include="sprav/PrjCode.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Regstor_group.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Regstor_group.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Regstor_group.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Storage.aspx">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="sprav/Storage.aspx.cs">
+      <publishTime>04/01/2016 11:07:49</publishTime>
+    </File>
+    <File Include="sprav/Storage.aspx.designer.cs">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="Start.aspx">
+      <publishTime>03/17/2016 11:42:25</publishTime>
+    </File>
+    <File Include="Start.aspx.cs">
+      <publishTime>03/17/2016 11:42:25</publishTime>
+    </File>
+    <File Include="Start.aspx.designer.cs">
+      <publishTime>03/17/2016 11:42:07</publishTime>
+    </File>
+    <File Include="styles/bootstrap.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/font-awesome.min.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/icons.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/animated-overlay.gif">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/cancel.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/load.GIF">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/loading.gif">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_diagonals-thick_90_eeeeee_40x40.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_100_0072c6_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_100_4995d5_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_15_cd0a0a_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_55_0072c6_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_55_999999_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_55_ddd_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_55_fbf9ee_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_65_ffffff_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_65_fff_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_75_0072c6_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_75_4995d5_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_75_aaaaaa_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_75_e6e6e6_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_100_e4f1fb_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_45_0078ae_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_50_3baae3_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_55_f8da4e_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_75_79c9ec_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_80_d7ebf9_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_gloss-wave_45_e14f1c_500x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_gloss-wave_50_6eac2c_500x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_gloss-wave_75_2191c0_500x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-hard_100_f2f5f7_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-hard_70_000000_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-soft_100_deedf7_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-soft_25_ffef8f_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-bg_inset-hard_100_fcfdfd_1x100.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_0078ae_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_056b93_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_217bc0_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_222222_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_228ef1_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_2694e8_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_3d80b3_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_454545_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_469bdd_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_6da8d5_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_72a7cf_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_888888_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_d8e7f3_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_e0fdff_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_f5e175_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_f7a50d_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_f9bd01_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_fcd113_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_ffffff_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/images/ui-icons_fff_256x240.png">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/jquery-ui-1.10.4.custom.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/jquery-ui.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/site.css">
+      <publishTime>03/24/2016 17:09:52</publishTime>
+    </File>
+    <File Include="styles/ui.jqdropdownlist.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/ui.jqgrid.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/ui.jqtreeview.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="styles/uploadify.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
+    <File Include="templates/torg31.xlsx">
+      <publishTime>04/06/2016 16:08:40</publishTime>
+    </File>
+    <File Include="trash/faListRegstor_OLD.cs">
+      <publishTime>04/06/2016 14:16:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/14/2016 17:03:35</publishTime>
+    </File>
+    <File Include="Web.Debug.config">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+    <File Include="Web.Release.config">
+      <publishTime>04/14/2016 16:37:10</publishTime>
+    </File>
+    <File Include="Web.ToTest.config">
+      <publishTime>04/13/2016 11:48:15</publishTime>
+    </File>
+    <File Include="Шаблон Профайлера.tdf">
+      <publishTime>02/25/2016 15:42:33</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

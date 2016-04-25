@@ -1,0 +1,1 @@
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="SendMailComplect.aspx.cs" Inherits="WebArchiveR6.SendMailComplect"%>
