@@ -1,5 +1,6 @@
 /*Grid*/
 .ui-jqgrid {
+    font-size:12px;
 	position: relative; 
 	border: 1px solid #ddd;      //default
 	-webkit-border-radius: 3px;

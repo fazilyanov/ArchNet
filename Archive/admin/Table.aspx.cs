@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 
-namespace WebArchiveR6
+namespace ArchNet
 {
     public partial class Table : System.Web.UI.Page
     {

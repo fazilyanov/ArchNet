@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 
 
-namespace WebArchiveR6
+namespace ArchNet
 {
     public partial class ChangeDoctype : System.Web.UI.Page
     {

@@ -4,6 +4,9 @@ using System.Data.SqlClient;
 using System.Web;
 using System.Web.UI;
 
+/// scio me nihil scire 
+/// 26.04.2016
+/// a.fazilyanov@gmail.com
 namespace ArchNet
 {
     public partial class Site : System.Web.UI.MasterPage
@@ -59,16 +62,11 @@ namespace ArchNet
                 {
                     // Определяем местоположение.. пока не нужно..
                     // но возможно файлы будут открываться с разных серверов
-                    string _ip = (HttpContext.Current.Request.UserHostAddress.Length > 7 ? HttpContext.Current.Request.UserHostAddress.Substring(0, 8) : "");
-                    Session["user_location"] = (_ip == "10.72.80" || _ip == "10.72.81") ? "NFK" : "MSK";
-
+                   
                     Session["user_id"] = rdr["id"];
                     Session["user_login"] = rdr["login"];
                     Session["user_name"] = rdr["name"];
                     Session["user_mail"] = rdr["mail"];
-
-                    // Пользователи онлайн
-                    //if (!(Application["ActiveUser"] as List<string>).Contains(rdr["name"].ToString())) (Application["ActiveUser"] as List<string>).Add(rdr["name"].ToString());
 
                     rdr.Close();
 
@@ -103,16 +101,8 @@ namespace ArchNet
                         }
                         else
                         {
-                            //if ((bool)rdr["active"])
-                            //{
                             menu_disabled += String.Format(menu_item_disabled, rdr["basenamerus"].ToString(), "gi gi-lock");
                             list_disabled += String.Format(list_item_disabled, rdr["basenamerus"].ToString(), "gi gi-lock");
-                            //}
-                            //else
-                            //{
-                            //    menu_other += String.Format(menu_item_disabled, rdr["basenamerus"].ToString(), "gi gi-lock");
-                            //    list_other += String.Format(list_item_disabled, rdr["basenamerus"].ToString(), "gi gi-lock");
-                            //}
                         }
                     }
                     Session["menubase"] =
@@ -121,9 +111,7 @@ namespace ArchNet
 
                     Session["listbase"] = "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Доступные:</a>" + list_enabled +
                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Другие:</a>" + list_other + list_disabled;// Тут храним HTML код списка баз на странице выбора
-
-                    // Session["menuother"] = menu_enabled + menu_disabled; // Тут храним HTML код выпадающего списка баз
-                    // Session["listother"] = list_enabled + list_disabled; // Тут храним HTML код списка баз на странице выбора
+                    
                     rdr.Close();
                     cmd.Dispose();
                     // Грузим общие доступа
@@ -139,83 +127,23 @@ namespace ArchNet
                         Session["menuadmin"] =
                              String.Format(submenu_begin, "Пользователи") +
                             (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("user", new { }), "Пользователи", "gi gi-group") : String.Format(menu_item_disabled, "Пользователи", "gi gi-group")) +
-                            (Session["common_access_admin_role_view"] != null || Session["common_access_admin_role_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("role", new { }), "Роли", "gi gi-keys") : String.Format(menu_item_disabled, "Роли", "gi gi-keys")) +
-                            (Session["common_access_admin_ad"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("ad", new { }), "Синхронизация с AD", "gi gi-roundabout") : String.Format(menu_item_disabled, "Синхронизация с AD", "gi gi-roundabout")) +
-                            (Session["common_access_admin_access_view"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("access", new { }), "Ключи доступа", "gi gi-blank") : String.Format(menu_item_disabled, "Ключи доступа", "gi gi-blank")) +
-                            (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("userrolebase", new { }), "Доступы пользователей (Отчет)", "gi gi-blank") : String.Format(menu_item_disabled, "Доступы пользователей (Отчет)", "gi gi-blank")) +
-                            (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("uservisit", new { }), "Лог авторизации", "gi gi-blank") : String.Format(menu_item_disabled, "Лог авторизации", "gi gi-blank")) +
-                            (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("usersetting", new { }), "Настройки пользователей", "gi gi-blank") : String.Format(menu_item_disabled, "Настройки пользователей", "gi gi-blank")) +
-                            //"<li role=\"presentation\" class=\"divider\"></li>" +
                             submenu_end +
-                            String.Format(submenu_begin, "Эффективность") +
-                            (Session["common_access_admin_rating_view"] != null || Session["common_access_admin_rating_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("rating", new { }), "Эффективность (Отчет)", "gi gi-charts") : String.Format(menu_item_disabled, "Эффективность (Отчет)", "gi gi-charts")) +
-                            (Session["common_access_admin_rating_view"] != null || Session["common_access_admin_rating_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("normhour", new { }), "Нормы рабочего времени", "gi gi-blank") : String.Format(menu_item_disabled, "Нормы рабочего времени", "gi gi-blank")) +
-                             (Session["common_access_admin_rating_view"] != null || Session["common_access_admin_rating_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("workhour", new { }), "Отработанное время", "gi gi-blank") : String.Format(menu_item_disabled, "Отработанное время", "gi gi-blank")) +
-                             (Session["common_access_admin_rating_view"] != null || Session["common_access_admin_rating_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("score", new { }), "Баллы", "gi gi-blank") : String.Format(menu_item_disabled, "Баллы", "gi gi-blank")) +
-                             (Session["common_access_admin_rating_view"] != null || Session["common_access_admin_rating_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("field", new { }), "Цена полей", "gi gi-blank") : String.Format(menu_item_disabled, "Цена полей", "gi gi-blank")) +
-                             submenu_end +
-                           // "<li role=\"presentation\" class=\"divider\"></li>" +
+                            
                            String.Format(submenu_begin, "Служебные") +
-
-                            // "<li role=\"presentation\" class=\"divider\"></li>" +
                             (Session["common_access_admin_journal_common"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("journalcommon", new { }), "Общий журнал", "gi gi-history") : String.Format(menu_item_disabled, "Общий журнал", "gi gi-history")) +
                              String.Format(menu_item_enabled_blank, GetRouteUrl("sesval", new { }), "Сессия", "gi gi-cogwheel") +
-                            //(Session["common_access_admin_sesval"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("cc", new { }), "Очистить кэш", "gi gi-blank") : String.Format(menu_item_disabled, "Очистить кэш", "gi gi-blank")) +
                             (Session["common_access_admin_base_view"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("base", new { }), "Список баз", "gi gi-blank") : String.Format(menu_item_disabled, "Список баз", "gi gi-blank")) +
                             (Session["common_access_admin_table_view"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("table", new { }), "Список таблиц", "gi gi-blank") : String.Format(menu_item_disabled, "Список таблиц", "gi gi-blank")) +
-                            (Session["common_access_admin_delete_old_files"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("deleteoldfiles", new { }), "Удаление устаревших файлов", "gi gi-blank") : String.Format(menu_item_disabled, "Удаление устаревших файлов", "gi gi-blank")) +
                             (Session["common_access_admin_ad"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("twit", new { }), "Сообщение всем", "gi gi-blank") : String.Format(menu_item_disabled, "Сообщение всем", "gi gi-blank")) +
                             submenu_end;
-                    // Пишем в лог посещений
-
-                    //cmd = new SqlCommand("INSERT INTO _user_visit ([id_user],[when]) VALUES(@p_id_user,GETDATE())", conn);
-                    //cmd.Parameters.AddWithValue("@p_id_user", Session["user_id"].ToString());
-                    //cmd.ExecuteNonQuery();
-                    //cmd.Dispose();
-
+                   
+                    // TODO : Автоматизировать авто очичтку
                     faFunc.ToLog(1);
 
-                    _tmp = "";
-                    //bool allow = (Session["zao_stg_access_complect_view"] != null || Session["zao_stg_access_complect_edit"] != null);
-                    //if (allow)
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectnew", new { }), "Комплекты", "gi gi-folder_closed");
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectnewlist", new { }), "Спецификации комплектов", "gi gi-blank");
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectnewlistarchive", new { }), "Спецификации комплектов (полный)", "gi gi-blank");
-                    _tmp += "<li role=\"presentation\" class=\"divider\"></li>";
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectrepair", new { }), "Комплекты движения документов", "gi gi-folder_new");
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectrepairlist", new { }), "Движение документов", "gi gi-blank");
-                    _tmp += "<li role=\"presentation\" class=\"divider\"></li>";
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complect", new { }), "Комплекты (старые)", "gi gi-blank");
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("complectlist", new { }), "Спецификации комплектов (старых)", "gi gi-blank");
-
-                    Session["menucomplect"] = _tmp;
-
-                    _tmp = "";
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("regstor", new { }), "Регистр хранения дел", "gi gi-blank");
-                    _tmp += String.Format(menu_item_enabled, GetRouteUrl("regstorlist", new { }), "Документационный фонд", "gi gi-blank");
-                    Session["menurealarchive"] = _tmp;
-
-                    _tmp = "";
-                    //bool allow = (Session["zao_stg_access_complect_view"] != null || Session["zao_stg_access_complect_edit"] != null);
-                    //if (allow)
-
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complectnew", new { }), "Комплекты", "gi gi-folder_closed");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complectnewlist", new { }), "Спецификации комплектов", "gi gi-blank");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complectrepair", new { }), "Комплекты движения документов", "gi gi-folder_new");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complectrepairlist", new { }), "Движение документов", "gi gi-blank");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complect", new { }), "Комплекты (Старые)", "gi gi-blank");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("complectlist", new { }), "Спецификации комплектов (старых)", "gi gi-blank");
-
-                    Session["listcomplect"] = _tmp;
-
-                    _tmp = "";
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("regstor", new { }), "Регистр хранения дел", "gi gi-blank");
-                    _tmp += String.Format(list_item_enabled_blank, GetRouteUrl("regstorlist", new { }), "Документационный фонд", "gi gi-blank");
-                    Session["listrealarchive"] = _tmp;
 
                     // Меню справочников (общие - нет привязки к конкретной базе, добавляется к меню конкретной базы)
-                    string[] common_sprav = { "frm", "prjcode", "doctree", "storage", "regstor_group", "event" };
-                    string[] common_spravru = { "Фирмы", "Коды проектов", "Формы документов", "Места хранения", "Группы (Регистр хранения дел)", "События (Поступление оригиналов)" };
+                    string[] common_sprav = { "frm",  "doctree",};
+                    string[] common_spravru = { "Фирмы",  "Формы документов"};
                     menu_enabled = "";
                     list_enabled = "";
                     /* По умолчанию, доступ к справочникам есть у всех, права выдаются только на редактирование*/
@@ -230,9 +158,9 @@ namespace ArchNet
                     ///////////
 
                     // Меню сервисов (общие - нет привязки к конкретной базе, добавляется к меню конкретной базы)
-                    string[] common_service = { "mailgroup", "userbarcode", "shutdown", "log", "monitor" };
-                    string[] common_serviceru = { "Группы рассылок", "Штрих-коды исполнителей", "Перезапустить текущий сеанс", "Лог", "Поступление оригиналов" };
-                    string[] common_serviceicon = { "gi gi-envelope", "gi gi-barcode", "gi gi-rotation_lock", "gi gi-history", "gi gi-blank" };
+                    string[] common_service = { "shutdown", "log" };
+                    string[] common_serviceru = { "Перезапустить текущий сеанс", "Лог"};
+                    string[] common_serviceicon = { "gi gi-rotation_lock", "gi gi-history"};
                     menu_enabled = "";
                     list_enabled = "";
 
@@ -286,14 +214,7 @@ namespace ArchNet
                     Session["NewChangeLogCount"] = all_change_log_count - last_msg_id;
                 }
 
-                //if ((int)(Session["NewChangeLogCount"] ?? 0) > 0)
-                //{
-                //   NoticeButton =
-                //        "<button class=\"btn btn-danger btn-xs\" type=\"button\" onclick=\"location.href='" + GetRouteUrl("blog", new { }) + "';\"" +
-                //        " onmouseover=\"this.firstChild.data='Просмотреть последние изменения ';\"  onmouseout=\"this.firstChild.data='';\"> " +
-                //        "<span class=\"badge\">" + Session["NewChangeLogCount"].ToString() + "</span>" +
-                //        "</button>";
-                //}
+               
 
                 // Открытие дополнительной вкладки со списком изменений если есть новые
                 OpenHelp = ((int)(Session["NewChangeLogCount"] ?? 0) > 0) ? "<script type='text/javascript'>window.open('" + GetRouteUrl("blog", new { }) + "', 'История изменений');</script> " : "";
@@ -386,46 +307,27 @@ namespace ArchNet
                         _list += String.Format(list_item_disabled, "Версии", "gi gi-lock");
                     }
 
-                    // _menu += String.Format(menu_item_enabled, GetRouteUrl("archivedepart", new { p_base = cur_basename }), "Подразделения", "gi gi-blank");
-                    // _list += String.Format(list_item_enabled, GetRouteUrl("archivedepart", new { p_base = cur_basename }), "Подразделения", "gi gi-blank");
                     if (Session[cur_basename + "_access_archive_acc_edit"] != null)
                     {
                         _menu += String.Format(menu_item_enabled, GetRouteUrl("archivedel", new { p_base = cur_basename, p_page = "srch" }), "Удаленные документы", "gi gi-blank");
                         _list += String.Format(list_item_enabled, GetRouteUrl("archivedel", new { p_base = cur_basename, p_page = "srch" }), "Удаленные документы", "gi gi-blank");
-                        if (cur_basename == "zao_stg")
-                        {
-                            _menu += String.Format(menu_item_enabled, GetRouteUrl("archivedub", new { p_base = cur_basename }), "Дубликаты документов", "gi gi-blank");
-                            _list += String.Format(list_item_enabled, GetRouteUrl("archivedub", new { p_base = cur_basename }), "Дубликаты документов", "gi gi-blank");
-                        }
                     }
                     else
                     {
                         _menu += String.Format(menu_item_disabled, "Удаленные документы", "gi gi-lock");
                         _list += String.Format(list_item_disabled, "Удаленные документы", "gi gi-lock");
-
-                        _menu += String.Format(menu_item_disabled, "Дубликаты документов", "gi gi-lock");
-                        _list += String.Format(list_item_disabled, "Дубликаты документов", "gi gi-lock");
                     }
-
-                    //if (Session[cur_basename + "_access_structur_view"] != null)
-                    //{
-                    //    _menu += String.Format(menu_item_enabled, GetRouteUrl("archivestructur", new { p_base = cur_basename }), "Структура", "gi gi-git_merge");
-                    //    _list += String.Format(list_item_enabled, GetRouteUrl("archivestructur", new { p_base = cur_basename }), "Структура", "gi gi-git_merge");
-                    //}
-                    //else
-                    //{
-                    //    _menu += String.Format(menu_item_disabled, "Структура", "gi gi-git_merge");
-                    //    _list += String.Format(list_item_disabled, "Структура", "gi gi-git_merge");
-                    //}
 
                     Session[cur_basename + "_menupage"] = _menu;
                     Session[cur_basename + "_listpage"] = _list;
 
                     // Меню справочников
-                    string[] sprav = { "person", "departmentpre" };//"country", "region", "town",
-                    string[] spravru = { "Сотрудники", "Подразделения" };//"Страны", "Регионы", "Населенные пункты",
-                    menu_enabled = ""; list_enabled = "";
+                    string[] sprav = { "person" };//"country", "region", "town",
+                    string[] spravru = { "Сотрудники" };//"Страны", "Регионы", "Населенные пункты",
+                    menu_enabled = "";
+                    list_enabled = "";
                     /* По умолчанию, доступ к справочникам есть у всех, права выдаются только на редактирование*/
+
                     for (int i = 0; i < sprav.Length; i++)
                     {
                         menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(sprav[i], new { p_base = cur_basename }), spravru[i], "gi gi-blank");
@@ -433,44 +335,7 @@ namespace ArchNet
                     }
                     Session[cur_basename + "_menusprav"] = menu_enabled;
                     Session[cur_basename + "_listsprav"] = list_enabled;
-                    // Меню сервис
-                    string[] service = { "journal", "settings", "fillbybarcode", "archiveperform", "archivecheckbox", "checkbybarcode", "barcodesearch", "archivedocpackdown" };
-                    string[] serviceru = { "Журнал изменений", "Настройки", "Подготовка описи архивного дела", "Загрузка проведенных", "Отчет по ошибкам операторов ОЦ", "Анализ документов по штрихкоду", "Поиск документов по штрихкоду", "Выгрузка документов" };
-                    string[] serviceicon = { "gi gi-history", "gi gi-settings", "gi gi-notes", "gi gi-inbox_in", "gi gi-check", "gi gi-blank", "gi gi-blank", "gi gi-blank" };
-                    menu_enabled = "";
-
-                    //for (int i = 0; i < service.Length; i++)
-                    //{
-                    menu_enabled += Session[cur_basename + "_access_service_" + service[0]] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl(service[0], new
-                    {
-                        p_base = cur_basename
-                    }), serviceru[0], serviceicon[0]) : String.Format(menu_item_disabled, serviceru[0], "gi gi-lock");
-                    menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(service[1], new
-                    {
-                        p_base = cur_basename
-                    }), serviceru[1], serviceicon[1]);
-
-                    menu_enabled += Session[cur_basename + "_access_service_" + service[2]] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl(service[2], new
-                    {
-                        p_base = cur_basename
-                    }), serviceru[2], serviceicon[2]) : String.Format(menu_item_disabled, serviceru[2], "gi gi-lock");
-
-                    menu_enabled += Session["common_access_service_" + service[3]] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl(service[3], new
-                    {
-                        p_base = cur_basename
-                    }), serviceru[3], serviceicon[3]) : String.Format(menu_item_disabled, serviceru[3], "gi gi-lock");
-
-                    menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(service[4], new { p_base = cur_basename }), serviceru[4], serviceicon[4]);
-                    menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(service[5], new { p_base = cur_basename }), serviceru[5], serviceicon[5]);
-                    menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(service[6], new { p_base = cur_basename }), serviceru[6], serviceicon[6]);
-
-                    menu_enabled += Session[cur_basename + "_access_archive_srch_edit"] != null || Session[cur_basename + "_access_archive_srch_view"] != null ?
-                        string.Format(menu_item_enabled_blank, GetRouteUrl(service[7], new { p_base = cur_basename }), serviceru[7], serviceicon[7]) :
-                        String.Format(menu_item_disabled, serviceru[7], "gi gi-lock");
-                    //}
-
-                    Session[cur_basename + "_menuservice"] = menu_enabled;
-
+                    
                     Session[cur_basename + "_loaded"] = 1;
 
                     conn.Close();

@@ -30,6 +30,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Trirand.Web.UI.WebControls;
 
+// TODO: http://ts-soft.ru/blog/filetable
 namespace ArchNet
 {
     public class faList
@@ -1963,6 +1964,7 @@ namespace ArchNet
             jqGrid.AppearanceSettings.ShrinkToFit = false;
             jqGrid.ColumnReordering = true;
             jqGrid.AppearanceSettings.Caption = cur.Caption;
+            jqGrid.StyleUI = "Bootstrap";
             JSReadyList.Add("title", "document.title = '" + cur.Caption + "';");
 
             string buf = faFunc.GetUserSetting(cur.Alias + (Page != faPage.none ? "_" + Page : "") + "_page_size");

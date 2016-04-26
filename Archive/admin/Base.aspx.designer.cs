@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace WebArchiveR6 {
+namespace ArchNet {
     
     
     public partial class Base {
@@ -27,9 +27,9 @@ namespace WebArchiveR6 {
         /// <remarks>
         /// Автоматически создаваемое свойство.
         /// </remarks>
-        public new WebArchiveR6.Site Master {
+        public new ArchNet.Site Master {
             get {
-                return ((WebArchiveR6.Site)(base.Master));
+                return ((ArchNet.Site)(base.Master));
             }
         }
     }

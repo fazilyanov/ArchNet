@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="ChangeDoctype.aspx.cs" Inherits="WebArchiveR6.ChangeDoctype" %>
+    CodeBehind="ChangeDoctype.aspx.cs" Inherits="ArchNet.ChangeDoctype" %>
 <%@ MasterType VirtualPath="~/Site.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph" runat="server">

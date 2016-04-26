@@ -14,7 +14,7 @@
     <RootNamespace>ArchNet</RootNamespace>
     <AssemblyName>ArchNet</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -136,18 +136,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Base.aspx" />
     <Content Include="admin\JournalCommon.aspx" />
     <Content Include="admin\SesVal.aspx" />
+    <Content Include="admin\Table.aspx" />
+    <Content Include="admin\User.aspx" />
+    <Content Include="admin\UserSetting.aspx" />
     <Content Include="ajax\ac.aspx" />
     <Content Include="ajax\dd.aspx" />
     <Content Include="ajax\pinger.aspx" />
     <Content Include="archive\ArchiveDel.aspx" />
     <Content Include="archive\ArchiveBulkEdit.aspx" />
+    <Content Include="archive\ChangeDoctype.aspx" />
     <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.css" />
     <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.min.css" />
     <Content Include="content\bootstrap-3.3.6\css\bootstrap.css" />
     <Content Include="content\bootstrap-3.3.6\css\bootstrap.min.css" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-filetypes-regular.svg" />
     <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-regular.svg" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-social-regular.svg" />
     <Content Include="content\bootstrap-3.3.6\js\bootstrap.js" />
     <Content Include="content\bootstrap-3.3.6\js\bootstrap.min.js" />
     <Content Include="content\jqgrid-5.0.0\css\ui.jqautocomplete.css" />
@@ -169,9 +177,11 @@
     <Content Include="content\jqgrid-5.0.0\js\jquery.jqMultiSelect.min.js" />
     <Content Include="content\jqgrid-5.0.0\js\jquery.jqTreeView.min.js" />
     <Content Include="content\jquery-2.2.3\jquery-2.2.3.min.js" />
+    <Content Include="content\other\css\icons.css" />
     <Content Include="content\other\js\jquery.maskedinput.min.js" />
     <Content Include="archive\Docversion.aspx" />
     <Content Include="content\other\js\accounting.min.js" />
+    <Content Include="content\other\css\site.css" />
     <Content Include="sprav\Doctree.aspx" />
     <Content Include="fonts\glyphicons-filetypes-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -221,6 +231,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Base.aspx.cs">
+      <DependentUpon>Base.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Base.aspx.designer.cs">
+      <DependentUpon>Base.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\JournalCommon.aspx.cs">
       <DependentUpon>JournalCommon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -234,6 +251,27 @@
     </Compile>
     <Compile Include="admin\SesVal.aspx.designer.cs">
       <DependentUpon>SesVal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Table.aspx.cs">
+      <DependentUpon>Table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Table.aspx.designer.cs">
+      <DependentUpon>Table.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UserSetting.aspx.cs">
+      <DependentUpon>UserSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UserSetting.aspx.designer.cs">
+      <DependentUpon>UserSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="ajax\ac.aspx.cs">
       <DependentUpon>ac.aspx</DependentUpon>
@@ -255,6 +293,13 @@
     </Compile>
     <Compile Include="ajax\pinger.aspx.designer.cs">
       <DependentUpon>pinger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="archive\ChangeDoctype.aspx.cs">
+      <DependentUpon>ChangeDoctype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="archive\ChangeDoctype.aspx.designer.cs">
+      <DependentUpon>ChangeDoctype.aspx</DependentUpon>
     </Compile>
     <Compile Include="base\faHeaderGroup.cs" />
     <Compile Include="archive\ArchiveDel.aspx.cs">
@@ -386,7 +431,15 @@
     <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-filetypes-regular.eot" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-filetypes-regular.ttf" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-filetypes-regular.woff" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-regular.eot" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-regular.ttf" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-regular.woff" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-social-regular.eot" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-social-regular.ttf" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-social-regular.woff" />
     <None Include="Properties\PublishProfiles\Рабочий.pubxml" />
     <None Include="Properties\PublishProfiles\ТЕСТ.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -402,9 +455,7 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="content\other\css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -426,12 +477,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>7373</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:6363/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://nfk-sp1.nfk.argus.cis</CustomServerUrl>
