@@ -34,14 +34,14 @@ namespace ArchNet {
             fld.Filter.Control = faControl.TextBoxInteger;
             cur.AddField(fld);
             
-            //ID 1C
-            fld = new faField();
-            fld.Data.FieldName = "id_1c";
-            fld.View.CaptionShort = "ID 1C";
-            fld.View.TextAlign = "center";
-            fld.View.Width = 200;
-            fld.Edit.Max = 50;
-            cur.AddField(fld);
+            ////ID 1C
+            //fld = new faField();
+            //fld.Data.FieldName = "id_1c";
+            //fld.View.CaptionShort = "ID 1C";
+            //fld.View.TextAlign = "center";
+            //fld.View.Width = 200;
+            //fld.Edit.Max = 50;
+            //cur.AddField(fld);
 
             //ФИО
             fld = new faField();
@@ -60,30 +60,30 @@ namespace ArchNet {
             fld.Edit.Max = 50;
             cur.AddField(fld);
 
-            //ФИО
-            fld = new faField();
-            fld.Data.FieldName = "id_depart";
-            fld.View.CaptionShort = "Подразделение";
-            fld.View.Width = 180;
-            fld.Edit.Required = true;
-            fld.Edit.Control = faControl.TreeGrid;
-            fld.Filter.Control = faControl.TreeGrid;
-            fld.LookUp.Key = "id";
-            fld.LookUp.Field = "name";
-            fld.LookUp.Table = list.BaseName + "_department";
-            cur.AddField(fld);
+            ////ФИО
+            //fld = new faField();
+            //fld.Data.FieldName = "id_depart";
+            //fld.View.CaptionShort = "Подразделение";
+            //fld.View.Width = 180;
+            //fld.Edit.Required = true;
+            //fld.Edit.Control = faControl.TreeGrid;
+            //fld.Filter.Control = faControl.TreeGrid;
+            //fld.LookUp.Key = "id";
+            //fld.LookUp.Field = "name";
+            //fld.LookUp.Table = list.BaseName + "_department";
+            //cur.AddField(fld);
 
-            // Статус
-            fld = new faField();
-            fld.Data.FieldName = "id_status";
-            fld.View.CaptionShort = "Статус";
-            fld.View.Width = 100;
-            fld.Edit.Control = faControl.DropDown;
-            fld.Filter.Control = faControl.DropDown;
-            fld.LookUp.Key = "id";
-            fld.LookUp.Field = "name";
-            fld.LookUp.Table = "_status_person";
-            cur.AddField(fld);
+            //// Статус
+            //fld = new faField();
+            //fld.Data.FieldName = "id_status";
+            //fld.View.CaptionShort = "Статус";
+            //fld.View.Width = 100;
+            //fld.Edit.Control = faControl.DropDown;
+            //fld.Filter.Control = faControl.DropDown;
+            //fld.LookUp.Key = "id";
+            //fld.LookUp.Field = "name";
+            //fld.LookUp.Table = "_status_person";
+            //cur.AddField(fld);
 
             //Примечание
             fld = new faField();

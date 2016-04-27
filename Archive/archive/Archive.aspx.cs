@@ -38,8 +38,8 @@ namespace ArchNet
                     list.ActionMenuItems.Add("Копировать в другую базу", "window.open('/copytobase/" + list.BaseName + "/" + list.Page.ToString() + "/" + (Request.QueryString["id"] ?? "0").ToString() + "');");
                 }
                 ////
-                list.ShowCheckBox = Session[Master.cur_basename + "_access_show_checkbox"] != null;
-                list.EnableSuperVisorCheckBox = Session["common_access_enable_supervisor_checkbox"] != null;
+                //list.ShowCheckBox = Session[Master.cur_basename + "_access_show_checkbox"] != null;
+                //list.EnableSuperVisorCheckBox = Session["common_access_enable_supervisor_checkbox"] != null;
                 list.ShowHiddenDoc = Session[Master.cur_basename + "_access_archive_hidden"] != null;
                 list.ShowArrows = true;
                 //
@@ -307,40 +307,40 @@ namespace ArchNet
 
                 #region Код проекта
 
-                if (list.Page != faPage.ord && list.Page != faPage.empl && list.Page != faPage.tech && list.Page != faPage.oth && list.Page != faPage.norm)
-                {
-                    fld = new faField();
-                    fld.Data.FieldName = "id_prjcode";
-                    fld.View.CaptionShort = "Код проекта";
-                    fld.View.Width = 110;
-                    fld.Edit.Control = faControl.AutoComplete;
-                    fld.Edit.BaseCopied = false;
-                    fld.Filter.Control = faControl.AutoComplete;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "code_new";
-                    fld.LookUp.Table = "_prjcode";
-                    cur.AddField(fld);
-                }
+                //if (list.Page != faPage.ord && list.Page != faPage.empl && list.Page != faPage.tech && list.Page != faPage.oth && list.Page != faPage.norm)
+                //{
+                //    fld = new faField();
+                //    fld.Data.FieldName = "id_prjcode";
+                //    fld.View.CaptionShort = "Код проекта";
+                //    fld.View.Width = 110;
+                //    fld.Edit.Control = faControl.AutoComplete;
+                //    fld.Edit.BaseCopied = false;
+                //    fld.Filter.Control = faControl.AutoComplete;
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "code_new";
+                //    fld.LookUp.Table = "_prjcode";
+                //    cur.AddField(fld);
+                //}
 
                 #endregion Код проекта
 
                 #region Старший документ
 
-                if (list.Page != faPage.ord && list.Page != faPage.tech && list.Page != faPage.norm)
-                {
-                    fld = new faField();
-                    fld.Data.FieldName = "id_parent";
-                    fld.View.Hint = fld.View.Caption = "Старший документ";
-                    fld.View.CaptionShort = "Старший док.";
-                    fld.View.Width = 140;
-                    fld.Edit.Control = faControl.NewWindowArchive;
-                    fld.Edit.BaseCopied = false;
-                    fld.Filter.Control = faControl.AutoComplete;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "num_doc";
-                    fld.LookUp.Table = list.BaseName + "_archive";
-                    cur.AddField(fld);
-                }
+                //if (list.Page != faPage.ord && list.Page != faPage.tech && list.Page != faPage.norm)
+                //{
+                //    fld = new faField();
+                //    fld.Data.FieldName = "id_parent";
+                //    fld.View.Hint = fld.View.Caption = "Старший документ";
+                //    fld.View.CaptionShort = "Старший док.";
+                //    fld.View.Width = 140;
+                //    fld.Edit.Control = faControl.NewWindowArchive;
+                //    fld.Edit.BaseCopied = false;
+                //    fld.Filter.Control = faControl.AutoComplete;
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "num_doc";
+                //    fld.LookUp.Table = list.BaseName + "_archive";
+                //    cur.AddField(fld);
+                //}
 
                 #endregion Старший документ
 
@@ -348,17 +348,17 @@ namespace ArchNet
 
                 if (list.Page != faPage.empl && list.Page != faPage.tech)
                 {
-                    fld = new faField();
-                    fld.Data.FieldName = "id_perf";
-                    fld.View.CaptionShort = "Исполнитель";
-                    fld.View.Width = 125;
-                    fld.Edit.Control = faControl.AutoComplete;
-                    fld.Edit.BaseCopied = false;
-                    fld.Filter.Control = faControl.AutoComplete;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = list.BaseName + "_person";
-                    cur.AddField(fld);
+                    //fld = new faField();
+                    //fld.Data.FieldName = "id_perf";
+                    //fld.View.CaptionShort = "Исполнитель";
+                    //fld.View.Width = 125;
+                    //fld.Edit.Control = faControl.AutoComplete;
+                    //fld.Edit.BaseCopied = false;
+                    //fld.Filter.Control = faControl.AutoComplete;
+                    //fld.LookUp.Key = "id";
+                    //fld.LookUp.Field = "name";
+                    //fld.LookUp.Table = list.BaseName + "_person";
+                    //cur.AddField(fld);
                 }
 
                 #endregion Исполнитель
@@ -367,53 +367,39 @@ namespace ArchNet
 
                 if (list.Page != faPage.tech)
                 {
-                    //fld = new faField();
-                    //fld.Data.FieldName = "id_depart";
-                    //fld.View.CaptionShort = "Получатель";
-                    //fld.View.Width = 180;
-                    //fld.Edit.Required = true;
-                    //fld.Edit.BaseCopied = false;
-                    //fld.Edit.Control = faControl.AutoComplete;
-                    //fld.Filter.Control = faControl.AutoComplete;
-                    ////fld.Filter.DefaultValue = ((int)list.Page).ToString();
-                    //fld.LookUp.Key = "id";
-                    //fld.LookUp.Field = "name";
-                    //fld.LookUp.Table = list.BaseName + "_depart";
-                    //cur.AddField(fld);
-
-                    fld = new faField();
-                    fld.Data.FieldName = "id_depart";
-                    fld.View.CaptionShort = "Получатель";
-                    fld.View.Width = 180;
-                    fld.Edit.Required = true;
-                    fld.Edit.BaseCopied = false;
-                    fld.Edit.Control = faControl.TreeGrid;
-                    fld.Filter.Control = faControl.TreeGrid;
-                    //fld.Filter.DefaultValue += "(-1)";
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = list.BaseName + "_department";
-                    cur.AddField(fld);
+                //    fld = new faField();
+                //    fld.Data.FieldName = "id_depart";
+                //    fld.View.CaptionShort = "Получатель";
+                //    fld.View.Width = 180;
+                //    fld.Edit.Required = true;
+                //    fld.Edit.BaseCopied = false;
+                //    fld.Edit.Control = faControl.TreeGrid;
+                //    fld.Filter.Control = faControl.TreeGrid;
+                //    //fld.Filter.DefaultValue += "(-1)";
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "name";
+                //    fld.LookUp.Table = list.BaseName + "_department";
+                //    cur.AddField(fld);
                 }
 
                 #endregion Получатель документа
 
                 #region Дата создания (Из Версий)
 
-                fld = new faField();
-                fld.Data.FieldName = "date_reg";
-                fld.Data.Table = Master.cur_basename + "_docversion";
-                fld.Data.RefField = "id_archive";
-                fld.Data.Where = "main=1";
-                fld.View.FormatString = "{0:dd.MM.yyyy}";
-                fld.View.TextAlign = "center";
-                fld.View.Hint = "Дата создания основной версии";
-                fld.View.CaptionShort = "Дата созд.";
-                fld.View.Width = 84;
-                fld.Edit.Visible = false;
-                fld.Edit.Enable = false;
-                fld.Filter.Control = faControl.DatePicker;
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "date_reg";
+                //fld.Data.Table = Master.cur_basename + "_docversion";
+                //fld.Data.RefField = "id_archive";
+                //fld.Data.Where = "main=1";
+                //fld.View.FormatString = "{0:dd.MM.yyyy}";
+                //fld.View.TextAlign = "center";
+                //fld.View.Hint = "Дата создания основной версии";
+                //fld.View.CaptionShort = "Дата созд.";
+                //fld.View.Width = 84;
+                //fld.Edit.Visible = false;
+                //fld.Edit.Enable = false;
+                //fld.Filter.Control = faControl.DatePicker;
+                //cur.AddField(fld);
 
                 #endregion Дата создания (Из Версий)
 
@@ -422,7 +408,6 @@ namespace ArchNet
                 fld = new faField();
                 fld.Data.FieldName = "file";
                 fld.Data.Table = Master.cur_basename + "_docversion";
-                fld.Data.Again = true;
                 fld.Data.RefField = "id_archive";
                 fld.Data.Where = "main=1";
                 fld.View.Visible = false;
@@ -437,72 +422,72 @@ namespace ArchNet
 
                 #region Дата передачи (Из Версий)
 
-                fld = new faField();
-                fld.Data.FieldName = "date_trans";
-                fld.Data.Table = Master.cur_basename + "_docversion";
-                fld.Data.Again = true;
-                fld.Data.RefField = "id_archive";
-                fld.Data.Where = "main=1";
-                fld.View.FormatString = "{0:dd.MM.yyyy}";
-                fld.View.TextAlign = "center";
-                fld.View.Hint = "Дата передачи основной версии";
-                fld.View.CaptionShort = "Дата перед.";
-                fld.View.Width = 84;
-                fld.Edit.Visible = false;
-                fld.Edit.Enable = false;
-                fld.Filter.Control = faControl.DatePicker;
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "date_trans";
+                //fld.Data.Table = Master.cur_basename + "_docversion";
+                //fld.Data.Again = true;
+                //fld.Data.RefField = "id_archive";
+                //fld.Data.Where = "main=1";
+                //fld.View.FormatString = "{0:dd.MM.yyyy}";
+                //fld.View.TextAlign = "center";
+                //fld.View.Hint = "Дата передачи основной версии";
+                //fld.View.CaptionShort = "Дата перед.";
+                //fld.View.Width = 84;
+                //fld.Edit.Visible = false;
+                //fld.Edit.Enable = false;
+                //fld.Filter.Control = faControl.DatePicker;
+                //cur.AddField(fld);
 
                 #endregion Дата передачи (Из Версий)
 
                 #region Штрих код (Из Версий)
 
-                fld = new faField();
-                fld.Data.FieldName = "barcode";
-                fld.Data.Table = Master.cur_basename + "_docversion";
-                fld.Data.Again = true;
-                fld.Data.RefField = "id_archive";
-                fld.Data.Where = "main=1";
-                fld.View.TextAlign = "center";
-                fld.View.CaptionShort = "Штрихкод";
-                fld.View.Width = 84;
-                fld.Edit.Visible = false;
-                fld.Edit.Enable = false;
-                fld.Filter.Control = faControl.TextBox;
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "barcode";
+                //fld.Data.Table = Master.cur_basename + "_docversion";
+                //fld.Data.Again = true;
+                //fld.Data.RefField = "id_archive";
+                //fld.Data.Where = "main=1";
+                //fld.View.TextAlign = "center";
+                //fld.View.CaptionShort = "Штрихкод";
+                //fld.View.Width = 84;
+                //fld.Edit.Visible = false;
+                //fld.Edit.Enable = false;
+                //fld.Filter.Control = faControl.TextBox;
+                //cur.AddField(fld);
 
                 #endregion Штрих код (Из Версий)
 
                 #region Изготовитель | Разработчик
 
-                if (list.Page == faPage.tech)
-                {
-                    // Изготовитель
-                    fld = new faField();
-                    fld.Data.FieldName = "id_frm_prod";
-                    fld.View.CaptionShort = "Изготовитель";
-                    fld.View.Width = 210;
-                    fld.Edit.Control = faControl.AutoComplete;
-                    fld.Filter.Control = faControl.AutoComplete;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = "_frm";
-                    fld.LookUp.TableAlias = "frm2";
-                    cur.AddField(fld);
+                //if (list.Page == faPage.tech)
+                //{
+                //    // Изготовитель
+                //    fld = new faField();
+                //    fld.Data.FieldName = "id_frm_prod";
+                //    fld.View.CaptionShort = "Изготовитель";
+                //    fld.View.Width = 210;
+                //    fld.Edit.Control = faControl.AutoComplete;
+                //    fld.Filter.Control = faControl.AutoComplete;
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "name";
+                //    fld.LookUp.Table = "_frm";
+                //    fld.LookUp.TableAlias = "frm2";
+                //    cur.AddField(fld);
 
-                    // Разработчик
-                    fld = new faField();
-                    fld.Data.FieldName = "id_frm_dev";
-                    fld.View.CaptionShort = "Разработчик";
-                    fld.View.Width = 210;
-                    fld.Edit.Control = faControl.AutoComplete;
-                    fld.Filter.Control = faControl.AutoComplete;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = "_frm";
-                    fld.LookUp.TableAlias = "frm3";
-                    cur.AddField(fld);
-                }
+                //    // Разработчик
+                //    fld = new faField();
+                //    fld.Data.FieldName = "id_frm_dev";
+                //    fld.View.CaptionShort = "Разработчик";
+                //    fld.View.Width = 210;
+                //    fld.Edit.Control = faControl.AutoComplete;
+                //    fld.Filter.Control = faControl.AutoComplete;
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "name";
+                //    fld.LookUp.Table = "_frm";
+                //    fld.LookUp.TableAlias = "frm3";
+                //    cur.AddField(fld);
+                //}
 
                 #endregion Изготовитель | Разработчик
 
@@ -534,22 +519,22 @@ namespace ArchNet
 
                 #region Статус (Из Версий)
 
-                fld = new faField();
-                fld.Data.FieldName = "id_status";
-                fld.Data.Table = Master.cur_basename + "_docversion";
-                fld.Data.Again = true;
-                fld.Data.RefField = "id_archive";
-                fld.Data.Where = "main=1";
-                fld.View.CaptionShort = "Статус";
-                fld.View.Hint = "Статус основной версии";
-                fld.View.Width = 84;
-                fld.Edit.Visible = false;
-                fld.Edit.Enable = false;
-                fld.Filter.Control = faControl.DropDown;
-                fld.LookUp.Key = "id";
-                fld.LookUp.Field = "name";
-                fld.LookUp.Table = "_status";
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "id_status";
+                //fld.Data.Table = Master.cur_basename + "_docversion";
+                //fld.Data.Again = true;
+                //fld.Data.RefField = "id_archive";
+                //fld.Data.Where = "main=1";
+                //fld.View.CaptionShort = "Статус";
+                //fld.View.Hint = "Статус основной версии";
+                //fld.View.Width = 84;
+                //fld.Edit.Visible = false;
+                //fld.Edit.Enable = false;
+                //fld.Filter.Control = faControl.DropDown;
+                //fld.LookUp.Key = "id";
+                //fld.LookUp.Field = "name";
+                //fld.LookUp.Table = "_status";
+                //cur.AddField(fld);
 
                 #endregion Статус (Из Версий)
 
@@ -570,111 +555,109 @@ namespace ArchNet
 
                 if (Session[Master.cur_basename + "_access_archive_statefield"] != null)
                 {
-                    fld = new faField();
-                    fld.Data.FieldName = "id_state";
-                    fld.View.Width = 100;
-                    fld.View.CaptionShort = "Состояние";
-                    fld.Edit.Control = faControl.DropDown;
-                    fld.Edit.DefaultValue = "1";
-                    fld.Edit.DefaultText = "Завершен";
-                    fld.Edit.Copied = false;
-                    fld.Edit.BaseCopied = false;
-                    fld.Edit.Required = true;
-                    fld.Filter.Control = faControl.DropDown;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = "_state";
-                    cur.AddField(fld);
+                    //fld = new faField();
+                    //fld.Data.FieldName = "id_state";
+                    //fld.View.Width = 100;
+                    //fld.View.CaptionShort = "Состояние";
+                    //fld.Edit.Control = faControl.DropDown;
+                    //fld.Edit.DefaultValue = "1";
+                    //fld.Edit.DefaultText = "Завершен";
+                    //fld.Edit.Copied = false;
+                    //fld.Edit.BaseCopied = false;
+                    //fld.Edit.Required = true;
+                    //fld.Filter.Control = faControl.DropDown;
+                    //fld.LookUp.Key = "id";
+                    //fld.LookUp.Field = "name";
+                    //fld.LookUp.Table = "_state";
+                    //cur.AddField(fld);
                 }
 
                 #endregion Состояние
 
                 #region Скрытый документ
 
-                fld = new faField();
-                fld.Data.FieldName = "hidden";
-                fld.View.Width = 100;
-                fld.View.CaptionShort = "Скрытый";
-                fld.View.Visible = list.ShowHiddenDoc;
-                fld.Edit.Control = faControl.DropDown;
-                fld.Edit.Required = true;
-                fld.Edit.DefaultValue = "1";
-                fld.Edit.DefaultText = "Нет";
-                fld.Edit.Copied = false;
-                fld.Edit.BaseCopied = false;
-                fld.Filter.Control = faControl.DropDown;
-                fld.Filter.Enable = list.ShowHiddenDoc;
-                fld.LookUp.Key = "id";
-                fld.LookUp.Field = "name";
-                fld.LookUp.Table = "_yesno";
-                fld.LookUp.TableAlias = "yn1";
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "hidden";
+                //fld.View.Width = 100;
+                //fld.View.CaptionShort = "Скрытый";
+                //fld.View.Visible = list.ShowHiddenDoc;
+                //fld.Edit.Control = faControl.DropDown;
+                //fld.Edit.Required = true;
+                //fld.Edit.DefaultValue = "1";
+                //fld.Edit.DefaultText = "Нет";
+                //fld.Edit.Copied = false;
+                //fld.Edit.BaseCopied = false;
+                //fld.Filter.Control = faControl.DropDown;
+                //fld.Filter.Enable = list.ShowHiddenDoc;
+                //fld.LookUp.Key = "id";
+                //fld.LookUp.Field = "name";
+                //fld.LookUp.Table = "_yesno";
+                //fld.LookUp.TableAlias = "yn1";
+                //cur.AddField(fld);
 
                 #endregion Скрытый документ
 
                 #region Принят к учету
 
-                fld = new faField();
-                fld.Data.FieldName = "accept";
-                fld.View.Width = 100;
-                fld.View.CaptionShort = "Принят к учету";
-                fld.Edit.Control = faControl.DropDown;
-                fld.Edit.Visible = false;
-                fld.Edit.Enable = false;
-                //fld.Edit.DefaultValue = "1";
-                //fld.Edit.DefaultText = "Нет";
-                fld.Edit.Copied = false;
-                fld.Edit.BaseCopied = false;
-                fld.Filter.Control = faControl.DropDown;
-                fld.LookUp.Key = "id";
-                fld.LookUp.Field = "name";
-                fld.LookUp.Table = "_yesno";
-                fld.LookUp.TableAlias = "yn2";
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "accept";
+                //fld.View.Width = 100;
+                //fld.View.CaptionShort = "Принят к учету";
+                //fld.Edit.Control = faControl.DropDown;
+                //fld.Edit.Visible = false;
+                //fld.Edit.Enable = false;
+                ////fld.Edit.DefaultValue = "1";
+                ////fld.Edit.DefaultText = "Нет";
+                //fld.Edit.Copied = false;
+                //fld.Edit.BaseCopied = false;
+                //fld.Filter.Control = faControl.DropDown;
+                //fld.LookUp.Key = "id";
+                //fld.LookUp.Field = "name";
+                //fld.LookUp.Table = "_yesno";
+                //fld.LookUp.TableAlias = "yn2";
+                //cur.AddField(fld);
 
                 #endregion Принят к учету
 
-
                 #region Комментарий к документу
 
-                if (Session["common_access_archive_servprim"] != null)
-                {
-                    fld = new faField();
-                    fld.Data.FieldName = "servprim";
-                    fld.Edit.BaseCopied = false;
-                    fld.View.Caption = "Комментарий к документу";
-                    fld.View.CaptionShort = "Комментарий к докум.";
-                    fld.Filter.Caption = "Комм.к док.";
-                    fld.View.Width = 190;
-                    cur.AddField(fld);
-                }
+                //if (Session["common_access_archive_servprim"] != null)
+                //{
+                //    fld = new faField();
+                //    fld.Data.FieldName = "servprim";
+                //    fld.Edit.BaseCopied = false;
+                //    fld.View.Caption = "Комментарий к документу";
+                //    fld.View.CaptionShort = "Комментарий к докум.";
+                //    fld.Filter.Caption = "Комм.к док.";
+                //    fld.View.Width = 190;
+                //    cur.AddField(fld);
+                //}
 
                 #endregion Комментарий к документу
 
                 #region Проверено супервайзером
 
-                if (Session[Master.cur_basename + "_access_archive_supervisor_checked"] != null)
-                {
-                    fld = new faField();
-                    fld.Data.FieldName = "supervisor_checked";
-                    fld.View.Width = 100;
-                    fld.View.Caption = "Проверено супервайзером";
-                    fld.View.CaptionShort = "Пров.суперв.";
-                    fld.Edit.Control = faControl.DropDown;
-                    fld.Edit.Visible = true;
-                    fld.Edit.Enable = true;
-                    fld.Edit.Copied = false;
-                    fld.Edit.BaseCopied = false;
-                    fld.Filter.Control = faControl.DropDown;
-                    fld.LookUp.Key = "id";
-                    fld.LookUp.Field = "name";
-                    fld.LookUp.Table = "_yesno";
-                    fld.LookUp.TableAlias = "yn3";
-                    cur.AddField(fld);
-                }
+                //if (Session[Master.cur_basename + "_access_archive_supervisor_checked"] != null)
+                //{
+                //    fld = new faField();
+                //    fld.Data.FieldName = "supervisor_checked";
+                //    fld.View.Width = 100;
+                //    fld.View.Caption = "Проверено супервайзером";
+                //    fld.View.CaptionShort = "Пров.суперв.";
+                //    fld.Edit.Control = faControl.DropDown;
+                //    fld.Edit.Visible = true;
+                //    fld.Edit.Enable = true;
+                //    fld.Edit.Copied = false;
+                //    fld.Edit.BaseCopied = false;
+                //    fld.Filter.Control = faControl.DropDown;
+                //    fld.LookUp.Key = "id";
+                //    fld.LookUp.Field = "name";
+                //    fld.LookUp.Table = "_yesno";
+                //    fld.LookUp.TableAlias = "yn3";
+                //    cur.AddField(fld);
+                //}
 
                 #endregion Проверено супервайзером
-
 
                 #endregion Поля
 
@@ -801,7 +784,7 @@ namespace ArchNet
                         cur.AddField(fld);
 
                         //Файл
-                       fld = new faField();
+                        fld = new faField();
                         fld.Data.FieldName = "filetype";
                         fld.Data.FieldCalc = "(UPPER(SUBSTRING(a.[file],LEN(a.[file])-2,3)))";
                         fld.View.CaptionShort = "Файл";
@@ -874,58 +857,11 @@ namespace ArchNet
 
                     #endregion Курсор "Версии документов"
 
-                    //if (list.Page != faPage.ord && list.Page != faPage.norm)
-                    //{
-                    //    #region Курсор "Подразделения"
-
-                    //    cur = new faCursor(Master.cur_basename + "_archive_depart");
-                    //    cur.TableID = 12;
-                    //    cur.CaptionShort = "Подразделения";
-                    //    cur.EnableViewButton = true;
-                    //    cur.EnableSaveButton = true;
-                    //    cur.EnableAddButton = cur.EnableEditButton = cur.EnableDelButton
-                    //        = Session[Master.cur_basename + "_access_archive_" + list.Page + "_edit"] != null;//true;//Session[Master.cur_basename + "_access_archive_depart_edit"] != null;
-                    //    cur.EditDialogWidth = 300;
-                    //    // Поля
-                    //    // ID
-                    //    fld = new faField();
-                    //    fld.Data.FieldName = "id";
-                    //    fld.View.CaptionShort = "ID";
-                    //    fld.View.TextAlign = "center";
-                    //    fld.View.Width = 65;
-                    //    fld.Edit.Enable = false;
-                    //    cur.AddField(fld);
-
-                    //    // Связывающее поле
-                    //    fld = new faField();
-                    //    fld.Data.FieldName = "id_archive";
-                    //    fld.Filter.Control = faControl.TextBoxInteger;
-                    //    fld.Filter.Enable = true;
-                    //    fld.View.Visible = false;
-                    //    fld.Edit.Visible = false;
-                    //    fld.Edit.Enable = false;
-                    //    cur.AddField(fld);
-
-                    //    // Подразделение
-                    //    fld = new faField();
-                    //    fld.Data.FieldName = "id_depart";
-                    //    fld.View.CaptionShort = "Подразделение";
-                    //    fld.View.Width = 300;
-                    //    fld.Edit.Control = faControl.AutoComplete;
-                    //    fld.Edit.Required = true;
-                    //    fld.LookUp.Key = "id";
-                    //    fld.LookUp.Field = "name";
-                    //    fld.LookUp.Table = list.BaseName + "_depart";
-                    //    cur.AddField(fld);
-
-                    //    //
-                    //    list.AddCursor(cur);
-
-                    //    #endregion Курсор "Подразделения"
-                    //}
+                    #region Бух-Тех
+                    /*
                     if (list.Page == faPage.tech || list.Page == faPage.acc || list.Page == faPage.dog)
                     {
-                        #region Курсор "Бух-Тех"
+                         Курсор "Бух-Тех"
 
                         cur = new faCursor(Master.cur_basename + (list.Page == faPage.tech ? "_tech_buh_view" : "_buh_tech_view"));
                         cur.TableID = 25;
@@ -1028,8 +964,10 @@ namespace ArchNet
                         //
                         list.AddCursor(cur);
 
-                        #endregion Курсор "Бух-Тех"
+                        #endregion Бух-Тех
                     }
+                    */
+                    #endregion
                 }
                 list.Render(form1, this);
             }

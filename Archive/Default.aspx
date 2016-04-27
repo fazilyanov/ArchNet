@@ -39,21 +39,13 @@
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="list-group">
-                        <a href="#" class="list-group-item active" style="font-size: 15px;">Базы:</a>
+                        <a href="#" class="list-group-item  navbar-default" style="font-size: 15px;">Базы:</a>
                         <%Response.Write(Session["listbase"]);%>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="list-group">
-                        <a href="#" class="list-group-item active" style="font-size: 15px;">Комплекты:</a>
-                        <%Response.Write(Session["listcomplect"]);%>
-                    </div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active" style="font-size: 15px;">Архив:</a>
-                        <%Response.Write(Session["listrealarchive"]);%>
-                    </div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active" style="font-size: 15px;">Справочники (общие):</a>
+                        <a href="#" class="list-group-item  navbar-default" style="font-size: 15px;">Справочники (общие):</a>
                         <%Response.Write(Session["listsprav"]);%>
                     </div>
 
@@ -67,7 +59,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="list-group">
-                        <a href="#" class="list-group-item active" style="font-size: 15px;">Справочники:</a>
+                        <a href="#" class="list-group-item navbar-default" style="font-size: 15px;">Справочники:</a>
                         <%Response.Write((Session[Master.cur_basename + "_listsprav"] ?? "").ToString());%>
                         <%Response.Write((Session["listsprav"] ?? "").ToString());%>
                     </div>

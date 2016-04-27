@@ -9,7 +9,7 @@
 
     <link rel="icon" href="favicon.ico" type="image/ico" />
 
-    <link href="/content/bootstrap-3.3.6/css/bootstrap.min.css?ver=1.0.0" rel="stylesheet" type="text/css" />
+    <link href="/content/bootstrap-3.3.6/css/bootstrap.css?ver=1.0.0" rel="stylesheet" type="text/css" />
     <link href="/content/jqgrid-5.0.0/css/ui.jqgrid-bootstrap.css?ver=1.0.0" rel="stylesheet" type="text/css" />
     <link href="/content/other/css/site.css" rel="stylesheet" type="text/css" />
     <link href="/content/other/css/icons.css" rel="stylesheet" type="text/css" />
@@ -44,7 +44,7 @@
         { %>
     <div style="position: fixed; left: 0; top: 0; z-index: 1100; background-color: #ff0000; padding: 0px 5px; color: #ffffff; font-size: 12px; line-height: 16px;"><%Response.Write(Application["message4all"].ToString());%></div>
     <%} %>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar  navbar-default navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

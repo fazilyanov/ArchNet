@@ -152,7 +152,7 @@ namespace ArchNet
         /// Доступны ли для редактирования "галочки" супервайзеров
         /// </summary>
 #warning Относиться пока только к архиву, надо выносить в дочерний
-        public bool EnableSuperVisorCheckBox { get; set; }
+       // public bool EnableSuperVisorCheckBox { get; set; }
 
         /// <summary>
         /// Показывать "стрелки" в карточке для перехода к предыдущей/следующей записи
@@ -163,7 +163,7 @@ namespace ArchNet
         /// Показывать ли вообще "галочки"
         /// </summary>
 #warning Относиться пока только к архиву, надо выносить в дочерний
-        public bool ShowCheckBox { get; set; }
+       // public bool ShowCheckBox { get; set; }
 
         #endregion Свойства формы карточки
 
@@ -217,10 +217,10 @@ namespace ArchNet
         public faList()
         {
             ShowFilterPanel = false;
-            ShowCheckBox = false;
+            //ShowCheckBox = false;
             ShowHiddenDoc = false;
             ShowArrows = false;
-            EnableSuperVisorCheckBox = false;
+            //EnableSuperVisorCheckBox = false;
             Cursors = new Dictionary<string, faCursor>();
             ActionMenuItems = new Dictionary<string, string>();
             JSFunctionList = new Dictionary<string, string>();
@@ -1373,7 +1373,7 @@ namespace ArchNet
             string _ret = "<script type='text/javascript'>";
             // window resize
             _ret += "$(window).bind('resize', function () {var grid = jQuery('#" + jqGrid.ClientID + "');";
-            _ret += "grid.setGridWidth($('.container-fluid').width()-8);var h = $(window).height() -($('#panel_hide').is(':visible')?$('#panel_hide').height():0)-($('#panel_search').is(':visible')?$('#panel_search').height():0) - " + (f.HeaderGroupList.Count > 0 ? "142" : "120") + ";grid.setGridHeight(h);grid.setGridWidth($('.container-fluid').width()-8);}).trigger('resize');\n";
+            _ret += "grid.setGridWidth($('.container-fluid').width()-8);var h = $(window).height() -($('#panel_hide').is(':visible')?$('#panel_hide').height():0)-($('#panel_search').is(':visible')?$('#panel_search').height():0) - " + (f.HeaderGroupList.Count > 0 ? "142" : "180") + ";grid.setGridHeight(h);grid.setGridWidth($('.container-fluid').width()-8);}).trigger('resize');\n";
             // window ready
             _ret += "jQuery(document).ready(function(){";
             _ret += "";
@@ -2639,11 +2639,11 @@ namespace ArchNet
                                 break;
                         }
                     }
-                    if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
-                    {
-                        _ret += "form.find('#checkbox1_" + fld.Data.FieldName + "').prop('checked', (row.checkbox1_" + fld.Data.FieldName + "=='1' || row.checkbox1_" + fld.Data.FieldName + "=='2'));";
-                        _ret += "form.find('#checkbox2_" + fld.Data.FieldName + "').prop('checked', (row.checkbox2_" + fld.Data.FieldName + "=='1' || row.checkbox2_" + fld.Data.FieldName + "=='2'));";
-                    }
+                    //if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
+                    //{
+                    //    _ret += "form.find('#checkbox1_" + fld.Data.FieldName + "').prop('checked', (row.checkbox1_" + fld.Data.FieldName + "=='1' || row.checkbox1_" + fld.Data.FieldName + "=='2'));";
+                    //    _ret += "form.find('#checkbox2_" + fld.Data.FieldName + "').prop('checked', (row.checkbox2_" + fld.Data.FieldName + "=='1' || row.checkbox2_" + fld.Data.FieldName + "=='2'));";
+                    //}
                 }
                 _ret += "$('#form" + _cn + "_edit').parent().find('button:contains(Добавить)').text('Изменить');";
                 _ret += "$('#form" + _cn + "_edit').dialog('open');" +
@@ -2946,17 +2946,17 @@ namespace ArchNet
                     _c.Visible = false;
                     jqGrid.Columns.Add(_c);
                 }
-                if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
-                {
-                    _c = new JQGridColumn();
-                    _c.DataField = "checkbox1_" + fld.Data.FieldName;
-                    _c.Visible = false;
-                    jqGrid.Columns.Add(_c);
-                    _c = new JQGridColumn();
-                    _c.DataField = "checkbox2_" + fld.Data.FieldName;
-                    _c.Visible = false;
-                    jqGrid.Columns.Add(_c);
-                }
+                //if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
+                //{
+                //    _c = new JQGridColumn();
+                //    _c.DataField = "checkbox1_" + fld.Data.FieldName;
+                //    _c.Visible = false;
+                //    jqGrid.Columns.Add(_c);
+                //    _c = new JQGridColumn();
+                //    _c.DataField = "checkbox2_" + fld.Data.FieldName;
+                //    _c.Visible = false;
+                //    jqGrid.Columns.Add(_c);
+                //}
             }
 
             #endregion Добавляем столбцы
@@ -3175,19 +3175,19 @@ namespace ArchNet
                                 return;
                             }
                         }
-                        if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
-                        {
-                            row["checkbox1_" + fld.Data.FieldName] = ((e.RowData["checkbox1_" + fld.Data.FieldName] ?? "").Trim() == "on") ?
-                                (row["checkbox1_" + fld.Data.FieldName].ToString() == "1" ? "1" : "2") :
-                                (row["checkbox1_" + fld.Data.FieldName].ToString() == "1" ? "3" : "0");
+                        //if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
+                        //{
+                        //    row["checkbox1_" + fld.Data.FieldName] = ((e.RowData["checkbox1_" + fld.Data.FieldName] ?? "").Trim() == "on") ?
+                        //        (row["checkbox1_" + fld.Data.FieldName].ToString() == "1" ? "1" : "2") :
+                        //        (row["checkbox1_" + fld.Data.FieldName].ToString() == "1" ? "3" : "0");
 
-                            if (EnableSuperVisorCheckBox)
-                            {
-                                row["checkbox2_" + fld.Data.FieldName] = ((e.RowData["checkbox2_" + fld.Data.FieldName] ?? "").Trim() == "on") ?
-                                    (row["checkbox2_" + fld.Data.FieldName].ToString() == "1" ? "1" : "2") :
-                                    (row["checkbox2_" + fld.Data.FieldName].ToString() == "1" ? "3" : "0");
-                            }
-                        }
+                        //    if (EnableSuperVisorCheckBox)
+                        //    {
+                        //        row["checkbox2_" + fld.Data.FieldName] = ((e.RowData["checkbox2_" + fld.Data.FieldName] ?? "").Trim() == "on") ?
+                        //            (row["checkbox2_" + fld.Data.FieldName].ToString() == "1" ? "1" : "2") :
+                        //            (row["checkbox2_" + fld.Data.FieldName].ToString() == "1" ? "3" : "0");
+                        //    }
+                        //}
                         // fld.Edit.Chk2 = ((RequestPost["checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
                     }
 
@@ -3404,11 +3404,11 @@ namespace ArchNet
                             return;
                         }
                     }
-                    if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
-                    {
-                        newrow["checkbox1_" + fld.Data.FieldName] = ((e.RowData["checkbox1_" + fld.Data.FieldName] ?? "").Trim() == "on") ? "2" : "0";
-                        newrow["checkbox2_" + fld.Data.FieldName] = ((e.RowData["checkbox2_" + fld.Data.FieldName] ?? "").Trim() == "on") ? "2" : "0";
-                    }
+                    //if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
+                    //{
+                    //    newrow["checkbox1_" + fld.Data.FieldName] = ((e.RowData["checkbox1_" + fld.Data.FieldName] ?? "").Trim() == "on") ? "2" : "0";
+                    //    newrow["checkbox2_" + fld.Data.FieldName] = ((e.RowData["checkbox2_" + fld.Data.FieldName] ?? "").Trim() == "on") ? "2" : "0";
+                    //}
                 }
 
                 #region Замена основных версий
@@ -3441,63 +3441,63 @@ namespace ArchNet
 
             #endregion EventRowAdding
 
-            if (_cn.Contains("_docversion"))
-                JSReadyList.Add("redcolorcell",
-                   "grid = $('#cph_" + jqGrid.ID + "');" +
-                   "grid.bind('jqGridLoadComplete', function(e, data) {" +
-                       "var iCol1 = 0," +
-                       "   iCol2 = 0," +
-                       "   iCol3 = 0," +
-                       "   iCol4 = 0," +
-                       "   iCol5 = 0," +
-                       "   iCol6 = 0," +
-                       "   iColn = 0," +
-                       "  iRow = 0;" +
-                       "var cm = grid.jqGrid('getGridParam', 'colModel')," +
-                       "   i = 0," +
-                       "  l = cm.length;" +
-                       "for (; i < l; i++) {" +
-                       "  if (cm[i].name === 'checkbox1_id_source') {" +
-                          "     iCol1 = i;" +
-                          " }" +
-                          "  if (cm[i].name === 'checkbox2_id_source') {" +
-                          "     iCol2 = i;" +
-                          " }" +
-                          "  if (cm[i].name === 'checkbox1_main') {" +
-                          "     iCol3 = i;" +
-                          " }" +
-                          "  if (cm[i].name === 'checkbox2_main') {" +
-                          "     iCol4 = i;" +
-                          " }" +
-                          "  if (cm[i].name === 'checkbox1_id_status') {" +
-                          "     iCol5 = i;" +
-                          " }" +
-                          "  if (cm[i].name === 'checkbox2_id_status') {" +
-                          "     iCol6 = i;" +
-                          " }" +
+            //if (_cn.Contains("_docversion"))
+            //    JSReadyList.Add("redcolorcell",
+            //       "grid = $('#cph_" + jqGrid.ID + "');" +
+            //       "grid.bind('jqGridLoadComplete', function(e, data) {" +
+            //           "var iCol1 = 0," +
+            //           "   iCol2 = 0," +
+            //           "   iCol3 = 0," +
+            //           "   iCol4 = 0," +
+            //           "   iCol5 = 0," +
+            //           "   iCol6 = 0," +
+            //           "   iColn = 0," +
+            //           "  iRow = 0;" +
+            //           "var cm = grid.jqGrid('getGridParam', 'colModel')," +
+            //           "   i = 0," +
+            //           "  l = cm.length;" +
+            //           "for (; i < l; i++) {" +
+            //           "  if (cm[i].name === 'checkbox1_id_source') {" +
+            //              "     iCol1 = i;" +
+            //              " }" +
+            //              "  if (cm[i].name === 'checkbox2_id_source') {" +
+            //              "     iCol2 = i;" +
+            //              " }" +
+            //              "  if (cm[i].name === 'checkbox1_main') {" +
+            //              "     iCol3 = i;" +
+            //              " }" +
+            //              "  if (cm[i].name === 'checkbox2_main') {" +
+            //              "     iCol4 = i;" +
+            //              " }" +
+            //              "  if (cm[i].name === 'checkbox1_id_status') {" +
+            //              "     iCol5 = i;" +
+            //              " }" +
+            //              "  if (cm[i].name === 'checkbox2_id_status') {" +
+            //              "     iCol6 = i;" +
+            //              " }" +
 
-                          " if (cm[i].name === 'ver') {" +
-                          "     iColn = i; " +
-                          " }" +
-                       "}" +
-                       "var cRows = this.rows.length;" +
-                       "var iRow;" +
-                       "var row;" +
-                       "var className;" +
-                       "for (iRow = 0; iRow < cRows; iRow++) {" +
-                         "  row = this.rows[iRow];" +
-                         "  var x1 = $(row.cells[iCol1]);" +
-                         "  var x2 = $(row.cells[iCol2]);" +
-                         "  var x3 = $(row.cells[iCol3]);" +
-                         "  var x4 = $(row.cells[iCol4]);" +
-                         "  var x5 = $(row.cells[iCol5]);" +
-                         "  var x6 = $(row.cells[iCol6]);" +
-                         "  var xn = $(row.cells[iColn]);" +
-                         "  if (x1[0].innerText.trim() == '1'||x2[0].innerText.trim() == '1'||x3[0].innerText.trim() == '1'||x4[0].innerText.trim() == '1'||x5[0].innerText.trim() == '1'||x6[0].innerText.trim() == '1') {" +
-                         "      xn[0].className = 'redcolorcell';" +
-                         "  }" +
-                       "}" +
-                   "});");
+            //              " if (cm[i].name === 'ver') {" +
+            //              "     iColn = i; " +
+            //              " }" +
+            //           "}" +
+            //           "var cRows = this.rows.length;" +
+            //           "var iRow;" +
+            //           "var row;" +
+            //           "var className;" +
+            //           "for (iRow = 0; iRow < cRows; iRow++) {" +
+            //             "  row = this.rows[iRow];" +
+            //             "  var x1 = $(row.cells[iCol1]);" +
+            //             "  var x2 = $(row.cells[iCol2]);" +
+            //             "  var x3 = $(row.cells[iCol3]);" +
+            //             "  var x4 = $(row.cells[iCol4]);" +
+            //             "  var x5 = $(row.cells[iCol5]);" +
+            //             "  var x6 = $(row.cells[iCol6]);" +
+            //             "  var xn = $(row.cells[iColn]);" +
+            //             "  if (x1[0].innerText.trim() == '1'||x2[0].innerText.trim() == '1'||x3[0].innerText.trim() == '1'||x4[0].innerText.trim() == '1'||x5[0].innerText.trim() == '1'||x6[0].innerText.trim() == '1') {" +
+            //             "      xn[0].className = 'redcolorcell';" +
+            //             "  }" +
+            //           "}" +
+            //       "});");
         }
 
         #endregion События
@@ -3526,7 +3526,7 @@ namespace ArchNet
             }
             string _n = "";
             int _maxwidth = 535;
-            string _inputwidth = (this.EditFormWidth > _maxwidth) ? (ShowCheckBox ? "250" : this.EditFormInputWidth.ToString()) : "400";//168
+            string _inputwidth = (this.EditFormWidth > _maxwidth) ?  this.EditFormInputWidth.ToString() : "400";//168 ShowCheckBox ? "250" :
 
             string _fileuploader = ""; // есть ли на странице аплоадер файлов
             _ret += "<div id=\"mainform\" style=\"margin-right:auto;margin-left:auto;width:800px;\">";
@@ -3630,16 +3630,16 @@ namespace ArchNet
 
                     string _readonly = "";//title=\"Поле недоступно для редактирования\"
 
-                    DataTable chb_old = new DataTable();
-                    if (ShowCheckBox)
-                    {
-                        SqlConnection conn = new SqlConnection(Properties.Settings.Default.constr);
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("SELECT [name] FROM [dbo].[_checkbox_list] where id_archive=" + _id, conn);
-                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                        sqlDataAdapter.Fill(chb_old);
-                        conn.Close();
-                    }
+                    //DataTable chb_old = new DataTable();
+                    //if (ShowCheckBox)
+                    //{
+                    //    SqlConnection conn = new SqlConnection(Properties.Settings.Default.constr);
+                    //    conn.Open();
+                    //    SqlCommand cmd = new SqlCommand("SELECT [name] FROM [dbo].[_checkbox_list] where id_archive=" + _id, conn);
+                    //    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                    //    sqlDataAdapter.Fill(chb_old);
+                    //    conn.Close();
+                    //}
 
                     foreach (var fld in cur.Fields)
                     {
@@ -3794,35 +3794,35 @@ namespace ArchNet
                                 default:
                                     break;
                             }
-                            if (ShowCheckBox)
-                            {
-                                bool chkb1, chkb2;
-                                string chkb1_name, chkb2_name;
-                                chkb1 = chkb2 = false;
-                                chkb1_name = "checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName;
-                                chkb2_name = "checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName;
+                            //if (ShowCheckBox)
+                            //{
+                            //    bool chkb1, chkb2;
+                            //    string chkb1_name, chkb2_name;
+                            //    chkb1 = chkb2 = false;
+                            //    chkb1_name = "checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName;
+                            //    chkb2_name = "checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName;
 
-                                if (RequestPost["oper"] == "save")
-                                {
-                                    chkb1 = (RequestPost["checkbox1_" + _n] ?? "").ToString() == "on";
-                                    chkb2 = (RequestPost["checkbox2_" + _n] ?? "").ToString() == "on";
-                                }
-                                else
-                                    foreach (DataRow r1 in chb_old.Rows)
-                                    {
-                                        if (r1["name"].ToString() == chkb1_name) chkb1 = true;
-                                        if (r1["name"].ToString() == chkb2_name) chkb2 = true;
-                                    }
+                            //    if (RequestPost["oper"] == "save")
+                            //    {
+                            //        chkb1 = (RequestPost["checkbox1_" + _n] ?? "").ToString() == "on";
+                            //        chkb2 = (RequestPost["checkbox2_" + _n] ?? "").ToString() == "on";
+                            //    }
+                            //    else
+                            //        foreach (DataRow r1 in chb_old.Rows)
+                            //        {
+                            //            if (r1["name"].ToString() == chkb1_name) chkb1 = true;
+                            //            if (r1["name"].ToString() == chkb2_name) chkb2 = true;
+                            //        }
 
-                                _ret += "<div class=\"checkbox checkbox-primary checkbox-inline\" style=\"padding-left: 25px;\">";
-                                _ret += "   <input type=\"checkbox\" id=\"checkbox1_" + _n + "\" name=\"checkbox1_" + _n + "\" " + (chkb1 ? " checked" : "") + ">";
-                                _ret += "   <label for=\"checkbox1_" + _n + "\">&nbsp;</label>";
-                                _ret += "</div>";
-                                _ret += "<div class=\"checkbox checkbox-danger checkbox-inline\">";
-                                _ret += "   <input type=\"checkbox\" id=\"checkbox2_" + _n + "\" name=\"checkbox2_" + _n + "\"  " + (EnableSuperVisorCheckBox ? " onclick=\"$('#checkbox1_" + _n + "').prop('checked', $(this).prop('checked'));\"" : " disabled") + (chkb2 ? " checked" : "") + ">";
-                                _ret += "   <label for=\"checkbox2_" + _n + "\">&nbsp;</label>";
-                                _ret += "</div>";
-                            }
+                            //    _ret += "<div class=\"checkbox checkbox-primary checkbox-inline\" style=\"padding-left: 25px;\">";
+                            //    _ret += "   <input type=\"checkbox\" id=\"checkbox1_" + _n + "\" name=\"checkbox1_" + _n + "\" " + (chkb1 ? " checked" : "") + ">";
+                            //    _ret += "   <label for=\"checkbox1_" + _n + "\">&nbsp;</label>";
+                            //    _ret += "</div>";
+                            //    _ret += "<div class=\"checkbox checkbox-danger checkbox-inline\">";
+                            //    _ret += "   <input type=\"checkbox\" id=\"checkbox2_" + _n + "\" name=\"checkbox2_" + _n + "\"  " + (EnableSuperVisorCheckBox ? " onclick=\"$('#checkbox1_" + _n + "').prop('checked', $(this).prop('checked'));\"" : " disabled") + (chkb2 ? " checked" : "") + ">";
+                            //    _ret += "   <label for=\"checkbox2_" + _n + "\">&nbsp;</label>";
+                            //    _ret += "</div>";
+                            //}
                             _ret += "</div>";
                         }
                     }
@@ -3992,17 +3992,17 @@ namespace ArchNet
                                             break;
                                     }
 
-                                    if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
-                                    {
-                                        _ret += "<div class=\"checkbox checkbox-primary checkbox-inline\" style=\"padding-left: 25px;\">";
-                                        _ret += "   <input type=\"checkbox\" id=\"checkbox1_" + fld.Data.FieldName + "\" name=\"checkbox1_" + fld.Data.FieldName + "\">";
-                                        _ret += "   <label for=\"checkbox1_" + fld.Data.FieldName + "\">&nbsp;</label>";
-                                        _ret += "</div>";
-                                        _ret += "<div class=\"checkbox checkbox-danger checkbox-inline\">";
-                                        _ret += "   <input type=\"checkbox\" id=\"checkbox2_" + fld.Data.FieldName + "\" name=\"checkbox2_" + fld.Data.FieldName + "\"  " + (EnableSuperVisorCheckBox ? " onclick=\"$('#checkbox1_" + fld.Data.FieldName + "').prop('checked', $(this).prop('checked'));\"" : " disabled") + ">";
-                                        _ret += "   <label for=\"checkbox2_" + fld.Data.FieldName + "\">&nbsp;</label>";
-                                        _ret += "</div>";
-                                    }
+                                    //if (ShowCheckBox && (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source"))
+                                    //{
+                                    //    _ret += "<div class=\"checkbox checkbox-primary checkbox-inline\" style=\"padding-left: 25px;\">";
+                                    //    _ret += "   <input type=\"checkbox\" id=\"checkbox1_" + fld.Data.FieldName + "\" name=\"checkbox1_" + fld.Data.FieldName + "\">";
+                                    //    _ret += "   <label for=\"checkbox1_" + fld.Data.FieldName + "\">&nbsp;</label>";
+                                    //    _ret += "</div>";
+                                    //    _ret += "<div class=\"checkbox checkbox-danger checkbox-inline\">";
+                                    //    _ret += "   <input type=\"checkbox\" id=\"checkbox2_" + fld.Data.FieldName + "\" name=\"checkbox2_" + fld.Data.FieldName + "\"  " + (EnableSuperVisorCheckBox ? " onclick=\"$('#checkbox1_" + fld.Data.FieldName + "').prop('checked', $(this).prop('checked'));\"" : " disabled") + ">";
+                                    //    _ret += "   <label for=\"checkbox2_" + fld.Data.FieldName + "\">&nbsp;</label>";
+                                    //    _ret += "</div>";
+                                    //}
 
                                     // Обработчики полей
                                     if (fld.Edit.Enable && cur.EnableSaveButton && Cursors[k].EnableSaveButton)
@@ -4092,7 +4092,7 @@ namespace ArchNet
 
                             JSReadyList.Add("form" + k + "dialog",
                             "$('#form" + k + "_edit').dialog({" +
-                            "width: " + (ShowCheckBox ? "400" : "360") + "," +
+                            "width: 360," +
                                 "height: 'auto'," +
                                 "resizable: false," +
                                 "autoOpen: false," +
@@ -4161,7 +4161,7 @@ namespace ArchNet
                     }
                     if (_tabs != "")
                     {
-                        _ret += "<div id=\"tabs\" style=\"float: left;" + (ShowCheckBox ? "" : "margin-left: 15px;") + "\">";
+                        _ret += "<div id=\"tabs\" style=\"float: left;margin-left: 15px;\">";
                         _ret += "<ul>";
                         _ret += _tabs;
                         _ret += "</ul>";
@@ -4490,42 +4490,42 @@ namespace ArchNet
                         default:
                             break;
                     }
-                    //// CheckBoxList {
-                    fld.Edit.Chk1 = ((RequestPost["checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
-                    fld.Edit.Chk2 = ((RequestPost["checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
-                    is_good_doc = fld.Edit.Chk1 || fld.Edit.Chk2 ? false : is_good_doc;
-                    //// } CheckBoxList
+                    
+                    //fld.Edit.Chk1 = ((RequestPost["checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
+                    //fld.Edit.Chk2 = ((RequestPost["checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
+                    //is_good_doc = fld.Edit.Chk1 || fld.Edit.Chk2 ? false : is_good_doc;
+                    
                 }
             }
 
             //Проверяем есть ли галочки в версиях - для установки статуса
 
-            if (ShowCheckBox && is_good_doc)
-            {
-                DataTable dt_ch = new DataTable();
-                List<string> list = new List<string>(Cursors.Keys);
-                foreach (string k in list)
-                {
-                    dt_ch = GetDataList(Cursors[k]);
-                    foreach (DataRow row_new in dt_ch.Rows)
-                    {
-                        foreach (var fld in Cursors[k].Fields)
-                        {
-                            if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
-                            {
-                                string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
-                                string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
-                                if (_v1n == "2" || _v2n == "2")
-                                {
-                                    is_good_doc = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if (!is_good_doc) break;
-                    }
-                }
-            }
+            //if (ShowCheckBox && is_good_doc)
+            //{
+            //    DataTable dt_ch = new DataTable();
+            //    List<string> list = new List<string>(Cursors.Keys);
+            //    foreach (string k in list)
+            //    {
+            //        dt_ch = GetDataList(Cursors[k]);
+            //        foreach (DataRow row_new in dt_ch.Rows)
+            //        {
+            //            foreach (var fld in Cursors[k].Fields)
+            //            {
+            //                if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
+            //                {
+            //                    string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
+            //                    string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
+            //                    if (_v1n == "2" || _v2n == "2")
+            //                    {
+            //                        is_good_doc = false;
+            //                        break;
+            //                    }
+            //                }
+            //            }
+            //            if (!is_good_doc) break;
+            //        }
+            //    }
+            //}
 
             #endregion Получаем данные
 
@@ -4850,61 +4850,61 @@ namespace ArchNet
 
                 #region Обработка галочек супервайзеров
 
-                if (ShowCheckBox)
-                {
-                    DataTable chb_old = new DataTable();
-                    cmd.CommandText = "SELECT [name] FROM [dbo].[_checkbox_list] where id_archive=" + (_cid > 0 ? _cid : new_id);
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(chb_old);
+                //if (ShowCheckBox)
+                //{
+                //    DataTable chb_old = new DataTable();
+                //    cmd.CommandText = "SELECT [name] FROM [dbo].[_checkbox_list] where id_archive=" + (_cid > 0 ? _cid : new_id);
+                //    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
+                //    sqlDataAdapter.Fill(chb_old);
 
-                    bool chkb1, chkb2;
-                    string chkb1_name, chkb2_name;
+                //    bool chkb1, chkb2;
+                //    string chkb1_name, chkb2_name;
 
-                    foreach (var fld in MainCursor.Fields)
-                    {
-                        chkb1 = chkb2 = false;
-                        chkb1_name = "checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName;
-                        chkb2_name = "checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName;
+                //    foreach (var fld in MainCursor.Fields)
+                //    {
+                //        chkb1 = chkb2 = false;
+                //        chkb1_name = "checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName;
+                //        chkb2_name = "checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName;
 
-                        foreach (DataRow r1 in chb_old.Rows)
-                        {
-                            if (r1["name"].ToString() == chkb1_name) chkb1 = true;
-                            if (r1["name"].ToString() == chkb2_name) chkb2 = true;
-                        }
-                        //
-                        cmd.CommandText = "";
-                        //
-                        if (chkb1 != fld.Edit.Chk1)
-                        {
-                            if (fld.Edit.Chk1)
-                            {
-                                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + ")";
-                                changes += "[" + chkb1_name + "] 0 -> 1\n";
-                            }
-                            else
-                            {
-                                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb1_name + "'";
-                                changes += "[" + chkb1_name + "] 1 -> 0\n";
-                            }
-                            if (cmd.CommandText != "") cmd.ExecuteNonQuery();
-                        }
-                        //
-                        if (EnableSuperVisorCheckBox && chkb2 != fld.Edit.Chk2)
-                        {
-                            if (fld.Edit.Chk2)
-                            {
-                                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + ")";
-                                changes += "[" + chkb2_name + "] 0 -> 1\n";
-                            }
-                            else
-                            {
-                                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb2_name + "'";
-                                changes += "[" + chkb2_name + "] 1 -> 0\n";
-                            }
-                            if (cmd.CommandText != "") cmd.ExecuteNonQuery();
-                        }
-                    }
-                }
+                //        foreach (DataRow r1 in chb_old.Rows)
+                //        {
+                //            if (r1["name"].ToString() == chkb1_name) chkb1 = true;
+                //            if (r1["name"].ToString() == chkb2_name) chkb2 = true;
+                //        }
+                //        //
+                //        cmd.CommandText = "";
+                //        //
+                //        if (chkb1 != fld.Edit.Chk1)
+                //        {
+                //            if (fld.Edit.Chk1)
+                //            {
+                //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + ")";
+                //                changes += "[" + chkb1_name + "] 0 -> 1\n";
+                //            }
+                //            else
+                //            {
+                //                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb1_name + "'";
+                //                changes += "[" + chkb1_name + "] 1 -> 0\n";
+                //            }
+                //            if (cmd.CommandText != "") cmd.ExecuteNonQuery();
+                //        }
+                //        //
+                //        if (EnableSuperVisorCheckBox && chkb2 != fld.Edit.Chk2)
+                //        {
+                //            if (fld.Edit.Chk2)
+                //            {
+                //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + ")";
+                //                changes += "[" + chkb2_name + "] 0 -> 1\n";
+                //            }
+                //            else
+                //            {
+                //                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb2_name + "'";
+                //                changes += "[" + chkb2_name + "] 1 -> 0\n";
+                //            }
+                //            if (cmd.CommandText != "") cmd.ExecuteNonQuery();
+                //        }
+                //    }
+                //}
 
                 #endregion Обработка галочек супервайзеров
 
@@ -5016,13 +5016,13 @@ namespace ArchNet
                                 cmd.ExecuteNonQuery();
                                 faFunc.ToJournal(cmd, user_id, 3, rid, IDBase, Cursors[k].TableID, "", 0);
                                 //
-                                if (ShowCheckBox)
-                                {
-                                    cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_docversion = @p_id AND id_base=" + IDBase;
-                                    cmd.Parameters.Clear();
-                                    cmd.Parameters.AddWithValue("@p_id", rid);
-                                    cmd.ExecuteNonQuery();
-                                }
+                                //if (ShowCheckBox)
+                                //{
+                                //    cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_docversion = @p_id AND id_base=" + IDBase;
+                                //    cmd.Parameters.Clear();
+                                //    cmd.Parameters.AddWithValue("@p_id", rid);
+                                //    cmd.ExecuteNonQuery();
+                                //}
                             }
 
                             #endregion Удаление
@@ -5075,44 +5075,44 @@ namespace ArchNet
                                     cmd.Parameters.AddWithValue("@p_id", rid);
                                     cmd.ExecuteNonQuery();
 
-                                    if (ShowCheckBox)
-                                    {
-                                        foreach (var fld in Cursors[k].Fields)
-                                            if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
-                                            {
-                                                string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
-                                                string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
-                                                //string _v1o = row_old[chkb1_name].ToString(), _v2o = row_old[chkb2_name].ToString();
+                                    //if (ShowCheckBox)
+                                    //{
+                                    //    foreach (var fld in Cursors[k].Fields)
+                                    //        if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
+                                    //        {
+                                    //            string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
+                                    //            string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
+                                    //            //string _v1o = row_old[chkb1_name].ToString(), _v2o = row_old[chkb2_name].ToString();
 
-                                                cmd.Parameters.Clear();
+                                    //            cmd.Parameters.Clear();
 
-                                                if (_v1n == "2")
-                                                {
-                                                    cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + "," + rid + ")";
-                                                    changes += "[" + chkb1_name + "] 0 -> 1\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
-                                                else if (_v1n == "3")
-                                                {
-                                                    cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb1_name + "' AND id_docversion=" + rid;
-                                                    changes += "[" + chkb1_name + "] 1 -> 0\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
+                                    //            if (_v1n == "2")
+                                    //            {
+                                    //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + "," + rid + ")";
+                                    //                changes += "[" + chkb1_name + "] 0 -> 1\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
+                                    //            else if (_v1n == "3")
+                                    //            {
+                                    //                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb1_name + "' AND id_docversion=" + rid;
+                                    //                changes += "[" + chkb1_name + "] 1 -> 0\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
 
-                                                if (_v2n == "2")
-                                                {
-                                                    cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + "," + rid + ")";
-                                                    changes += "[" + chkb2_name + "] 0 -> 1\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
-                                                else if (_v2n == "3")
-                                                {
-                                                    cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb2_name + "' AND id_docversion=" + rid;
-                                                    changes += "[" + chkb2_name + "] 1 -> 0\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
-                                            }
-                                    }
+                                    //            if (_v2n == "2")
+                                    //            {
+                                    //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + "," + rid + ")";
+                                    //                changes += "[" + chkb2_name + "] 0 -> 1\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
+                                    //            else if (_v2n == "3")
+                                    //            {
+                                    //                cmd.CommandText = "DELETE FROM [dbo].[_checkbox_list] WHERE id_archive=" + (_cid > 0 ? _cid : new_id).ToString() + " AND name=" + "'" + chkb2_name + "' AND id_docversion=" + rid;
+                                    //                changes += "[" + chkb2_name + "] 1 -> 0\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
+                                    //        }
+                                    //}
                                     faFunc.ToJournal(cmd, user_id, 2, rid, IDBase, Cursors[k].TableID, changes, _all_score);
                                 }
 
@@ -5254,28 +5254,28 @@ namespace ArchNet
                                     //
                                     changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1], out _sc, Page, _act) : "");
 
-                                    if (ShowCheckBox)
-                                        foreach (var fld in Cursors[k].Fields)
-                                            if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
-                                            {
-                                                string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
-                                                string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
+                                    //if (ShowCheckBox)
+                                    //    foreach (var fld in Cursors[k].Fields)
+                                    //        if (fld.Data.FieldName == "main" || fld.Data.FieldName == "id_status" || fld.Data.FieldName == "id_source")
+                                    //        {
+                                    //            string chkb1_name = "checkbox1_" + fld.Data.FieldName, chkb2_name = "checkbox2_" + fld.Data.FieldName;
+                                    //            string _v1n = row_new[chkb1_name].ToString(), _v2n = row_new[chkb2_name].ToString();
 
-                                                cmd.Parameters.Clear();
+                                    //            cmd.Parameters.Clear();
 
-                                                if (_v1n == "2")
-                                                {
-                                                    cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + "," + nid + ")";
-                                                    changes += "[" + chkb1_name + "] 0 -> 1\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
-                                                if (_v2n == "2")
-                                                {
-                                                    cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + "," + nid + ")";
-                                                    changes += "[" + chkb2_name + "] 0 -> 1\n";
-                                                    cmd.ExecuteNonQuery();
-                                                }
-                                            }
+                                    //            if (_v1n == "2")
+                                    //            {
+                                    //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb1_name + "'," + IDBase + "," + nid + ")";
+                                    //                changes += "[" + chkb1_name + "] 0 -> 1\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
+                                    //            if (_v2n == "2")
+                                    //            {
+                                    //                cmd.CommandText = "INSERT INTO [dbo].[_checkbox_list] ([date_reg],[id_archive],[name],[id_base],[id_docversion]) VALUES (GetDate()," + (_cid > 0 ? _cid : new_id).ToString() + "," + "'" + chkb2_name + "'," + IDBase + "," + nid + ")";
+                                    //                changes += "[" + chkb2_name + "] 0 -> 1\n";
+                                    //                cmd.ExecuteNonQuery();
+                                    //            }
+                                    //        }
                                     //_all_score += _sc;
                                     faFunc.ToJournal(cmd, user_id, 1, nid, IDBase, Cursors[k].TableID, changes, _all_score);
                                 }

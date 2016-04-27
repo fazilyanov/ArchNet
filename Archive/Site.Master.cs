@@ -109,8 +109,8 @@ namespace ArchNet
                         "<li role='presentation' class='dropdown-header'>Доступные базы:</li>" + menu_enabled +
                         "<li role='presentation' class='dropdown-header'>Другие:</li>" + menu_other + menu_disabled;
 
-                    Session["listbase"] = "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Доступные:</a>" + list_enabled +
-                        "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Другие:</a>" + list_other + list_disabled;// Тут храним HTML код списка баз на странице выбора
+                    Session["listbase"] = "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Доступные:</a>" + list_enabled +
+                        "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Другие:</a>" + list_other + list_disabled;// Тут храним HTML код списка баз на странице выбора
                     
                     rdr.Close();
                     cmd.Dispose();
@@ -201,6 +201,8 @@ namespace ArchNet
             cur_basename = Page.RouteData.Values["p_base"] != null ? Page.RouteData.Values["p_base"].ToString() : "";
             if (cur_basename != "error" && Session["user_login"] != null)
             {
+                // TODO : Последние изменения в отдельной вкладке
+                /* 
                 if (Session["NewChangeLogCount"] == null)
                 {
                     // Достаем id последней прочитанной новости
@@ -213,11 +215,12 @@ namespace ArchNet
 
                     Session["NewChangeLogCount"] = all_change_log_count - last_msg_id;
                 }
-
-               
-
                 // Открытие дополнительной вкладки со списком изменений если есть новые
                 OpenHelp = ((int)(Session["NewChangeLogCount"] ?? 0) > 0) ? "<script type='text/javascript'>window.open('" + GetRouteUrl("blog", new { }) + "', 'История изменений');</script> " : "";
+
+                */
+
+
 
                 // Если пустой - кидаем на страницу выбора баз
                 //if (cur_basename == "") Response.Redirect(GetRouteUrl("default", new { p_base = "dbselect" }));
@@ -291,10 +294,10 @@ namespace ArchNet
                     _menu = String.Format(menu_item_enabled, GetRouteUrl("archive", new { p_base = cur_basename, p_page = "srch" }), faFunc.GetDocTypeName("srch"), "gi gi-search") +
                        "<li role='presentation' class='dropdown-header'>Тип документа:</li>" + menu_enabled + menu_disabled + "<li role='presentation' class='dropdown-header'>Другое:</li>";
 
-                    _list = "<a href=\"#\" class=\"list-group-item active\" style=\"font-size:15px;\">Архив (" + (Session[cur_basename] ?? "").ToString() + ")</a>" +
+                    _list = "<a href=\"#\" class=\"list-group-item navbar-default\" style=\"font-size:15px;\">Архив (" + (Session[cur_basename] ?? "").ToString() + ")</a>" +
                         String.Format(list_item_enabled, GetRouteUrl("archive", new { p_base = cur_basename, p_page = "srch" }), faFunc.GetDocTypeName("srch"), "gi gi-search") +
-                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Тип документа:</a>" + list_enabled + list_disabled +
-                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;color: #007cb0;font-weight: 600;'>Другое:</a>";
+                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Тип документа:</a>" + list_enabled + list_disabled +
+                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Другое:</a>";
 
                     if (Session[cur_basename + "_access_docversion_view"] != null || Session[cur_basename + "_access_docversion_edit"] != null)
                     {
