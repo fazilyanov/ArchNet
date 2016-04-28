@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
 // Assembly         : ArchNet
-// Author           : Artur Fazilyanov (a.fazilyanov@stg.ru | a.fazilyanov@gmail.com)
+// Author           : Artur Fazilyanov (a.fazilyanov@gmail.com)
 // Created          : 02-25-2016
 //
 // Last Modified By : a.fazilyanov
 // Last Modified On : 04-19-2016
 // ***********************************************************************
-// <copyright file="faField.cs" company="CJSC Stroytransgaz">
+// <copyright file="faField.cs" company="">
 //     Copyright ©  2016
 // </copyright>
 // <summary></summary>

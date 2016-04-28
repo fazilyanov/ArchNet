@@ -736,16 +736,16 @@ namespace ArchNet
                         //fld.Edit.DefaultValue = "1";
                         cur.AddField(fld);
 
-                        // Штрихкод
-                        fld = new faField();
-                        fld.Data.FieldName = "barcode";
-                        fld.View.CaptionShort = "Штрихкод";
-                        fld.View.Width = 66;
-                        fld.View.TextAlign = "center";
-                        fld.Edit.Control = faControl.TextBoxInteger;
-                        fld.Edit.Min = 1000000000;
-                        fld.Edit.Max = Int32.MaxValue;
-                        cur.AddField(fld);
+                        //// Штрихкод
+                        //fld = new faField();
+                        //fld.Data.FieldName = "barcode";
+                        //fld.View.CaptionShort = "Штрихкод";
+                        //fld.View.Width = 66;
+                        //fld.View.TextAlign = "center";
+                        //fld.Edit.Control = faControl.TextBoxInteger;
+                        //fld.Edit.Min = 1000000000;
+                        //fld.Edit.Max = Int32.MaxValue;
+                        //cur.AddField(fld);
 
                         // Дата создания
                         fld = new faField();
@@ -809,47 +809,47 @@ namespace ArchNet
                         fld.Edit.Auto = faAutoType.FileSize;
                         cur.AddField(fld);
 
-                        // Статус
-                        fld = new faField();
-                        fld.Data.FieldName = "id_status";
-                        fld.View.CaptionShort = "Статус";
-                        fld.View.Width = 90;
-                        fld.Edit.Control = faControl.DropDown;
-                        fld.Edit.Required = true;
-                        fld.LookUp.Key = "id";
-                        fld.LookUp.Field = "name";
-                        fld.LookUp.Table = "_status";
-                        cur.AddField(fld);
+                        //// Статус
+                        //fld = new faField();
+                        //fld.Data.FieldName = "id_status";
+                        //fld.View.CaptionShort = "Статус";
+                        //fld.View.Width = 90;
+                        //fld.Edit.Control = faControl.DropDown;
+                        //fld.Edit.Required = true;
+                        //fld.LookUp.Key = "id";
+                        //fld.LookUp.Field = "name";
+                        //fld.LookUp.Table = "_status";
+                        //cur.AddField(fld);
 
-                        // Источник
-                        fld = new faField();
-                        fld.Data.FieldName = "id_source";
-                        fld.View.CaptionShort = "Источник";
-                        fld.View.Width = 90;
-                        fld.Edit.Control = faControl.DropDown;
-                        fld.Edit.DefaultValue = "2";
-                        fld.Edit.Required = true;
-                        fld.Edit.DefaultText = "Бумажный экземпляр";
-                        fld.LookUp.Key = "id";
-                        fld.LookUp.Field = "name";
-                        fld.LookUp.Table = "_source";
-                        cur.AddField(fld);
+                        //// Источник
+                        //fld = new faField();
+                        //fld.Data.FieldName = "id_source";
+                        //fld.View.CaptionShort = "Источник";
+                        //fld.View.Width = 90;
+                        //fld.Edit.Control = faControl.DropDown;
+                        //fld.Edit.DefaultValue = "2";
+                        //fld.Edit.Required = true;
+                        //fld.Edit.DefaultText = "Бумажный экземпляр";
+                        //fld.LookUp.Key = "id";
+                        //fld.LookUp.Field = "name";
+                        //fld.LookUp.Table = "_source";
+                        //cur.AddField(fld);
 
-                        //Качество
-                        fld = new faField();
-                        fld.Data.FieldName = "id_quality";
-                        fld.View.CaptionShort = "Качество";
-                        fld.View.Width = 90;
-                        fld.View.TextAlign = "center";
-                        fld.Edit.Control = faControl.DropDown;
-                        fld.Edit.DefaultValue = "1";
-                        fld.Edit.DefaultText = "Соответствует";
-                        fld.Edit.Required = true;
-                        fld.Filter.Control = faControl.DropDown;
-                        fld.LookUp.Key = "id";
-                        fld.LookUp.Field = "name";
-                        fld.LookUp.Table = "_quality";
-                        cur.AddField(fld);
+                        ////Качество
+                        //fld = new faField();
+                        //fld.Data.FieldName = "id_quality";
+                        //fld.View.CaptionShort = "Качество";
+                        //fld.View.Width = 90;
+                        //fld.View.TextAlign = "center";
+                        //fld.Edit.Control = faControl.DropDown;
+                        //fld.Edit.DefaultValue = "1";
+                        //fld.Edit.DefaultText = "Соответствует";
+                        //fld.Edit.Required = true;
+                        //fld.Filter.Control = faControl.DropDown;
+                        //fld.LookUp.Key = "id";
+                        //fld.LookUp.Field = "name";
+                        //fld.LookUp.Table = "_quality";
+                        //cur.AddField(fld);
 
                         //
                         list.AddCursor(cur);

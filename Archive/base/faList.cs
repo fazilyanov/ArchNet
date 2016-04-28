@@ -1,12 +1,12 @@
 ﻿// ***********************************************************************
 // Assembly         : ArchNet
-// Author           : Artur Fazilyanov (a.fazilyanov@stg.ru | a.fazilyanov@gmail.com)
+// Author           : Artur Fazilyanov (a.fazilyanov@gmail.com)
 // Created          : 01-10-2014
 //
 // Last Modified By : a.fazilyanov
 // Last Modified On : 03-25-2016
 // ***********************************************************************
-// <copyright file="faList.cs" company="CJSC Stroytransgaz">
+// <copyright file="faList.cs" company="">
 //     Copyright ©  2016
 // </copyright>
 // <summary>Главный класс</summary>
@@ -31,6 +31,7 @@ using System.Web.UI.HtmlControls;
 using Trirand.Web.UI.WebControls;
 
 // TODO: http://ts-soft.ru/blog/filetable
+
 namespace ArchNet
 {
     public class faList
@@ -56,12 +57,6 @@ namespace ArchNet
         /// Указывается имя базы из которой была сделана копия
         /// </summary>
         private string _fromBase = "";
-
-        /// <summary>
-        /// Раширение поведения страницы
-        /// </summary>
-#warning Под вопросом, можно избавиться
-        private string _mode = "";
 
         #endregion Поля
 
@@ -148,22 +143,13 @@ namespace ArchNet
         /// </summary>
         public int EditFormWidth { get; set; }
 
-        /// <summary>
-        /// Доступны ли для редактирования "галочки" супервайзеров
-        /// </summary>
-#warning Относиться пока только к архиву, надо выносить в дочерний
-       // public bool EnableSuperVisorCheckBox { get; set; }
+
 
         /// <summary>
         /// Показывать "стрелки" в карточке для перехода к предыдущей/следующей записи
         /// </summary>
         public bool ShowArrows { get; set; }
 
-        /// <summary>
-        /// Показывать ли вообще "галочки"
-        /// </summary>
-#warning Относиться пока только к архиву, надо выносить в дочерний
-       // public bool ShowCheckBox { get; set; }
 
         #endregion Свойства формы карточки
 
@@ -217,10 +203,8 @@ namespace ArchNet
         public faList()
         {
             ShowFilterPanel = false;
-            //ShowCheckBox = false;
             ShowHiddenDoc = false;
             ShowArrows = false;
-            //EnableSuperVisorCheckBox = false;
             Cursors = new Dictionary<string, faCursor>();
             ActionMenuItems = new Dictionary<string, string>();
             JSFunctionList = new Dictionary<string, string>();
@@ -234,7 +218,7 @@ namespace ArchNet
             ShowDeletedOnly = false;
             Page = faPage.none;
             IDBase = "0";
-            BaseName = "";
+            BaseName = string.Empty;
         }
 
         /// <summary>
@@ -297,7 +281,7 @@ namespace ArchNet
         #region Рендер
 
         /// <summary>
-        /// Генерация всего и отрисовка всего
+        /// Генерация и отрисовка всего
         /// </summary>
         /// <param name="form">Форма на странице</param>
         /// <param name="_page">Страница</param>
@@ -330,7 +314,6 @@ namespace ArchNet
             _id = (RequestGet["id"] ?? "").ToString().Trim().ToLower();
             _from = (RequestGet["from"] ?? "").ToString().Trim().ToLower();
             _fromBase = (RequestGet["frombase"] ?? "").ToString().Trim().ToLower();
-            _mode = (RequestGet["mode"] ?? "").ToString().Trim().ToLower();
 
             #region Select - Страница выбора
 
@@ -373,15 +356,13 @@ namespace ArchNet
                 "<script type='text/javascript'>" +
                 "</script>";
                 form.Controls.Add(new LiteralControl(_ret));
-
-                // <a href="#" onclick="hide_search_panel();" title="Скрыть панель фильтров" style="margin-right: 3px;float: right;font-size: 15px;"><span class="gi gi-settings"></span></a>
-                // <a href="#" onclick="hide_search_panel();" title="Скрыть панель фильтров" style="margin-right: 5px;float: right;font-size: 15px;"><span class="gi gi-floppy_disk"></span></a></div>
-            }
+                            }
 
             #endregion Setting - страница настроек
 
             #region Excel - Выгрузка
 
+            // TODO :  Сделать выгрузку в шаблон как с torg31
             else if (_act == "export_excel")
             {
                 int totalrows;
@@ -447,16 +428,7 @@ namespace ArchNet
                             }
 
                         ws.Cells[1, 1, row, i].AutoFilter = true;
-                        //using (ExcelRange r = ws.Cells[1, dt.Columns.Count])
-                        //{
-                        //    r.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        //    r.Style.Fill.BackgroundColor.SetColor(Color.FromArgb(184, 204, 228));
-                        //    r.Style.Font.Bold = true;
-                        //}
                     }
-                    // we had better add some document properties to the spreadsheet
-
-                    // set some core property values
                     faFunc.ToLog(5, "Записей: " + totalrows);
                     xlPackage.Workbook.Properties.Title = "Выгрузка данных";
                     xlPackage.Workbook.Properties.Author = HttpContext.Current.Session["user_name"].ToString();
@@ -470,7 +442,7 @@ namespace ArchNet
 
             #region Csv - Выгрузка
 
-            else if (_act == "export_csv" && _mode == "")
+            else if (_act == "export_csv")
             {
                 int totalrows;
                 string _fname = "", _head = "";
@@ -490,7 +462,7 @@ namespace ArchNet
                 faFunc.ToLog(3, "Записей: " + totalrows);
                 Resp.Redirect(HttpContext.Current.Request.Url.ToString() + "&mode=1&eq=" + export_queue);
             }
-            else if (_act == "export_csv" && _mode != "")
+            else if (_act == "export_csv"&& RequestGet["mode"]=="1")
             {
                 string export_queue = RequestGet["eq"];
                 int tr = (int)HttpContext.Current.Session["export_totalrow_" + export_queue];
@@ -926,70 +898,21 @@ namespace ArchNet
             HttpContext.Current.Session["last_sql"] = _last_sql.Length > 10000 ? _last_sql.Substring(10000) : _last_sql;
             SqlCommand cmd = new SqlCommand(_sql, conn);
             cmd.CommandTimeout = 270;
+            // TODO : в общую функцию получения данных
+
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
             sqlDataAdapter.Fill(dt);
 
             dt = AlterData(dt);
 
-            // Достаем путь до файла в комплекте  движения документов (спецификация)
-            if (RouteName == "complect" && cur.SesCurName == "_complect_list_view_cursor")
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    if (row["id_archive"].ToString() != "0" || row["barcode"].ToString() != "0")
-                    {
-                        string _sql1 = "SELECT a.[file] FROM [dbo].[zao_stg_docversion] as a where a.id_archive=@id_archive and a.del=0 and a.main=1 order by a.id desc";
-                        string _sql2 = "SELECT a.[file] FROM [dbo].[zao_stg_docversion] as a where a.barcode=@barcode and a.del=0 order by a.id desc";
-
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.AddWithValue("id_archive", row["id_archive"].ToString());
-                        cmd.Parameters.AddWithValue("barcode", row["barcode"].ToString());
-                        cmd.CommandText = row["id_archive"].ToString() != "0" ? _sql1 : _sql2;
-
-                        SqlDataAdapter sqlDataAdapter1 = new SqlDataAdapter(cmd);
-                        DataTable res = new DataTable();
-                        sqlDataAdapter1.Fill(res);
-                        if (res.Rows.Count > 0) row["file"] = res.Rows[0]["file"];
-                    }
-                }
-            }
-
-            // Оператор ТП в версии
-            if (RouteName == "docversion")
-            {
-                foreach (DataRow r in dt.Rows)
-                {
-                    if (r["id_quality"].ToString() != "1" && r["barcode"].ToString() != "0")
-                    {
-                        cmd.CommandText = "SELECT b.sname FROM [dbo].[_complectnew_list] as a left join [dbo].[_user] as b on b.id=a.id_creator where a.barcode=@barcode and a.del=0 order by a.id desc";
-                        cmd.Parameters.Clear();
-                        cmd.Parameters.AddWithValue("barcode", r["barcode"].ToString());
-                        var res = cmd.ExecuteScalar();
-                        r["tp"] = res is DBNull ? "" : res.ToString();
-                    }
-                }
-            }
-
-            //
             if (dt.Rows.Count > 0)
                 _totalrow = (int)dt.Rows[0][0];
             dt.Columns.Add("status", typeof(byte));
             dt.Columns["status"].ReadOnly = false;
             dt.Columns["status"].DefaultValue = 0;
-            foreach (DataRow r in dt.Rows)
-                r["status"] = 0;
-
-            // Прячем скрытые документы
-            if (!ShowHiddenDoc && cur.SesCurName == BaseName + "_archive_cursor")
-                foreach (DataRow r in dt.Rows)
-                    if (r["hidden"].ToString() == "2")
-                    {
-                        r["file"] = "ad";
-                        r["summ"] = "0";
-                        r["doctext"] = "";
-                    }
+            foreach (DataRow r in dt.Rows) r["status"] = 0;
             dt.AcceptChanges();
-            //
+            
             conn.Close();
             dt.PrimaryKey = new DataColumn[] { dt.Columns["id"] };
             return dt;
@@ -1006,185 +929,12 @@ namespace ArchNet
         /// <returns>Таблица DataTable c данными</returns>
         protected DataTable GetDataList(faCursor cur)
         {
-            string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") + (_mode != "" ? "_" + _mode : "");
+            string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") ;
             MainCursor.SelectedRow = _id;
             if (HttpContext.Current.Session[_s] == null)
             {
                 int _tr = 0;
-                DataTable dt = GetData(cur, 0, 10000, "id", "Asc", out _tr);
-
-#warning ниже - Убрать в виртуалку
-                if ((_mode == "complect" || _mode == "complectnew") && cur.SesCurName == BaseName + "_docversion_cursor")
-                {
-                    string inet = (RequestGet["i"] ?? "0").ToString();
-                    dt.Columns.Add("from");
-                    DataRow newrow = dt.NewRow();
-                    newrow["id"] = -1;
-                    newrow["main"] = 1;
-                    newrow["status"] = 1;
-                    if (inet != "0")
-                    {
-                        switch (inet)
-                        {
-                            case "1":
-                            case "6":
-                                newrow["id_status"] = 1;
-                                newrow["id_status_name_text"] = "Оригинал";
-                                newrow["id_source"] = 2;
-                                newrow["id_source_name_text"] = "Бумажный экземпляр";
-                                break;
-
-                            case "2":
-                                newrow["id_status"] = 4;
-                                newrow["id_status_name_text"] = "Копия";
-                                newrow["id_source"] = 1;
-                                newrow["id_source_name_text"] = "Электронные каналы связи ";
-                                break;
-
-                            case "3":
-                                newrow["id_status"] = 7;
-                                newrow["id_status_name_text"] = "Электронный документ";
-                                newrow["id_source"] = 1;
-                                newrow["id_source_name_text"] = "Электронные каналы связи ";
-                                break;
-
-                            default:
-                                newrow["id_status"] = 0;
-                                newrow["id_status_name_text"] = "";
-                                newrow["id_source"] = 0;
-                                newrow["id_source_name_text"] = "";
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        newrow["id_status"] = "0";
-                        newrow["id_source"] = 2;
-                        newrow["id_source_name_text"] = "Бумажный экземпляр";
-                    }
-                    newrow["id_quality"] = 1;
-                    newrow["id_quality_name_text"] = "Соответствует";
-
-                    newrow["barcode"] = RequestGet["b"] ?? "";
-                    newrow["file"] = RequestGet["f"] ?? "";
-                    newrow["date_trans"] = RequestGet["d"] ?? DateTime.Now.ToShortDateString();
-                    newrow["from"] = _from;
-
-                    dt.Rows.InsertAt(newrow, 0);
-                }
-
-                // Достаем путь до файла в комплекте на исправление
-                if (cur.SesCurName == "_regstor_list_cursor")
-                {
-                    // Добавляем столбец с базой
-                    SqlConnection conn = new SqlConnection(Properties.Settings.Default.constr);
-                    conn.Open();
-                    string cb = "";
-                    SqlCommand cmd = new SqlCommand("", conn);
-                    if (_id != "0")
-                    {
-                        cmd.CommandText = "SELECT a.id_base FROM [dbo].[_regstor] as a where a.id=@id and a.del=0";
-                        cmd.Parameters.AddWithValue("id", _id);
-                        int _id_base = (int)cmd.ExecuteScalar();
-                        cb = faFunc.GetBaseNameById(_id_base);
-                    }
-
-                    string _sql1 = "SELECT a.id_archive, q.name as id_quality_name_text, a.[file] FROM [dbo].[" + cb + "_docversion] as a LEFT JOIN[dbo].[_quality] as q ON a.id_quality=q.id where a.barcode=@barcode and a.del=0 order by a.id desc";
-                    string _sql2 = "SELECT a.id_archive, q.name as id_quality_name_text, a.[file] FROM [dbo].[" + cb + "_docversion] as a LEFT JOIN[dbo].[_quality] as q ON a.id_quality=q.id where a.id_archive=@id_archive and a.del=0 order by a.id desc";
-
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        if (row["id_archive"].ToString() != "0" || row["barcode"].ToString() != "0")
-                        {
-                            cmd.Parameters.Clear();
-                            cmd.Parameters.AddWithValue("id_archive", row["id_archive"].ToString());
-                            cmd.Parameters.AddWithValue("barcode", row["barcode"].ToString());
-                            cmd.CommandText = row["id_archive"].ToString() != "0" ? _sql2 : _sql1;
-                            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                            DataTable res = new DataTable();
-                            sqlDataAdapter.Fill(res);
-                            if (res.Rows.Count > 0)
-                            {
-                                row["id_archive"] = res.Rows[0]["id_archive"];
-                                row["file"] = res.Rows[0]["file"];
-                                row["id_quality_name_text"] = res.Rows[0]["id_quality_name_text"];
-                                row["id_base"] = cb;
-                            }
-                        }
-                    }
-                    conn.Close();
-                }
-
-                if (cur.SesCurName == BaseName + "_docversion_cursor")
-                {
-                    #region Добавляем галочки для версий
-
-                    dt.Columns.Add("checkbox1_main", typeof(byte));
-                    dt.Columns["checkbox1_main"].DefaultValue = 0;
-                    dt.Columns.Add("checkbox2_main", typeof(byte));
-                    dt.Columns["checkbox2_main"].DefaultValue = 0;
-
-                    dt.Columns.Add("checkbox1_id_status", typeof(byte));
-                    dt.Columns["checkbox1_id_status"].DefaultValue = 0;
-                    dt.Columns.Add("checkbox2_id_status", typeof(byte));
-                    dt.Columns["checkbox2_id_status"].DefaultValue = 0;
-
-                    dt.Columns.Add("checkbox1_id_source", typeof(byte));
-                    dt.Columns["checkbox1_id_source"].DefaultValue = 0;
-                    dt.Columns.Add("checkbox2_id_source", typeof(byte));
-                    dt.Columns["checkbox2_id_source"].DefaultValue = 0;
-
-                    DataTable chb_ver = new DataTable();
-                    SqlConnection conn = new SqlConnection(Properties.Settings.Default.constr);
-                    conn.Open();
-                    string _sql = "SELECT [id_docversion] as id, [name], 0 as [status] FROM [dbo].[_checkbox_list] where id_archive=" + (_id == "" ? "0" : _id) + " AND id_docversion > 0 AND id_base=" + IDBase;
-                    SqlCommand cmd = new SqlCommand(_sql, conn);
-                    HttpContext.Current.Session["last_sql"] = (HttpContext.Current.Session["last_sql"] ?? "").ToString() + _sql + "<br/><br/>";
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
-                    sqlDataAdapter.Fill(chb_ver);
-                    conn.Close();
-                    foreach (DataRow dr in chb_ver.Rows)
-                    {
-                        DataRow fr = dt.Rows.Find(dr["id"]);
-                        if (fr != null) fr[dr["name"].ToString()] = 1;
-                    }
-
-                    #endregion Добавляем галочки для версий
-
-                    #region Закрываем доступ к файлу если запрещены скрытые, прячем аннулированные версии
-
-                    if (!ShowHiddenDoc)
-                    {
-                        bool _hidden = false;
-                        foreach (faField f in MainCursor.Fields)
-                            _hidden = (f.Data.FieldName == "hidden" && f.Edit.Value == "2") ? true : _hidden;
-                        foreach (DataRow dr in dt.Rows)
-                        {
-                            if (_hidden) dr["file"] = "ad";
-                            if (dr["id_status"].ToString() == "6") dr.Delete();
-                        }
-                    }
-
-                    #endregion Закрываем доступ к файлу если запрещены скрытые, прячем аннулированные версии
-                }
-                // При добавлении новую записи из другой базы
-                if (_mode == "nvfob" && cur.SesCurName == BaseName + "_docversion_cursor")
-                {
-                    DataRow newrow = dt.NewRow();
-                    DataRow improw = HttpContext.Current.Session["copybaserow"] as DataRow;
-                    HttpContext.Current.Session.Remove("copybaserow");
-
-                    foreach (DataColumn c in improw.Table.Columns)
-                    {
-                        newrow[c.ColumnName] = improw[c.ColumnName];
-                    }
-
-                    newrow["id"] = -1;
-                    newrow["status"] = 1;
-
-                    dt.Rows.InsertAt(newrow, 0);
-                }
-
+                DataTable dt = GetData(cur, 0, 10000, "id", "Asc", out _tr);               
                 HttpContext.Current.Session[_s] = dt;
             }
             return (HttpContext.Current.Session[_s] as DataTable);
@@ -1282,7 +1032,7 @@ namespace ArchNet
         /// <param name="cur">Курсор</param>
         protected void ClearData(faCursor cur)
         {
-            HttpContext.Current.Session.Contents.Remove(cur.SesCurName + (_id != "" ? "_" + _id : "") + (_mode != "" ? "_" + _mode : ""));
+            HttpContext.Current.Session.Contents.Remove(cur.SesCurName + (_id != "" ? "_" + _id : ""));
         }
 
         #endregion ClearData
@@ -3089,7 +2839,7 @@ namespace ArchNet
                     DataRow row = dt.Rows.Find(e.RowKey);
                     row["status"] = row["status"].ToString() != "1" ? "2" : row["status"];
 
-                    string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") + (_mode != "" ? "_" + _mode : "");
+                    string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") ;
 
                     //DataTable chb_ver = new DataTable();
                     //chb_ver = HttpContext.Current.Session[_s + "_chb_ver"] as DataTable;
@@ -3519,11 +3269,7 @@ namespace ArchNet
             string _buf = "";
             string _v = "";
             string _vt = "";
-            if (_mode == "complect" || _mode == "complectnew")
-            {
-                string _b = (RequestGet["b"] ?? "").ToString().Trim();
-                string _f = (RequestGet["f"] ?? "").ToString().Trim();
-            }
+           
             string _n = "";
             int _maxwidth = 535;
             string _inputwidth = (this.EditFormWidth > _maxwidth) ?  this.EditFormInputWidth.ToString() : "400";//168 ShowCheckBox ? "250" :
@@ -5044,16 +4790,16 @@ namespace ArchNet
                                         {
                                             if (k.Contains("_docversion"))
                                             {
-                                                if (_mode == "complect" && row_new["from"] != null)
-                                                    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
-                                                else if (_mode == "complectnew" && row_new["from"] != null)
-                                                    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
-                                                else if (_act == "copybase" || _mode == "nvfob")
-                                                {
-                                                    string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                                    if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                                    row_new[fld.Data.FieldName] = nfn;
-                                                }
+                                            //    if (_mode == "complect" && row_new["from"] != null)
+                                            //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
+                                            //    else if (_mode == "complectnew" && row_new["from"] != null)
+                                            //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
+                                            //    else if (_act == "copybase" || _mode == "nvfob")
+                                            //    {
+                                            //        string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                            //        if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                            //        row_new[fld.Data.FieldName] = nfn;
+                                            //    }
                                             }
                                             else if (k.Contains("_monitor_list"))
                                             {
@@ -5135,16 +4881,16 @@ namespace ArchNet
 
                                             if (k.Contains("_docversion"))
                                             {
-                                                if (_mode == "complect" && row_new["from"] != null)
-                                                    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
-                                                else if (_mode == "complectnew" && row_new["from"] != null)
-                                                    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
-                                                else if (_act == "copybase" || _mode == "nvfob")
-                                                {
-                                                    string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                                    if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                                    row_new[fld.Data.FieldName] = nfn;
-                                                }
+                                                //if (_mode == "complect" && row_new["from"] != null)
+                                                //    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
+                                                //else if (_mode == "complectnew" && row_new["from"] != null)
+                                                //    row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
+                                                //else if (_act == "copybase" || _mode == "nvfob")
+                                                //{
+                                                //    string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                                //    if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                                //    row_new[fld.Data.FieldName] = nfn;
+                                                //}
                                             }
 
                                             _rootpath = System.IO.Path.Combine(Properties.Settings.Default.filepath, this.BaseName, "archive");  //"\\\\stg.lan\\nfkdata\\ArchiveScanFiles\\"
@@ -5232,24 +4978,24 @@ namespace ArchNet
                                     //
                                     if (k.Contains("_docversion"))
                                     {
-                                        if (_mode == "complect" && row_new["from"] != null)
-                                        {
-                                            cmd.CommandText = "UPDATE [dbo].[" + BaseName + "_complect_list] SET [id_archive] = " + (_cid > 0 ? _cid : new_id) +
-                                                ", [filepath] ='" + row_new["file"].ToString() + "' WHERE id_sp = " + row_new["from"].ToString();
-                                            cmd.Parameters.Clear();
-                                            cmd.ExecuteScalar();
-                                        }
-                                        else if (_mode == "complectnew" && row_new["from"] != null)
-                                        {
-                                            cmd.CommandText = "UPDATE [dbo].[_complectnew_list] SET [id_archive] = " + (_cid > 0 ? _cid : new_id) +
-                                                ", [file_archive] ='" + row_new["file"].ToString() + "' WHERE id = " + row_new["from"].ToString();
-                                            cmd.Parameters.Clear();
-                                            cmd.ExecuteScalar();
-                                            //
-                                            int changed_id = 0; int.TryParse(row_new["from"].ToString(), out changed_id);
-                                            faFunc.ToJournal(cmd, (HttpContext.Current.Session["user_id"] ?? "0").ToString(), 2, changed_id, "0", 27, "[id_archive] -> " + (_cid > 0 ? _cid : new_id) +
-                                                "\n[file_archive] -> '" + row_new["file"].ToString() + "'\n", 0);
-                                        }
+                                        //if (_mode == "complect" && row_new["from"] != null)
+                                        //{
+                                        //    cmd.CommandText = "UPDATE [dbo].[" + BaseName + "_complect_list] SET [id_archive] = " + (_cid > 0 ? _cid : new_id) +
+                                        //        ", [filepath] ='" + row_new["file"].ToString() + "' WHERE id_sp = " + row_new["from"].ToString();
+                                        //    cmd.Parameters.Clear();
+                                        //    cmd.ExecuteScalar();
+                                        //}
+                                        //else if (_mode == "complectnew" && row_new["from"] != null)
+                                        //{
+                                        //    cmd.CommandText = "UPDATE [dbo].[_complectnew_list] SET [id_archive] = " + (_cid > 0 ? _cid : new_id) +
+                                        //        ", [file_archive] ='" + row_new["file"].ToString() + "' WHERE id = " + row_new["from"].ToString();
+                                        //    cmd.Parameters.Clear();
+                                        //    cmd.ExecuteScalar();
+                                        //    //
+                                        //    int changed_id = 0; int.TryParse(row_new["from"].ToString(), out changed_id);
+                                        //    faFunc.ToJournal(cmd, (HttpContext.Current.Session["user_id"] ?? "0").ToString(), 2, changed_id, "0", 27, "[id_archive] -> " + (_cid > 0 ? _cid : new_id) +
+                                        //        "\n[file_archive] -> '" + row_new["file"].ToString() + "'\n", 0);
+                                        //}
                                     }
                                     //
                                     changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1], out _sc, Page, _act) : "");
