@@ -2,7 +2,7 @@
 using System.Web.UI;
 using Trirand.Web.UI.WebControls;
 
-namespace WebArchiveR6
+namespace ArchNet
 {
     public partial class Journal : System.Web.UI.Page
     {

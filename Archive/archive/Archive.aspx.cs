@@ -42,6 +42,7 @@ namespace ArchNet
                 //list.EnableSuperVisorCheckBox = Session["common_access_enable_supervisor_checkbox"] != null;
                 list.ShowHiddenDoc = Session[Master.cur_basename + "_access_archive_hidden"] != null;
                 list.ShowArrows = true;
+                
                 //
                 ////
 
@@ -57,7 +58,7 @@ namespace ArchNet
                 cur.EnableCopyButton = Session[Master.cur_basename + "_access_archive_" + list.Page + "_edit"] != null && list.Page != faPage.srch;
                 cur.EnablAllFileButton = Session[Master.cur_basename + "_access_archive_filemulti"] != null;
                 cur.EnableBulkEditButton = Session["common_access_archive_bulk_edit"] != null;
-
+                cur.ShowColumnViewButtons = false;
                 //cur.RelTable = new string[1] { "_archive.id_parent" };
                 if (Session[cur.Alias + "_sortcolumn"] == null)
                 {

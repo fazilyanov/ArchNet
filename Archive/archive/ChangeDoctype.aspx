@@ -16,10 +16,10 @@
                
                
                 <div class="col-sm-4"></div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <%Response.Write(list);%>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                 </div>
                
             </div>

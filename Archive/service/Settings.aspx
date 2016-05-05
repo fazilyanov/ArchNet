@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="Settings.aspx.cs" Inherits="WebArchiveR6.Settings" %>
+    CodeBehind="Settings.aspx.cs" Inherits="ArchNet.Settings" %>
 
 <%@ MasterType VirtualPath="~/Site.master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph" runat="server">
@@ -21,7 +21,7 @@
                         <button type="button" id="double_click_action" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown"
                             aria-expanded="false">
                             <%
-                                string buf = WebArchiveR6.faFunc.GetUserSetting("double_click_action"); 
+                                string buf = ArchNet.faFunc.GetUserSetting("double_click_action"); 
                                 if (buf == "file") Response.Write("Открывать файл");
                                 else Response.Write("Открывать карточку");  
                             %>

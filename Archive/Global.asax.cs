@@ -34,11 +34,13 @@ namespace ArchNet
             routes.MapPageRoute("journalcommon", "admin/journalcommon", "~/Admin/JournalCommon.aspx");
             routes.MapPageRoute("sesval", "admin/sesval", "~/Admin/SesVal.aspx");
             routes.MapPageRoute("base", "admin/base", "~/Admin/Base.aspx");
+            routes.MapPageRoute("settings", "service/{p_base}/settings", "~/service/settings.aspx");
 
             routes.MapPageRoute("table", "admin/table", "~/Admin/Table.aspx");
             routes.MapPageRoute("twit", "admin/twit", "~/Admin/Twit.aspx");
             routes.MapPageRoute("frm", "sprav/frm", "~/sprav/Frm.aspx");
 
+            routes.MapPageRoute("journal", "service/{p_base}/journal", "~/service/Journal.aspx");
             routes.MapPageRoute("doctree", "sprav/doctree", "~/sprav/Doctree.aspx");
             routes.MapPageRoute("person", "sprav/{p_base}/person", "~/sprav/Person.aspx");
             routes.MapPageRoute("help", "help", "~/Site/Help.aspx");
@@ -46,6 +48,8 @@ namespace ArchNet
             routes.MapPageRoute("docversion", "docversion/{p_base}", "~/Archive/Docversion.aspx");
             routes.MapPageRoute("archivedel", "archivedel/{p_base}/{p_page}", "~/Archive/ArchiveDel.aspx");
             routes.MapPageRoute("changedoctype", "changedoctype/{p_base}", "~/Archive/ChangeDoctype.aspx");
+            routes.MapPageRoute("shutdown", "service/shutdown", "~/Start.aspx");
+
             /*
              routes.MapPageRoute("archivedub", "archivedub/{p_base}", "~/Archive/ArchiveDub.aspx");
              routes.MapPageRoute("changedoctype", "changedoctype/{p_base}", "~/Archive/ChangeDoctype.aspx");
@@ -65,7 +69,7 @@ namespace ArchNet
              routes.MapPageRoute("copytobase", "copytobase/{p_base}/{p_page}/{id}", "~/Archive/CopyToBase.aspx");
              //
              routes.MapPageRoute("journal", "service/{p_base}/journal", "~/service/Journal.aspx");
-             routes.MapPageRoute("settings", "service/{p_base}/settings", "~/service/settings.aspx");
+             
              routes.MapPageRoute("fillbybarcode", "service/{p_base}/fillbybarcode", "~/service/FillByBarcode.aspx");
              routes.MapPageRoute("checkbybarcode", "service/{p_base}/checkbybarcode", "~/service/CheckByBarcode.aspx");
              routes.MapPageRoute("archiveperform", "service/{p_base}/archiveperform", "~/service/ArchivePerform.aspx");

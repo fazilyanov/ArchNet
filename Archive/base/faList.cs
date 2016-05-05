@@ -1123,7 +1123,7 @@ namespace ArchNet
             string _ret = "<script type='text/javascript'>";
             // window resize
             _ret += "$(window).bind('resize', function () {var grid = jQuery('#" + jqGrid.ClientID + "');";
-            _ret += "grid.setGridWidth($('.container-fluid').width()-8);var h = $(window).height() -($('#panel_hide').is(':visible')?$('#panel_hide').height():0)-($('#panel_search').is(':visible')?$('#panel_search').height():0) - " + (f.HeaderGroupList.Count > 0 ? "142" : "180") + ";grid.setGridHeight(h);grid.setGridWidth($('.container-fluid').width()-8);}).trigger('resize');\n";
+            _ret += "grid.setGridWidth($('.container-fluid').width()-8);var h = $(window).height() -($('#panel_hide').is(':visible')?$('#panel_hide').height():0)-($('#panel_search').is(':visible')?$('#panel_search').height():0) - " + (f.HeaderGroupList.Count > 0 ? "142" : "120") + ";grid.setGridHeight(h);grid.setGridWidth($('.container-fluid').width()-8);}).trigger('resize');\n";
             // window ready
             _ret += "jQuery(document).ready(function(){";
             _ret += "";
@@ -1714,7 +1714,7 @@ namespace ArchNet
             jqGrid.AppearanceSettings.ShrinkToFit = false;
             jqGrid.ColumnReordering = true;
             jqGrid.AppearanceSettings.Caption = cur.Caption;
-            jqGrid.StyleUI = "Bootstrap";
+           // jqGrid.StyleUI = "Bootstrap";
             JSReadyList.Add("title", "document.title = '" + cur.Caption + "';");
 
             string buf = faFunc.GetUserSetting(cur.Alias + (Page != faPage.none ? "_" + Page : "") + "_page_size");

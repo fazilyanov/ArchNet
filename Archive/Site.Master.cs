@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Web;
 using System.Web.UI;
 
-/// scio me nihil scire 
+/// scio me nihil scire
 /// 26.04.2016
 /// a.fazilyanov@gmail.com
 namespace ArchNet
@@ -62,7 +61,7 @@ namespace ArchNet
                 {
                     // Определяем местоположение.. пока не нужно..
                     // но возможно файлы будут открываться с разных серверов
-                   
+
                     Session["user_id"] = rdr["id"];
                     Session["user_login"] = rdr["login"];
                     Session["user_name"] = rdr["name"];
@@ -111,7 +110,7 @@ namespace ArchNet
 
                     Session["listbase"] = "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Доступные:</a>" + list_enabled +
                         "<a href='#' class='list-group-item' style='padding:5px 0px 0px 10px;font-weight: 600;'>Другие:</a>" + list_other + list_disabled;// Тут храним HTML код списка баз на странице выбора
-                    
+
                     rdr.Close();
                     cmd.Dispose();
                     // Грузим общие доступа
@@ -128,7 +127,7 @@ namespace ArchNet
                              String.Format(submenu_begin, "Пользователи") +
                             (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("user", new { }), "Пользователи", "gi gi-group") : String.Format(menu_item_disabled, "Пользователи", "gi gi-group")) +
                             submenu_end +
-                            
+
                            String.Format(submenu_begin, "Служебные") +
                             (Session["common_access_admin_journal_common"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("journalcommon", new { }), "Общий журнал", "gi gi-history") : String.Format(menu_item_disabled, "Общий журнал", "gi gi-history")) +
                              String.Format(menu_item_enabled_blank, GetRouteUrl("sesval", new { }), "Сессия", "gi gi-cogwheel") +
@@ -136,14 +135,13 @@ namespace ArchNet
                             (Session["common_access_admin_table_view"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("table", new { }), "Список таблиц", "gi gi-blank") : String.Format(menu_item_disabled, "Список таблиц", "gi gi-blank")) +
                             (Session["common_access_admin_ad"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("twit", new { }), "Сообщение всем", "gi gi-blank") : String.Format(menu_item_disabled, "Сообщение всем", "gi gi-blank")) +
                             submenu_end;
-                   
+
                     // TODO : Автоматизировать авто очичтку
                     faFunc.ToLog(1);
 
-
                     // Меню справочников (общие - нет привязки к конкретной базе, добавляется к меню конкретной базы)
-                    string[] common_sprav = { "frm",  "doctree",};
-                    string[] common_spravru = { "Фирмы",  "Формы документов"};
+                    string[] common_sprav = { "frm", "doctree", };
+                    string[] common_spravru = { "Фирмы", "Формы документов" };
                     menu_enabled = "";
                     list_enabled = "";
                     /* По умолчанию, доступ к справочникам есть у всех, права выдаются только на редактирование*/
@@ -159,14 +157,14 @@ namespace ArchNet
 
                     // Меню сервисов (общие - нет привязки к конкретной базе, добавляется к меню конкретной базы)
                     string[] common_service = { "shutdown", "log" };
-                    string[] common_serviceru = { "Перезапустить текущий сеанс", "Лог"};
-                    string[] common_serviceicon = { "gi gi-rotation_lock", "gi gi-history"};
+                    string[] common_serviceru = { "Перезапустить текущий сеанс", "Лог" };
+                    string[] common_serviceicon = { "gi gi-rotation_lock", "gi gi-history" };
                     menu_enabled = "";
                     list_enabled = "";
 
                     for (int i = 0; i < common_service.Length; i++)
                     {
-                        if (Session["common_access_service_" + common_service[i]] != null || i == 2 || i == 3 || i == 4)
+                        if (Session["common_access_service_" + common_service[i]] != null || i == 0)
                         {
                             menu_enabled += String.Format(menu_item_enabled, GetRouteUrl(common_service[i], new { p_base = cur_basename }), common_serviceru[i], common_serviceicon[i]);
                             //list_enabled += String.Format(list_item_enabled, GetRouteUrl(common_service[i], new { p_base = cur_basename }), common_serviceru[i], common_serviceicon[i]);
@@ -202,7 +200,7 @@ namespace ArchNet
             if (cur_basename != "error" && Session["user_login"] != null)
             {
                 // TODO : Последние изменения в отдельной вкладке
-                /* 
+                /*
                 if (Session["NewChangeLogCount"] == null)
                 {
                     // Достаем id последней прочитанной новости
@@ -219,8 +217,6 @@ namespace ArchNet
                 OpenHelp = ((int)(Session["NewChangeLogCount"] ?? 0) > 0) ? "<script type='text/javascript'>window.open('" + GetRouteUrl("blog", new { }) + "', 'История изменений');</script> " : "";
 
                 */
-
-
 
                 // Если пустой - кидаем на страницу выбора баз
                 //if (cur_basename == "") Response.Redirect(GetRouteUrl("default", new { p_base = "dbselect" }));
@@ -338,7 +334,20 @@ namespace ArchNet
                     }
                     Session[cur_basename + "_menusprav"] = menu_enabled;
                     Session[cur_basename + "_listsprav"] = list_enabled;
-                    
+
+                    // Меню сервис
+                    string[] service = { "journal", "settings" };
+                    string[] serviceru = { "Журнал изменений", "Настройки" };
+                    string[] serviceicon = { "gi gi-history", "gi gi-settings" };
+                    menu_enabled = "";
+
+                    for (int i = 0; i < service.Length; i++)
+                    {
+                        menu_enabled += String.Format(menu_item_enabled_blank, GetRouteUrl(service[i], new { p_base = cur_basename }), serviceru[i], serviceicon[i]);
+                    }
+
+                    Session[cur_basename + "_menuservice"] = menu_enabled;
+
                     Session[cur_basename + "_loaded"] = 1;
 
                     conn.Close();

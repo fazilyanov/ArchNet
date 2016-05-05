@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace WebArchiveR6 {
+namespace ArchNet {
     
     
     public partial class Blog {
