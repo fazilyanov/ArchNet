@@ -98,6 +98,7 @@ namespace ArchNet
                 fld.Edit.Auto = faAutoType.NowDateTime;
                 fld.Edit.Max = 250;
                 fld.Filter.Control = faControl.DateTimePicker;
+                fld.Filter.Primary = false;
                 cur.AddField(fld);
 
                 #endregion Дата Редактирования
@@ -114,6 +115,7 @@ namespace ArchNet
                 fld.Edit.Auto = faAutoType.UserID;
                 fld.Edit.AddOnly = (Session[Master.cur_basename + "_id_role"] ?? "").ToString() == "8"; // Супервайзеры не меняют поле "Оператор"
                 fld.Filter.Control = faControl.AutoComplete;
+                fld.Filter.Primary = false;
                 fld.LookUp.Key = "id";
                 fld.LookUp.Field = "sname";
                 fld.LookUp.Table = "_user";
@@ -238,6 +240,7 @@ namespace ArchNet
                     fld.Edit.Control = faControl.DropDown;
                     fld.Filter.Caption = "Вид докум.";
                     fld.Filter.Control = faControl.DropDown;
+                    fld.Filter.Primary = false;
                     fld.LookUp.Key = "id";
                     fld.LookUp.Field = "name";
                     fld.LookUp.Table = "_doctype";
@@ -295,6 +298,7 @@ namespace ArchNet
                     fld.Edit.BaseCopied = false;
                     fld.Edit.Control = faControl.NewWindowArchiveID;
                     fld.Filter.Control = faControl.TextBoxInteger;
+                    fld.Filter.Primary = false;
                     //fld.LookUp.Again = true;
                     //fld.LookUp.Key = "id";
                     //fld.LookUp.Field = "id";
@@ -502,6 +506,7 @@ namespace ArchNet
                     fld.View.Hint = fld.View.Caption = "Содержание документа";
                     fld.View.CaptionShort = "Содержание";
                     fld.Edit.Max = 250;
+                    fld.Filter.Primary = false;
                     cur.AddField(fld);
                 }
 
@@ -514,6 +519,7 @@ namespace ArchNet
                 fld.Edit.BaseCopied = false;
                 fld.View.CaptionShort = "Примечание";
                 fld.View.Width = 190;
+                fld.Filter.Primary = false;
                 cur.AddField(fld);
 
                 #endregion Примечание
@@ -548,6 +554,7 @@ namespace ArchNet
                 fld.Edit.Control = faControl.TextArea;
                 fld.Filter.Caption = "Текст док.";
                 fld.Filter.Control = faControl.TextBoxFullSearch;
+                fld.Filter.Primary = false;
                 cur.AddField(fld);
 
                 #endregion Текст документа

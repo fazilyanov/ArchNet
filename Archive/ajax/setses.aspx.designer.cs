@@ -7,7 +7,7 @@
 // </автоматически создаваемое>
 //------------------------------------------------------------------------------
 
-namespace WebArchiveR6.ajax {
+namespace ArchNet.ajax {
     
     
     public partial class setses {

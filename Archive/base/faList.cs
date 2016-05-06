@@ -143,13 +143,10 @@ namespace ArchNet
         /// </summary>
         public int EditFormWidth { get; set; }
 
-
-
         /// <summary>
         /// Показывать "стрелки" в карточке для перехода к предыдущей/следующей записи
         /// </summary>
         public bool ShowArrows { get; set; }
-
 
         #endregion Свойства формы карточки
 
@@ -356,7 +353,7 @@ namespace ArchNet
                 "<script type='text/javascript'>" +
                 "</script>";
                 form.Controls.Add(new LiteralControl(_ret));
-                            }
+            }
 
             #endregion Setting - страница настроек
 
@@ -462,7 +459,7 @@ namespace ArchNet
                 faFunc.ToLog(3, "Записей: " + totalrows);
                 Resp.Redirect(HttpContext.Current.Request.Url.ToString() + "&mode=1&eq=" + export_queue);
             }
-            else if (_act == "export_csv"&& RequestGet["mode"]=="1")
+            else if (_act == "export_csv" && RequestGet["mode"] == "1")
             {
                 string export_queue = RequestGet["eq"];
                 int tr = (int)HttpContext.Current.Session["export_totalrow_" + export_queue];
@@ -912,7 +909,7 @@ namespace ArchNet
             dt.Columns["status"].DefaultValue = 0;
             foreach (DataRow r in dt.Rows) r["status"] = 0;
             dt.AcceptChanges();
-            
+
             conn.Close();
             dt.PrimaryKey = new DataColumn[] { dt.Columns["id"] };
             return dt;
@@ -929,12 +926,12 @@ namespace ArchNet
         /// <returns>Таблица DataTable c данными</returns>
         protected DataTable GetDataList(faCursor cur)
         {
-            string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") ;
+            string _s = cur.SesCurName + (_id != "" ? "_" + _id : "");
             MainCursor.SelectedRow = _id;
             if (HttpContext.Current.Session[_s] == null)
             {
                 int _tr = 0;
-                DataTable dt = GetData(cur, 0, 10000, "id", "Asc", out _tr);               
+                DataTable dt = GetData(cur, 0, 10000, "id", "Asc", out _tr);
                 HttpContext.Current.Session[_s] = dt;
             }
             return (HttpContext.Current.Session[_s] as DataTable);
@@ -1218,8 +1215,25 @@ namespace ArchNet
 
             if (ShowFilterPanel)
             {
-                _ret += "function hide_search_panel() {$(\"#panel_search\").hide(500, function(){$(\"#panel_hide\").show();$(window).resize();});}";
-                _ret += "function show_search_panel() {$(\"body\").css({\"overflow\":\"hidden\"});$(\"#panel_search\").show(500, function(){$(\"#panel_hide\").hide();$(window).resize();});}";
+                //_ret += "function hide_search_panel() {$(\"#panel_search\").hide(500, function(){$(\"#panel_hide\").show();$(window).resize();});}";
+                //_ret += "function show_search_panel() {$(\"body\").css({\"overflow\":\"hidden\"});$(\"#panel_search\").show(500, function(){$(\"#panel_hide\").hide();$(window).resize();});}";
+                _ret +=
+                    "function ShowAllFilter() {" +
+                        "if($('#show_all_filter').val()=='0'){" +
+                            "$('#show_all_filter').val('1');" +
+                            "$('#all_filter').text('Скрыть');" +
+                            "$('.hidethis').show('fast',function () {$(window).resize();});" +
+                            "$.ajax({url: '/ajax/setses.aspx?key=show_all_filter&value=1',type: 'POST'});" +
+                            "" +
+                        "}" +
+                        "else{" +
+                            "$('#show_all_filter').val('0');" +
+                            "$('#all_filter').text('Раширенный');" +
+                            "$('.hidethis').hide('fast',function () {$(window).resize();});" +
+                            "$.ajax({url: '/ajax/setses.aspx?key=show_all_filter&value=0',type: 'POST'});" +
+                            "" +
+                        "}" +
+                    "}";
 
                 _ret += "function cls(selector) {";
                 _ret += "$(selector).removeClass('btn-default');";
@@ -1416,204 +1430,219 @@ namespace ArchNet
                 _ret += "</div>";
 
                 _ret += "<div id=\"panel_search\" class=\"panel panel-default\" style=\"margin-bottom: 2px;\">";
-                _ret += "   <div class=\"panel-body\" style=\"padding:11px;\">";
-                _ret += "       <div class=\"row\" >";
-                for (int i = 0; i < cur.FieldCount; i++)
+                _ret += "   <div class=\"panel-body\" style=\"padding:1px;\">";
+                _ret += "      <div class=\"row\" >";
+                _ret += "       <div class=\"col-md-6\" style=\"width:905px;margin-top:3px;margin-bottom: 1px;\">";
+                
+                for (int p = 0; p < 2; p++)
                 {
-                    fld = cur.Fields[i];
-                    if (fld.Filter.Enable)
+                    string fakeclass = p == 1 ? "hidethis" : "";
+                    string hidestyle = (HttpContext.Current.Session["show_all_filter"] ?? "0").ToString() == "0" && p == 1 ? "display: none;" : "";
+                    for (int i = 0; i < cur.FieldCount; i++)
                     {
-                        n = fld.LookUp.Table + fld.Data.FieldName;
-                        switch (fld.Filter.Control)
+                        fld = cur.Fields[i];
+                        if (fld.Filter.Enable && ((fld.Filter.Primary && p == 0) || (!fld.Filter.Primary && p == 1)))
                         {
-                            case faControl.TextBox:
-                            case faControl.TextBoxFullSearch:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "' ).val('');";
-                                _ret += "               $('" + n + "_cond' ).val('*');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
-                                _ret += "           </button>";
-                                _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\">";
-                                _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
-                                _ret += "           </button>";
-                                _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('*');return false;\">Содержит</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('=');return false;\">Точное соответствие</a></li>";
-                                _ret += "               <li class=\"divider\"></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#clear_" + n + "' ).click();return false;\">Очистить</a></li>";
-                                _ret += "           </ul>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"" + n + "_cond\" name=\"cph_" + n + "_cond\"  class=\"form-control\" style=\"width: 13px;\"";
-                                _ret += "           value=\"" + (fld.Filter.Condition != "" ? fld.Filter.Condition : "*") + "\"/>";
-                                _ret += "       <input id=\"" + n + "\" name=\"cph_" + n + "\" class=\"form-control\" style=\"width: 107px;\" ";
-                                _ret += "           value=\"" + fld.Filter.Value + "\"";
-                                _ret += "           onchange=\"if ($('#" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "   </div>";
-                                _ret += "</div>";
-                                break;
+                            n = fld.LookUp.Table + fld.Data.FieldName;
+                            switch (fld.Filter.Control)
+                            {
+                                case faControl.TextBox:
+                                case faControl.TextBoxFullSearch:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\""+ hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "' ).val('');";
+                                    _ret += "               $('" + n + "_cond' ).val('*');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
+                                    _ret += "           </button>";
+                                    _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\">";
+                                    _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
+                                    _ret += "           </button>";
+                                    _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('*');return false;\">Содержит</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('=');return false;\">Точное соответствие</a></li>";
+                                    _ret += "               <li class=\"divider\"></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#clear_" + n + "' ).click();return false;\">Очистить</a></li>";
+                                    _ret += "           </ul>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"" + n + "_cond\" name=\"cph_" + n + "_cond\"  class=\"form-control\" style=\"width: 13px;\"";
+                                    _ret += "           value=\"" + (fld.Filter.Condition != "" ? fld.Filter.Condition : "*") + "\"/>";
+                                    _ret += "       <input id=\"" + n + "\" name=\"cph_" + n + "\" class=\"form-control\" style=\"width: 107px;\" ";
+                                    _ret += "           value=\"" + fld.Filter.Value + "\"";
+                                    _ret += "           onchange=\"if ($('#" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
+                                    break;
 
-                            case faControl.TextBoxInteger:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "' ).val('');$('#" + n + "_cond' ).val('=');";
-                                _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
-                                _ret += "           </button>";
-                                _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\">";
-                                _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
-                                _ret += "           </button>";
-                                _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('=');return false;\">Равно</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('!=');return false;\">Не равно</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('>');return false;\">Больше</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('<');return false;\">Меньше</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('>=');return false;\">Больше или равно</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('<=');return false;\">Меньше или равно</a></li>";
-                                _ret += "               <li class=\"divider\"></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#clear_" + n + "' ).click();\">Очистить</a></li>";
-                                _ret += "           </ul>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"" + n + "_cond\" name=\"cph_" + n + "_cond\"  class=\"form-control\" style=\"width: 13px;\"";
-                                _ret += "           value=\"" + (fld.Filter.Condition != "" ? fld.Filter.Condition : "=") + "\"/>";
-                                _ret += "       <input id=\"" + n + "\" name=\"cph_" + n + "\" class=\"form-control\" style=\"width: 107px;\" ";
-                                _ret += "           value=\"" + fld.Filter.Value + "\"";
-                                _ret += "           onchange=\"if ($('#" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "   </div>";
-                                _ret += "</div>";
-                                break;
+                                case faControl.TextBoxInteger:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "' ).val('');$('#" + n + "_cond' ).val('=');";
+                                    _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
+                                    _ret += "           </button>";
+                                    _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\">";
+                                    _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
+                                    _ret += "           </button>";
+                                    _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('=');return false;\">Равно</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('!=');return false;\">Не равно</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('>');return false;\">Больше</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('<');return false;\">Меньше</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('>=');return false;\">Больше или равно</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#" + n + "_cond' ).val('<=');return false;\">Меньше или равно</a></li>";
+                                    _ret += "               <li class=\"divider\"></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#clear_" + n + "' ).click();\">Очистить</a></li>";
+                                    _ret += "           </ul>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"" + n + "_cond\" name=\"cph_" + n + "_cond\"  class=\"form-control\" style=\"width: 13px;\"";
+                                    _ret += "           value=\"" + (fld.Filter.Condition != "" ? fld.Filter.Condition : "=") + "\"/>";
+                                    _ret += "       <input id=\"" + n + "\" name=\"cph_" + n + "\" class=\"form-control\" style=\"width: 107px;\" ";
+                                    _ret += "           value=\"" + fld.Filter.Value + "\"";
+                                    _ret += "           onchange=\"if ($('#" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
+                                    break;
 
-                            case faControl.TextBoxNumber:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
-                                _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"от\" style=\"width: 69px;\" value=\"" + fld.Filter.Value + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"до\" style=\"width: 69px;\" value=\"" + fld.Filter.Value2 + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "   </div>";
-                                _ret += "</div>";
-                                break;
+                                case faControl.TextBoxNumber:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
+                                    _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"от\" style=\"width: 69px;\" value=\"" + fld.Filter.Value + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"до\" style=\"width: 69px;\" value=\"" + fld.Filter.Value2 + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
+                                    break;
 
-                            case faControl.DropDown:
-                            case faControl.AutoComplete:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\"";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "').val('0');$('#cph_" + n + "').val('');";
-                                _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
-                                _ret += "           </button>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"cph_" + n + "\" name=\"cph_" + n + "\" class=\"form-control\"  style=\"width: 154px;\" ";
-                                _ret += "           value=\"" + (fld.Filter.Value != "" && fld.Filter.Value != "0" ? fld.Filter.Text : "") + "\" onclick=\"$('#cph_" + n + "').autocomplete('search',' ');\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "       <input type=\"hidden\" name=\"" + n + "\" id=\"" + n + "\" value=\"" + (fld.Filter.Value == "" ? "0" : fld.Filter.Value) + "\">";
-                                _ret += "   </div>";
-                                _ret += "</div>";
-                                break;
+                                case faControl.DropDown:
+                                case faControl.AutoComplete:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\"";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "').val('0');$('#cph_" + n + "').val('');";
+                                    _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
+                                    _ret += "           </button>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"cph_" + n + "\" name=\"cph_" + n + "\" class=\"form-control\"  style=\"width: 154px;\" ";
+                                    _ret += "           value=\"" + (fld.Filter.Value != "" && fld.Filter.Value != "0" ? fld.Filter.Text : "") + "\" onclick=\"$('#cph_" + n + "').autocomplete('search',' ');\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "       <input type=\"hidden\" name=\"" + n + "\" id=\"" + n + "\" value=\"" + (fld.Filter.Value == "" ? "0" : fld.Filter.Value) + "\">";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
+                                    break;
 
-                            case faControl.TreeGrid:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\"";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "').val('0');$('#cph_" + n + "').val('');";
-                                _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
-                                _ret += "           </button>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"cph_" + n + "\" name=\"cph_" + n + "\" class=\"form-control\"  style=\"width: 154px;\" ";
-                                _ret += "           value=\"" + (fld.Filter.Value != "" && fld.Filter.Value != "0" ? fld.Filter.Text : "") + "\" onclick=\"$('#cph_btn_apply_filter').focus();$('#form" + fld.LookUp.Table + "_tree').dialog('open');$(window).resize();\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "       <input type=\"hidden\" name=\"" + n + "\" id=\"" + n + "\" value=\"" + (fld.Filter.Value == "" ? "0" : fld.Filter.Value) + "\">";
-                                _ret += "   </div>";
-                                _ret += "</div>";
+                                case faControl.TreeGrid:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\"";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#" + n + "').val('0');$('#cph_" + n + "').val('');";
+                                    _ret += "               cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">" + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort);
+                                    _ret += "           </button>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"cph_" + n + "\" name=\"cph_" + n + "\" class=\"form-control\"  style=\"width: 154px;\" ";
+                                    _ret += "           value=\"" + (fld.Filter.Value != "" && fld.Filter.Value != "0" ? fld.Filter.Text : "") + "\" onclick=\"$('#cph_btn_apply_filter').focus();$('#form" + fld.LookUp.Table + "_tree').dialog('open');$(window).resize();\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "       <input type=\"hidden\" name=\"" + n + "\" id=\"" + n + "\" value=\"" + (fld.Filter.Value == "" ? "0" : fld.Filter.Value) + "\">";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
 
-                                JSReadyList.Add("closebutton" + n, "$(\".ui-dialog-titlebar-close\").replaceWith('<button type=\"button\" onclick=\"$(\\'#form" + fld.LookUp.Table + "_tree\\').dialog(\\'close\\')\" class=\"btn btn-xs btn-primary\" style=\"height:21px;right:0px;position:absolute;\" title=\"Закрыть\"><span class=\"hi hi-remove\"></span></button>');");
+                                    JSReadyList.Add("closebutton" + n, "$(\".ui-dialog-titlebar-close\").replaceWith('<button type=\"button\" onclick=\"$(\\'#form" + fld.LookUp.Table + "_tree\\').dialog(\\'close\\')\" class=\"btn btn-xs btn-primary\" style=\"height:21px;right:0px;position:absolute;\" title=\"Закрыть\"><span class=\"hi hi-remove\"></span></button>');");
 
-                                break;
+                                    break;
 
-                            case faControl.DatePicker:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
-                                _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
-                                _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\" >";
-                                _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
-                                _ret += "           </button>";
-                                _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastMonthBegin()));$('#cph_" + n + "_end').val(formatDate(GetLastMonthEnd()));cls('#clear_" + n + "');return false;\">Прошлый месяц</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastWeekBegin()));$('#cph_" + n + "_end').val(formatDate(GetLastWeekEnd()));cls('#clear_" + n + "');return false;\">Прошлая неделя</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetYesterday()));$('#cph_" + n + "_end' ).val(formatDate(GetYesterday()));cls('#clear_" + n + "');return false;\">Вчера</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"var _date = new Date();$('#cph_" + n + "_begin').val(formatDate(_date));$('#cph_" + n + "_end' ).val(formatDate(_date));cls('#clear_" + n + "');return false;\">Сегодня</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentWeekBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentWeekEnd()));cls('#clear_" + n + "');return false;\">Текущая неделя</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentMonthBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentMonthEnd()));cls('#clear_" + n + "');return false;\">Текущий месяц</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentYearBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentYearEnd()));cls('#clear_" + n + "');return false;\">Текущий год</a></li>";
-                                _ret += "               <li class=\"divider\"></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin' ).val('');$('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');return false;\">Очистить</a></li>";
-                                _ret += "           </ul>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"с\" style=\"width: 60px;\" value=\"" + fld.Filter.Value + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"по\" style=\"width: 60px;\" value=\"" + fld.Filter.Value2 + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "   </div>";
-                                _ret += "</div>";
+                                case faControl.DatePicker:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
+                                    _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
+                                    _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\" >";
+                                    _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
+                                    _ret += "           </button>";
+                                    _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastMonthBegin()));$('#cph_" + n + "_end').val(formatDate(GetLastMonthEnd()));cls('#clear_" + n + "');return false;\">Прошлый месяц</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastWeekBegin()));$('#cph_" + n + "_end').val(formatDate(GetLastWeekEnd()));cls('#clear_" + n + "');return false;\">Прошлая неделя</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetYesterday()));$('#cph_" + n + "_end' ).val(formatDate(GetYesterday()));cls('#clear_" + n + "');return false;\">Вчера</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"var _date = new Date();$('#cph_" + n + "_begin').val(formatDate(_date));$('#cph_" + n + "_end' ).val(formatDate(_date));cls('#clear_" + n + "');return false;\">Сегодня</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentWeekBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentWeekEnd()));cls('#clear_" + n + "');return false;\">Текущая неделя</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentMonthBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentMonthEnd()));cls('#clear_" + n + "');return false;\">Текущий месяц</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentYearBegin()));$('#cph_" + n + "_end' ).val(formatDate(GetCurrentYearEnd()));cls('#clear_" + n + "');return false;\">Текущий год</a></li>";
+                                    _ret += "               <li class=\"divider\"></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin' ).val('');$('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');return false;\">Очистить</a></li>";
+                                    _ret += "           </ul>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"с\" style=\"width: 60px;\" value=\"" + fld.Filter.Value + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"по\" style=\"width: 60px;\" value=\"" + fld.Filter.Value2 + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
 
-                                break;
+                                    break;
 
-                            case faControl.DateTimePicker:
-                                _ret += "<div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                                _ret += "   <div class=\"input-group\">";
-                                _ret += "       <div class=\"input-group-btn\">";
-                                _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
-                                _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
-                                _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
-                                _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\" >";
-                                _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
-                                _ret += "           </button>";
-                                _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastMonthBegin())+' 00:00');$('#cph_" + n + "_end').val(formatDate(GetLastMonthEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Прошлый месяц</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastWeekBegin())+' 00:00');$('#cph_" + n + "_end').val(formatDate(GetLastWeekEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Прошлая неделя</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetYesterday())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetYesterday())+' 23:59');cls('#clear_" + n + "');return false;\">Вчера</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"var _date = new Date();$('#cph_" + n + "_begin').val(formatDate(_date)+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(_date)+' 23:59');cls('#clear_" + n + "');return false;\">Сегодня</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentWeekBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentWeekEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущая неделя</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentMonthBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentMonthEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущий месяц</a></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentYearBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentYearEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущий год</a></li>";
-                                _ret += "               <li class=\"divider\"></li>";
-                                _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin' ).val('');$('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');return false;\">Очистить</a></li>";
-                                _ret += "           </ul>";
-                                _ret += "       </div>";
-                                _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"с\" style=\"width: 60px;\" value=\"" + fld.Filter.Value + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"по\" style=\"width: 60px;\" value=\"" + fld.Filter.Value2 + "\" ";
-                                _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
-                                _ret += "   </div>";
-                                _ret += "</div>";
-                                break;
+                                case faControl.DateTimePicker:
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "   <div class=\"input-group\">";
+                                    _ret += "       <div class=\"input-group-btn\">";
+                                    _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
+                                    _ret += "               style=\"width: 100px;\" onclick=\"$('#cph_" + n + "_begin' ).val(''); $('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');\" title=\"" + (fld.View.Hint != "" ? fld.View.Hint : fld.View.CaptionShort) + "\">";
+                                    _ret += "               " + (fld.Filter.Caption != "" ? fld.Filter.Caption : fld.View.CaptionShort) + "</button>";
+                                    _ret += "           <button type=\"button\" class=\"btn btn-xs btn-default dropdown-toggle\" data-toggle=\"dropdown\" >";
+                                    _ret += "               <span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span>";
+                                    _ret += "           </button>";
+                                    _ret += "           <ul class=\"dropdown-menu\" role=\"menu\">";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastMonthBegin())+' 00:00');$('#cph_" + n + "_end').val(formatDate(GetLastMonthEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Прошлый месяц</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetLastWeekBegin())+' 00:00');$('#cph_" + n + "_end').val(formatDate(GetLastWeekEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Прошлая неделя</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetYesterday())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetYesterday())+' 23:59');cls('#clear_" + n + "');return false;\">Вчера</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"var _date = new Date();$('#cph_" + n + "_begin').val(formatDate(_date)+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(_date)+' 23:59');cls('#clear_" + n + "');return false;\">Сегодня</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentWeekBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentWeekEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущая неделя</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentMonthBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentMonthEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущий месяц</a></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin').val(formatDate(GetCurrentYearBegin())+' 00:00');$('#cph_" + n + "_end' ).val(formatDate(GetCurrentYearEnd())+' 23:59');cls('#clear_" + n + "');return false;\">Текущий год</a></li>";
+                                    _ret += "               <li class=\"divider\"></li>";
+                                    _ret += "               <li><a href=\"#\" onclick=\"$('#cph_" + n + "_begin' ).val('');$('#cph_" + n + "_end' ).val('');cld('#clear_" + n + "');return false;\">Очистить</a></li>";
+                                    _ret += "           </ul>";
+                                    _ret += "       </div>";
+                                    _ret += "       <input id=\"cph_" + n + "_begin\" name=\"cph_" + n + "_begin\" class=\"form-control\" placeholder=\"с\" style=\"width: 60px;\" value=\"" + fld.Filter.Value + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "       <input id=\"cph_" + n + "_end\" name=\"cph_" + n + "_end\" class=\"form-control\" placeholder=\"по\" style=\"width: 60px;\" value=\"" + fld.Filter.Value2 + "\" ";
+                                    _ret += "           onchange=\"if ($('#cph_" + n + "_begin').val()!='' || $('#cph_" + n + "_end').val()!='')cls('#clear_" + n + "'); else cld('#clear_" + n + "');\"/>";
+                                    _ret += "   </div>";
+                                    _ret += "</div>";
+                                    break;
 
-                            default:
-                                break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                 }
-                _ret += "           <div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom:1px;\">";
+
+                _ret += "       </div>";//md-6 primary
+                _ret += "       <div class=\"col-md-3\" style=\"width: 270px;margin-top:3px;margin-bottom:1px;\">";//buttons
+                _ret += "        <div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
                 _ret += "               <input type=\"submit\" id=\"btn_apply_filter\" name=\"cph_btn_apply_filter\" value=\"Применить\" class=\"btn btn-xs btn-primary\" style=\"width: 133px;\"/>&nbsp;";
                 _ret += "               <button type=\"button\" id=\"btn_clear_filter\" name=\"cph_btn_clear_filter\" class=\"btn btn-xs btn-default\" style=\"width: 132px;\" onclick=\"$('button[id^=\\'clear_\\']').click();\">Сбросить все</button>";//
-                _ret += "           </div>";
-                _ret += "       </div>";
-                _ret += "   </div>";
+                _ret += "        </div>";//buttons 1
+                _ret += "        <div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                _ret += "               <button type=\"button\" id=\"all_filter\" name=\"cph_all_filter\" class=\"btn btn-xs btn-default\" style=\"width: 132px;\" onclick=\"ShowAllFilter();\">" + ((HttpContext.Current.Session["show_all_filter"] ?? "0").ToString()=="1"? "Скрыть": "Расширенный") + "</button>";//
+                _ret += "               <input type=\"hidden\"  id=\"show_all_filter\" value=\"" + (HttpContext.Current.Session["show_all_filter"] ?? "0").ToString() + "\">";
+                _ret += "        </div>";//buttons 2
+                _ret += "       </div>";//buttons
+                _ret += "      </div>";//row
+                _ret += "   </div>";//panel-body
                 _ret += "   <a href=\"#\" onclick=\"hide_search_panel();\" title=\"Скрыть панель фильтров\" style=\"margin-top:-17px;float: right;\">";
                 _ret += "       <span class=\"hi hi-chevron-up\"></span></a>";
-                _ret += "</div>";
+                _ret += "</div>";//panel_search
                 _ret = System.Text.RegularExpressions.Regex.Replace(_ret, "  +", "");
             }
             else
@@ -1714,7 +1743,7 @@ namespace ArchNet
             jqGrid.AppearanceSettings.ShrinkToFit = false;
             jqGrid.ColumnReordering = true;
             jqGrid.AppearanceSettings.Caption = cur.Caption;
-           // jqGrid.StyleUI = "Bootstrap";
+            // jqGrid.StyleUI = "Bootstrap";
             JSReadyList.Add("title", "document.title = '" + cur.Caption + "';");
 
             string buf = faFunc.GetUserSetting(cur.Alias + (Page != faPage.none ? "_" + Page : "") + "_page_size");
@@ -2839,7 +2868,7 @@ namespace ArchNet
                     DataRow row = dt.Rows.Find(e.RowKey);
                     row["status"] = row["status"].ToString() != "1" ? "2" : row["status"];
 
-                    string _s = cur.SesCurName + (_id != "" ? "_" + _id : "") ;
+                    string _s = cur.SesCurName + (_id != "" ? "_" + _id : "");
 
                     //DataTable chb_ver = new DataTable();
                     //chb_ver = HttpContext.Current.Session[_s + "_chb_ver"] as DataTable;
@@ -3269,10 +3298,10 @@ namespace ArchNet
             string _buf = "";
             string _v = "";
             string _vt = "";
-           
+
             string _n = "";
             int _maxwidth = 535;
-            string _inputwidth = (this.EditFormWidth > _maxwidth) ?  this.EditFormInputWidth.ToString() : "400";//168 ShowCheckBox ? "250" :
+            string _inputwidth = (this.EditFormWidth > _maxwidth) ? this.EditFormInputWidth.ToString() : "400";//168 ShowCheckBox ? "250" :
 
             string _fileuploader = ""; // есть ли на странице аплоадер файлов
             _ret += "<div id=\"mainform\" style=\"margin-right:auto;margin-left:auto;width:800px;\">";
@@ -4236,11 +4265,10 @@ namespace ArchNet
                         default:
                             break;
                     }
-                    
+
                     //fld.Edit.Chk1 = ((RequestPost["checkbox1_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
                     //fld.Edit.Chk2 = ((RequestPost["checkbox2_" + MainCursor.Alias + "_" + fld.Data.FieldName] ?? "").Trim() == "on");
                     //is_good_doc = fld.Edit.Chk1 || fld.Edit.Chk2 ? false : is_good_doc;
-                    
                 }
             }
 
@@ -4790,16 +4818,16 @@ namespace ArchNet
                                         {
                                             if (k.Contains("_docversion"))
                                             {
-                                            //    if (_mode == "complect" && row_new["from"] != null)
-                                            //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
-                                            //    else if (_mode == "complectnew" && row_new["from"] != null)
-                                            //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
-                                            //    else if (_act == "copybase" || _mode == "nvfob")
-                                            //    {
-                                            //        string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                            //        if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
-                                            //        row_new[fld.Data.FieldName] = nfn;
-                                            //    }
+                                                //    if (_mode == "complect" && row_new["from"] != null)
+                                                //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "temp_sp", row_new[fld.Data.FieldName].ToString());
+                                                //    else if (_mode == "complectnew" && row_new["from"] != null)
+                                                //        row_new[fld.Data.FieldName] = System.IO.Path.Combine(Properties.Settings.Default.filepath, "complectfiles", row_new[fld.Data.FieldName].ToString());
+                                                //    else if (_act == "copybase" || _mode == "nvfob")
+                                                //    {
+                                                //        string nfn = System.IO.Path.Combine(Properties.Settings.Default.filepath, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                                //        if (!File.Exists(nfn)) nfn = System.IO.Path.Combine(Properties.Settings.Default.filepathalt, _fromBase, "archive", row_new[fld.Data.FieldName].ToString());
+                                                //        row_new[fld.Data.FieldName] = nfn;
+                                                //    }
                                             }
                                             else if (k.Contains("_monitor_list"))
                                             {

@@ -145,6 +145,7 @@
     <Content Include="ajax\ac.aspx" />
     <Content Include="ajax\dd.aspx" />
     <Content Include="ajax\pinger.aspx" />
+    <Content Include="ajax\setses.aspx" />
     <Content Include="archive\ArchiveDel.aspx" />
     <Content Include="archive\ArchiveBulkEdit.aspx" />
     <Content Include="archive\ChangeDoctype.aspx" />
@@ -431,6 +432,13 @@
     </Compile>
     <Compile Include="ajax\pinger.aspx.designer.cs">
       <DependentUpon>pinger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ajax\setses.aspx.cs">
+      <DependentUpon>setses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ajax\setses.aspx.designer.cs">
+      <DependentUpon>setses.aspx</DependentUpon>
     </Compile>
     <Compile Include="archive\ChangeDoctype.aspx.cs">
       <DependentUpon>ChangeDoctype.aspx</DependentUpon>

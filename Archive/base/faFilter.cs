@@ -27,6 +27,7 @@ namespace ArchNet
         public faFilter()
         {
             Enable = true;
+            Primary = true;
             Value = string.Empty;
             Value2 = string.Empty;
             DefaultValue = string.Empty;
@@ -34,6 +35,7 @@ namespace ArchNet
             Condition = string.Empty;
             Control = faControl.TextBox;
             Caption = string.Empty;
+
         }
 
         /// <summary>
@@ -70,6 +72,11 @@ namespace ArchNet
         /// Фильтрируется ли поле
         /// </summary>
         public bool Enable { get; set; }
+
+        /// <summary>
+        /// Признак основного фильтра при поиске
+        /// </summary>
+        public bool Primary { get;  set; }
 
         /// <summary>
         /// Ключ сессии где храниться значение фильтра

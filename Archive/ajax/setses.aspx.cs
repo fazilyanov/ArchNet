@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace WebArchiveR6.ajax
+namespace ArchNet.ajax
 {
     public partial class setses : System.Web.UI.Page
     {
