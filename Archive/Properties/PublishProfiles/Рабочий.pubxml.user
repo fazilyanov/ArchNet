@@ -5,27 +5,27 @@
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>\\sky-sp1\webarchiveedit$</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\test</_PublishTargetUrl>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
   </PropertyGroup>
   <ItemGroup>
     <File Include="admin/AccessKeys.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/26/2016 16:56:47</publishTime>
     </File>
     <File Include="admin/AccessKeys.aspx.cs">
-      <publishTime>04/12/2016 14:29:26</publishTime>
+      <publishTime>05/26/2016 16:56:47</publishTime>
     </File>
     <File Include="admin/AccessKeys.aspx.designer.cs">
-      <publishTime>03/16/2016 14:55:29</publishTime>
+      <publishTime>05/26/2016 16:56:47</publishTime>
     </File>
     <File Include="admin/Base.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:31</publishTime>
     </File>
     <File Include="admin/Base.aspx.cs">
-      <publishTime>04/12/2016 14:29:42</publishTime>
+      <publishTime>04/26/2016 10:36:27</publishTime>
     </File>
     <File Include="admin/Base.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:21</publishTime>
     </File>
     <File Include="admin/BlockUser.aspx">
       <publishTime>04/14/2016 10:36:21</publishTime>
@@ -58,13 +58,13 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="admin/JournalCommon.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="admin/JournalCommon.aspx.cs">
-      <publishTime>04/19/2016 16:31:35</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="admin/JournalCommon.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="admin/LoadAD.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -103,40 +103,40 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="admin/Role.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/Role.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/Role.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/SesVal.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="admin/SesVal.aspx.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="admin/SesVal.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:21:55</publishTime>
     </File>
     <File Include="admin/Table.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/Table.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/Table.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/Test.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/25/2016 15:47:42</publishTime>
     </File>
     <File Include="admin/Test.aspx.cs">
-      <publishTime>04/20/2016 15:51:34</publishTime>
+      <publishTime>05/25/2016 15:44:14</publishTime>
     </File>
     <File Include="admin/Test.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/25/2016 15:48:07</publishTime>
     </File>
     <File Include="admin/Twit.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -166,22 +166,22 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="admin/User.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/User.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>05/26/2016 17:16:42</publishTime>
     </File>
     <File Include="admin/User.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/UserRoleBase.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/UserRoleBase.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/UserRoleBase.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/26/2016 16:56:43</publishTime>
     </File>
     <File Include="admin/UserScore.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -193,13 +193,13 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="admin/UserSetting.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/UserSetting.aspx.cs">
-      <publishTime>04/01/2016 11:07:48</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/UserSetting.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/26/2016 10:36:08</publishTime>
     </File>
     <File Include="admin/UserVisit.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -220,13 +220,13 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="ajax/ac.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/ac.aspx.cs">
-      <publishTime>04/06/2016 15:23:31</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/ac.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:21:59</publishTime>
     </File>
     <File Include="ajax/CopyCursorRow.aspx">
       <publishTime>04/08/2016 10:46:01</publishTime>
@@ -247,13 +247,13 @@
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="ajax/dd.aspx">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/dd.aspx.cs">
-      <publishTime>02/26/2016 15:20:04</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/dd.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/GetCard1C.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -418,13 +418,13 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="ajax/pinger.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/pinger.aspx.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="ajax/pinger.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:22:06</publishTime>
     </File>
     <File Include="ajax/SendMailComplect.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -445,13 +445,13 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="ajax/setses.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>05/06/2016 16:15:38</publishTime>
     </File>
     <File Include="ajax/setses.aspx.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>05/06/2016 16:15:56</publishTime>
     </File>
     <File Include="ajax/setses.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>05/06/2016 16:15:45</publishTime>
     </File>
     <File Include="ajax/SetSetting.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -481,28 +481,28 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="Archive.csproj">
-      <publishTime>04/22/2016 12:23:42</publishTime>
+      <publishTime>05/26/2016 17:33:16</publishTime>
     </File>
     <File Include="Archive.csproj.user">
-      <publishTime>04/22/2016 12:23:42</publishTime>
+      <publishTime>05/27/2016 15:58:39</publishTime>
     </File>
     <File Include="archive/Archive.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/Archive.aspx.cs">
-      <publishTime>04/04/2016 16:41:18</publishTime>
+      <publishTime>05/06/2016 15:56:26</publishTime>
     </File>
     <File Include="archive/Archive.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="archive/ArchiveBulkEdit.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/ArchiveBulkEdit.aspx.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/ArchiveBulkEdit.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="archive/ArchiveCheckbox.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -514,13 +514,13 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="archive/ArchiveDel.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/ArchiveDel.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/ArchiveDel.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="archive/ArchiveDepart.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -559,13 +559,13 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="archive/ChangeDoctype.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>05/05/2016 17:29:40</publishTime>
     </File>
     <File Include="archive/ChangeDoctype.aspx.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/26/2016 15:01:49</publishTime>
     </File>
     <File Include="archive/ChangeDoctype.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/26/2016 15:01:49</publishTime>
     </File>
     <File Include="archive/Complect.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -649,13 +649,13 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="archive/Docversion.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/Docversion.aspx.cs">
-      <publishTime>04/01/2016 11:07:48</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="archive/Docversion.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="archive/GetFile.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -712,31 +712,31 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="base/faControl.cs">
-      <publishTime>03/21/2016 17:48:10</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="base/faCursor.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:14</publishTime>
     </File>
     <File Include="base/faData.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:50:54</publishTime>
     </File>
     <File Include="base/faEdit.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:14</publishTime>
     </File>
     <File Include="base/faField.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:14</publishTime>
     </File>
     <File Include="base/faFilter.cs">
-      <publishTime>04/19/2016 15:29:04</publishTime>
+      <publishTime>05/06/2016 11:10:32</publishTime>
     </File>
     <File Include="base/faFunc.cs">
-      <publishTime>04/20/2016 13:29:37</publishTime>
+      <publishTime>05/27/2016 15:55:25</publishTime>
     </File>
     <File Include="base/faHeaderGroup.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:15</publishTime>
     </File>
     <File Include="base/faList.cs">
-      <publishTime>04/21/2016 15:04:24</publishTime>
+      <publishTime>05/10/2016 11:24:41</publishTime>
     </File>
     <File Include="base/faListComplect.cs">
       <publishTime>04/21/2016 16:58:21</publishTime>
@@ -745,7 +745,7 @@
       <publishTime>04/08/2016 14:20:27</publishTime>
     </File>
     <File Include="base/faListDel.cs">
-      <publishTime>04/20/2016 10:54:59</publishTime>
+      <publishTime>04/28/2016 14:51:15</publishTime>
     </File>
     <File Include="base/faListDublicate.cs">
       <publishTime>04/19/2016 15:17:47</publishTime>
@@ -757,13 +757,19 @@
       <publishTime>04/20/2016 10:57:57</publishTime>
     </File>
     <File Include="base/faLookUp.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:15</publishTime>
     </File>
     <File Include="base/faPage.cs">
-      <publishTime>04/19/2016 15:17:47</publishTime>
+      <publishTime>04/28/2016 14:51:15</publishTime>
     </File>
     <File Include="base/faView.cs">
-      <publishTime>04/20/2016 10:58:58</publishTime>
+      <publishTime>04/28/2016 14:51:15</publishTime>
+    </File>
+    <File Include="bin/ArchNet.dll">
+      <publishTime>05/27/2016 16:23:49</publishTime>
+    </File>
+    <File Include="bin/ArchNet.pdb">
+      <publishTime>05/27/2016 16:23:49</publishTime>
     </File>
     <File Include="bin/DocumentFormat.OpenXml.dll">
       <publishTime>02/25/2016 15:42:35</publishTime>
@@ -787,13 +793,13 @@
       <publishTime>04/18/2016 10:24:44</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>03/16/2016 11:56:09</publishTime>
+      <publishTime>05/10/2016 11:42:07</publishTime>
     </File>
     <File Include="Default.aspx.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>05/25/2016 15:24:17</publishTime>
     </File>
     <File Include="Default.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="errorpages/404.aspx">
       <publishTime>02/25/2016 15:42:34</publishTime>
@@ -805,25 +811,25 @@
       <publishTime>02/25/2016 15:42:34</publishTime>
     </File>
     <File Include="errorpages/AppError.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="errorpages/AppError.aspx.cs">
-      <publishTime>04/20/2016 11:10:53</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="errorpages/AppError.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:23:28</publishTime>
     </File>
     <File Include="errorpages/Error.aspx">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="errorpages/Error.aspx.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="errorpages/Error.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:34</publishTime>
+      <publishTime>04/25/2016 17:23:32</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 14:58:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-filetypes-regular.eot">
       <publishTime>02/25/2016 15:42:35</publishTime>
@@ -874,10 +880,19 @@
       <publishTime>02/25/2016 15:42:35</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>02/25/2016 15:42:33</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="Global.asax.cs">
-      <publishTime>04/22/2016 10:29:27</publishTime>
+      <publishTime>05/26/2016 16:55:11</publishTime>
+    </File>
+    <File Include="Logon.aspx">
+      <publishTime>05/27/2016 15:25:35</publishTime>
+    </File>
+    <File Include="Logon.aspx.cs">
+      <publishTime>05/27/2016 16:22:16</publishTime>
+    </File>
+    <File Include="Logon.aspx.designer.cs">
+      <publishTime>05/26/2016 17:33:16</publishTime>
     </File>
     <File Include="ntd/Ntd.aspx">
       <publishTime>03/09/2016 15:08:31</publishTime>
@@ -898,19 +913,19 @@
       <publishTime>02/25/2016 15:42:35</publishTime>
     </File>
     <File Include="Properties/AssemblyInfo.cs">
-      <publishTime>03/23/2016 14:45:43</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/Рабочий.pubxml">
-      <publishTime>02/25/2016 15:42:35</publishTime>
+      <publishTime>05/25/2016 13:35:02</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/ТЕСТ.pubxml">
       <publishTime>04/13/2016 11:34:30</publishTime>
     </File>
     <File Include="Properties/Settings.Designer.cs">
-      <publishTime>04/20/2016 13:25:27</publishTime>
+      <publishTime>05/25/2016 15:51:15</publishTime>
     </File>
     <File Include="Properties/Settings.settings">
-      <publishTime>04/20/2016 13:25:27</publishTime>
+      <publishTime>05/25/2016 15:51:15</publishTime>
     </File>
     <File Include="routine/DeleteOldFiles.aspx">
       <publishTime>02/25/2016 15:42:33</publishTime>
@@ -1002,6 +1017,9 @@
     <File Include="scripts/jquery.uploadify.js">
       <publishTime>02/25/2016 15:42:35</publishTime>
     </File>
+    <File Include="scripts/js.js">
+      <publishTime>02/25/2016 15:42:35</publishTime>
+    </File>
     <File Include="scripts/site.js">
       <publishTime>04/11/2016 15:20:36</publishTime>
     </File>
@@ -1081,13 +1099,13 @@
       <publishTime>02/25/2016 15:42:36</publishTime>
     </File>
     <File Include="service/Journal.aspx">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 16:36:40</publishTime>
     </File>
     <File Include="service/Journal.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>05/05/2016 16:36:40</publishTime>
     </File>
     <File Include="service/Journal.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 16:36:40</publishTime>
     </File>
     <File Include="service/Log.aspx">
       <publishTime>02/25/2016 15:42:36</publishTime>
@@ -1117,13 +1135,13 @@
       <publishTime>03/14/2016 11:48:21</publishTime>
     </File>
     <File Include="service/Settings.aspx">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 15:14:12</publishTime>
     </File>
     <File Include="service/Settings.aspx.cs">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 16:14:50</publishTime>
     </File>
     <File Include="service/Settings.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 15:14:12</publishTime>
     </File>
     <File Include="service/UpdateMonitor.aspx">
       <publishTime>03/15/2016 13:57:21</publishTime>
@@ -1144,13 +1162,13 @@
       <publishTime>02/25/2016 15:42:36</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>04/13/2016 12:02:44</publishTime>
+      <publishTime>05/05/2016 16:47:43</publishTime>
     </File>
     <File Include="Site.Master.cs">
-      <publishTime>04/14/2016 11:25:14</publishTime>
+      <publishTime>05/27/2016 16:01:40</publishTime>
     </File>
     <File Include="Site.Master.designer.cs">
-      <publishTime>04/11/2016 15:24:23</publishTime>
+      <publishTime>04/25/2016 17:21:12</publishTime>
     </File>
     <File Include="site/About.aspx">
       <publishTime>02/25/2016 15:42:36</publishTime>
@@ -1162,13 +1180,13 @@
       <publishTime>02/25/2016 15:42:36</publishTime>
     </File>
     <File Include="site/Blog.aspx">
-      <publishTime>03/02/2016 12:06:03</publishTime>
+      <publishTime>05/05/2016 17:45:01</publishTime>
     </File>
     <File Include="site/Blog.aspx.cs">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 17:45:01</publishTime>
     </File>
     <File Include="site/Blog.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:36</publishTime>
+      <publishTime>05/05/2016 17:44:55</publishTime>
     </File>
     <File Include="site/docs.min.css">
       <publishTime>02/25/2016 15:42:36</publishTime>
@@ -1462,13 +1480,13 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="sprav/Doctree.aspx">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="sprav/Doctree.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>04/25/2016 17:25:45</publishTime>
     </File>
     <File Include="sprav/Doctree.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="sprav/Event.aspx">
       <publishTime>03/21/2016 15:10:52</publishTime>
@@ -1480,13 +1498,13 @@
       <publishTime>03/21/2016 14:23:36</publishTime>
     </File>
     <File Include="sprav/Frm.aspx">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:25:45</publishTime>
     </File>
     <File Include="sprav/Frm.aspx.cs">
-      <publishTime>04/01/2016 11:07:49</publishTime>
+      <publishTime>04/25/2016 17:25:45</publishTime>
     </File>
     <File Include="sprav/Frm.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="sprav/Ntd_category.aspx">
       <publishTime>02/25/2016 15:42:37</publishTime>
@@ -1507,13 +1525,13 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="sprav/Person.aspx">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:25:45</publishTime>
     </File>
     <File Include="sprav/Person.aspx.cs">
-      <publishTime>04/01/2016 11:07:48</publishTime>
+      <publishTime>04/27/2016 12:18:50</publishTime>
     </File>
     <File Include="sprav/Person.aspx.designer.cs">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>04/25/2016 17:26:33</publishTime>
     </File>
     <File Include="sprav/Person1c.aspx">
       <publishTime>02/26/2016 13:21:05</publishTime>
@@ -1552,16 +1570,16 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="Start.aspx">
-      <publishTime>03/17/2016 11:42:25</publishTime>
+      <publishTime>04/25/2016 17:25:45</publishTime>
     </File>
     <File Include="Start.aspx.cs">
-      <publishTime>03/17/2016 11:42:25</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="Start.aspx.designer.cs">
-      <publishTime>03/17/2016 11:42:07</publishTime>
+      <publishTime>04/25/2016 17:25:46</publishTime>
     </File>
     <File Include="styles/bootstrap.css">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>05/06/2016 12:30:41</publishTime>
     </File>
     <File Include="styles/font-awesome.min.css">
       <publishTime>02/25/2016 15:42:37</publishTime>
@@ -1576,7 +1594,7 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="styles/images/load.GIF">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>05/05/2016 15:07:46</publishTime>
     </File>
     <File Include="styles/images/loading.gif">
       <publishTime>02/25/2016 15:42:37</publishTime>
@@ -1594,7 +1612,7 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="styles/images/ui-bg_flat_100_0072c6_40x100.png">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>05/04/2016 17:44:01</publishTime>
     </File>
     <File Include="styles/images/ui-bg_flat_100_4995d5_40x100.png">
       <publishTime>02/25/2016 15:42:37</publishTime>
@@ -1786,13 +1804,16 @@
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
     <File Include="styles/jquery-ui-1.10.4.custom.css">
-      <publishTime>02/25/2016 15:42:37</publishTime>
+      <publishTime>05/05/2016 14:28:19</publishTime>
     </File>
     <File Include="styles/jquery-ui.css">
       <publishTime>02/25/2016 15:42:37</publishTime>
     </File>
+    <File Include="styles/jquery-ui13.css">
+      <publishTime>02/25/2016 15:42:37</publishTime>
+    </File>
     <File Include="styles/site.css">
-      <publishTime>03/24/2016 17:09:52</publishTime>
+      <publishTime>04/26/2016 13:14:22</publishTime>
     </File>
     <File Include="styles/ui.jqdropdownlist.css">
       <publishTime>02/25/2016 15:42:37</publishTime>
@@ -1813,16 +1834,16 @@
       <publishTime>04/06/2016 14:16:25</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/22/2016 13:15:20</publishTime>
+      <publishTime>05/27/2016 16:17:08</publishTime>
     </File>
     <File Include="Web.Debug.config">
       <publishTime>02/25/2016 15:42:33</publishTime>
     </File>
     <File Include="Web.Release.config">
-      <publishTime>04/14/2016 16:37:10</publishTime>
+      <publishTime>05/26/2016 16:58:28</publishTime>
     </File>
     <File Include="Web.ToTest.config">
-      <publishTime>04/13/2016 11:48:15</publishTime>
+      <publishTime>04/25/2016 17:25:31</publishTime>
     </File>
     <File Include="Шаблон Профайлера.tdf">
       <publishTime>02/25/2016 15:42:33</publishTime>

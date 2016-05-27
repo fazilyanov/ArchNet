@@ -49,6 +49,10 @@ namespace ArchNet
             routes.MapPageRoute("archivedel", "archivedel/{p_base}/{p_page}", "~/Archive/ArchiveDel.aspx");
             routes.MapPageRoute("changedoctype", "changedoctype/{p_base}", "~/Archive/ChangeDoctype.aspx");
             routes.MapPageRoute("shutdown", "service/shutdown", "~/Start.aspx");
+            routes.MapPageRoute("access", "admin/access", "~/Admin/AccessKeys.aspx");
+            routes.MapPageRoute("userrolebase", "admin/userrolebase", "~/Admin/UserRoleBase.aspx");
+            routes.MapPageRoute("uservisit", "admin/uservisit", "~/Admin/UserVisit.aspx");
+            routes.MapPageRoute("usersetting", "admin/usersetting", "~/Admin/UserSetting.aspx");
 
             /*
              routes.MapPageRoute("archivedub", "archivedub/{p_base}", "~/Archive/ArchiveDub.aspx");
@@ -95,7 +99,7 @@ namespace ArchNet
              routes.MapPageRoute("journalcommon", "admin/journalcommon", "~/Admin/JournalCommon.aspx");
              
              
-             routes.MapPageRoute("access", "admin/access", "~/Admin/AccessKeys.aspx");
+             
              routes.MapPageRoute("base", "admin/base", "~/Admin/Base.aspx");
              routes.MapPageRoute("table", "admin/table", "~/Admin/Table.aspx");
              routes.MapPageRoute("field", "admin/field", "~/Admin/Field.aspx");

@@ -62,16 +62,6 @@ namespace ArchNet.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SKY-SP-SQL1\\SHAREPOINT;Initial Catalog=ArchiveDevTest;User ID=fazl;Pa" +
-            "ssword=52772;Max Pool Size=200;Connect Timeout=120;")]
-        public string constr {
-            get {
-                return ((string)(this["constr"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("a.fazilyanov@stg.ru")]
         public string AdminMail {
             get {
@@ -121,6 +111,16 @@ namespace ArchNet.Properties {
         public int MailServerPort {
             get {
                 return ((int)(this["MailServerPort"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SKY-SP-SQL1\\SHAREPOINT;Initial Catalog=ArchNet;User ID=fazl;Password=" +
+            "52772;Max Pool Size=200;Connect Timeout=120;")]
+        public string constr {
+            get {
+                return ((string)(this["constr"]));
             }
         }
     }

@@ -2,7 +2,7 @@
 using System.Web.UI;
 using Trirand.Web.UI.WebControls;
 
-namespace WebArchiveR6 {
+namespace ArchNet {
     public partial class Role : System.Web.UI.Page {
         public faList list;
         protected void Page_PreRender(object sender, EventArgs e) {   

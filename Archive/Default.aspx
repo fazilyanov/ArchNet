@@ -33,42 +33,51 @@
                 &nbsp;
             </div>
             <div class="row">
-
+    -->
                 <%if (Master.cur_basename == "dbselect" || Master.cur_basename == "")
                   { %>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function () { $('.navbar-right > li').first().addClass('open'); });
+                    </script>
+        <!--
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3">
                     <div class="list-group">
                         <a href="#" class="list-group-item  navbar-default" style="font-size: 15px;">Базы:</a>
-                        <%Response.Write(Session["listbase"]);%>
+                        <%//Response.Write(Session["listbase"]);%>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="list-group">
                         <a href="#" class="list-group-item  navbar-default" style="font-size: 15px;">Справочники (общие):</a>
-                        <%Response.Write(Session["listsprav"]);%>
+                        <%//Response.Write(Session["listsprav"]);%>
                     </div>
 
-                </div>
+                </div> -->
                 <%}
                   else //if (!string.IsNullOrEmpty(Master.cur_basename))
                   {%>
+           
+                    <script type="text/javascript">
+                        jQuery(document).ready(function () { $('.navbar-right > li').first().next().addClass('open'); });
+                    </script>
+        <!--
                 <div class="col-sm-3"></div>
                 <div class="col-sm-3">
-                    <% Response.Write(Session[Master.cur_basename + "_listpage"]);%>
+                    <%/// Response.Write(Session[Master.cur_basename + "_listpage"]);%>
                 </div>
                 <div class="col-sm-3">
                     <div class="list-group">
                         <a href="#" class="list-group-item navbar-default" style="font-size: 15px;">Справочники:</a>
-                        <%Response.Write((Session[Master.cur_basename + "_listsprav"] ?? "").ToString());%>
-                        <%Response.Write((Session["listsprav"] ?? "").ToString());%>
+                        <%//Response.Write((Session[Master.cur_basename + "_listsprav"] ?? "").ToString());%>
+                        <%//Response.Write((Session["listsprav"] ?? "").ToString());%>
                     </div>
                 </div>
                 <%}%>
             </div>
         </form>
     </div>
-    -->
+    
     <%--
     <script type="text/javascript">
         var ua = detect.parse(navigator.userAgent);

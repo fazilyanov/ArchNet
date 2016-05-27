@@ -14,9 +14,6 @@
     <Setting Name="Test" Type="System.Boolean" Scope="Application">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="constr" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=SKY-SP-SQL1\SHAREPOINT;Initial Catalog=ArchiveDevTest;User ID=fazl;Password=52772;Max Pool Size=200;Connect Timeout=120;</Value>
-    </Setting>
     <Setting Name="AdminMail" Type="System.String" Scope="Application">
       <Value Profile="(Default)">a.fazilyanov@stg.ru</Value>
     </Setting>
@@ -34,6 +31,9 @@
     </Setting>
     <Setting Name="MailServerPort" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="constr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=SKY-SP-SQL1\SHAREPOINT;Initial Catalog=ArchNet;User ID=fazl;Password=52772;Max Pool Size=200;Connect Timeout=120;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

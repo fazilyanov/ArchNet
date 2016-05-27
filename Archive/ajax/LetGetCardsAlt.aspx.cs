@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Web.UI;
 using Trirand.Web.UI.WebControls;
 
-namespace WebArchiveR6
+namespace ArchNet
 {
     public partial class LetGetCardsAlt : System.Web.UI.Page
     {

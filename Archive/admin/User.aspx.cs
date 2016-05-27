@@ -71,21 +71,21 @@ namespace ArchNet {
                 fld.Edit.Enable = true;
                 cur.AddField(fld);
                 //
-                fld = new faField();
-                fld.Data.FieldName = "watch";
-                fld.View.Width = 100;
-                fld.View.CaptionShort = "Отслеживать";
-                fld.Edit.Control = faControl.DropDown;
-                fld.Edit.Required = true;
-                fld.Edit.DefaultValue = "1";
-                fld.Edit.DefaultText = "Нет";
-                fld.Edit.Copied = false;
-                fld.Filter.Control = faControl.DropDown;
-                fld.LookUp.Key = "id";
-                fld.LookUp.Field = "name";
-                fld.LookUp.Table = "_yesno";
-                fld.LookUp.TableAlias = "yn1";
-                cur.AddField(fld);
+                //fld = new faField();
+                //fld.Data.FieldName = "watch";
+                //fld.View.Width = 100;
+                //fld.View.CaptionShort = "Отслеживать";
+                //fld.Edit.Control = faControl.DropDown;
+                //fld.Edit.Required = true;
+                //fld.Edit.DefaultValue = "1";
+                //fld.Edit.DefaultText = "Нет";
+                //fld.Edit.Copied = false;
+                //fld.Filter.Control = faControl.DropDown;
+                //fld.LookUp.Key = "id";
+                //fld.LookUp.Field = "name";
+                //fld.LookUp.Table = "_yesno";
+                //fld.LookUp.TableAlias = "yn1";
+                //cur.AddField(fld);
                 //
                 //fld = new faField();
                 //fld.Data.FieldName = "id_department";

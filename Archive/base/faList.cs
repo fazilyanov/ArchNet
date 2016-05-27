@@ -1239,12 +1239,14 @@ namespace ArchNet
                 _ret += "$(selector).removeClass('btn-default');";
                 _ret += "$(selector).addClass('btn-success');";
                 _ret += "$(selector).attr('onmouseover','$(this).text(\"Очистить\")');";
-                _ret += "$(selector).attr('onmouseout',\"$(this).text('\" + $(selector).text().trim() + \"')\");}";
+                _ret += "$(selector).attr('onmouseout',\"$(this).text('\" + $(selector).text().trim() + \"')\");";
+                _ret += "var count = $('#filterblock').find('.btn-success').length; $('#btn_clear_filter').text('Сбросить все ('+count+')').addClass('btn-success');}";
 
                 _ret += "function cld(selector) {";
                 _ret += "$(selector).removeClass('btn-success');";
                 _ret += "$(selector).addClass('btn-default');";
-                _ret += "$(selector).attr('onmouseover','');}";
+                _ret += "$(selector).attr('onmouseover','');";
+                _ret += "var count = $('#filterblock').find('.btn-success').length; if (count>0){$('#btn_clear_filter').text('Сбросить все ('+count+')').addClass('btn-success');}else{ $('#btn_clear_filter').text('Сбросить все').removeClass('btn-success').addClass('btn-default');} }";
             }
 
             list = new List<string>(JSFunctionList.Keys);
@@ -1421,18 +1423,11 @@ namespace ArchNet
 
             if (ShowFilterPanel)
             {
-                _ret += "<div id=\"panel_hide\" class=\"panel panel-default\" style=\"margin-bottom: 2px;margin-top: 2px;display: none;\">";
-                _ret += "   <div class=\"panel-body\" style=\"padding: 0px;\">";
-                _ret += "       <a href=\"#\" onclick=\"show_search_panel();\" title=\"Показать панель фильтров\" style=\"margin-right:3px;float: right;\" >";
-                _ret += "           <span class=\"hi hi-chevron-down\"></span>";
-                _ret += "       </a>";
-                _ret += "   </div>";
-                _ret += "</div>";
-
+               
                 _ret += "<div id=\"panel_search\" class=\"panel panel-default\" style=\"margin-bottom: 2px;\">";
                 _ret += "   <div class=\"panel-body\" style=\"padding:1px;\">";
                 _ret += "      <div class=\"row\" >";
-                _ret += "       <div class=\"col-md-6\" style=\"width:905px;margin-top:3px;margin-bottom: 1px;\">";
+                _ret += "       <div class=\"col-md-6\" id=\"filterblock\" style=\"width:905px;margin-top:3px;margin-bottom: 1px;\">";
                 
                 for (int p = 0; p < 2; p++)
                 {

@@ -44,14 +44,23 @@ namespace ArchNet
             {
                 if (ArchNet.Properties.Settings.Default.Test) Session["isTest"] = 1;
                 // Достаем логин пользователя
-                WinLogin = Context.User.Identity.Name.Trim();
+                //////////////////////WinLogin = Context.User.Identity.Name.Trim();
                 // Отсекаем домен.. возможно в будущем эту строчку надо будет убрать
-                Session["user_winlogin"] = WinLogin = WinLogin.Substring(WinLogin.LastIndexOf('\\') + 1);
-                if ((Application["BlockedUser"] ?? "").ToString() == Session["user_winlogin"].ToString()) return;
+
+                if ((Session["user_winlogin"]??"").ToString()=="")
+                {
+                    Response.Redirect("Logon.aspx");
+                }
+                 //= WinLogin =WinLogin.Substring(WinLogin.LastIndexOf('\\') + 1);
+
+
+               // if ((Application["BlockedUser"] ?? "").ToString() == Session["user_winlogin"].ToString()) return;
+
+
                 // Пробиваем по базе логин
                 conn.Open();
                 cmd = new SqlCommand("SELECT a.id, a.login, a.name, a.mail FROM _user a WHERE a.del = 0 AND a.login = @p_login", conn);
-                cmd.Parameters.AddWithValue("@p_login", WinLogin);
+                cmd.Parameters.AddWithValue("@p_login", Session["user_winlogin"].ToString());
                 SqlDataReader rdr = cmd.ExecuteReader();
                 rdr.Read();
                 cmd.Dispose();
@@ -126,6 +135,10 @@ namespace ArchNet
                         Session["menuadmin"] =
                              String.Format(submenu_begin, "Пользователи") +
                             (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("user", new { }), "Пользователи", "gi gi-group") : String.Format(menu_item_disabled, "Пользователи", "gi gi-group")) +
+                            (Session["common_access_admin_role_view"] != null || Session["common_access_admin_role_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("role", new { }), "Роли", "gi gi-keys") : String.Format(menu_item_disabled, "Роли", "gi gi-keys")) +
+                            (Session["common_access_admin_access_view"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("access", new { }), "Ключи доступа", "gi gi-blank") : String.Format(menu_item_disabled, "Ключи доступа", "gi gi-blank")) +
+                            (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("userrolebase", new { }), "Доступы пользователей (Отчет)", "gi gi-blank") : String.Format(menu_item_disabled, "Доступы пользователей (Отчет)", "gi gi-blank")) +
+                            (Session["common_access_admin_user_view"] != null || Session["common_access_admin_user_edit"] != null ? String.Format(menu_item_enabled_blank, GetRouteUrl("usersetting", new { }), "Настройки пользователей", "gi gi-blank") : String.Format(menu_item_disabled, "Настройки пользователей", "gi gi-blank")) +
                             submenu_end +
 
                            String.Format(submenu_begin, "Служебные") +

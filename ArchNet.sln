@@ -51,6 +51,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{024D1875-40D5-49BC-832E-3ADE2EA1F1C8}"
 	ProjectSection(SolutionItems) = preProject
 		Note.txt = Note.txt
+		Шаблон Профайлера.tdf = Шаблон Профайлера.tdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Init", "Init", "{E8698C16-78D3-4087-9307-4F3CFBAB0342}"

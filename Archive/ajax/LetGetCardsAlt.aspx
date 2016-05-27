@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LetGetCardsAlt.aspx.cs" Inherits="WebArchiveR6.LetGetCardsAlt" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LetGetCardsAlt.aspx.cs" Inherits="ArchNet.LetGetCardsAlt" %>
 
 <%@ Register Assembly="Trirand.Web, Version=4.5.4.0, Culture=neutral, PublicKeyToken=e2819dc449af3295"
     Namespace="Trirand.Web.UI.WebControls" TagPrefix="cc1" %>

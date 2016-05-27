@@ -1181,6 +1181,7 @@ namespace ArchNet
         /// <remarks>аааааа</remarks>
         public static int ExecuteNonQuery(string query, string connstring, int timeout = 120)
         {
+            int ret = -1;
             SqlCommand cmd;
             SqlConnection conn = new SqlConnection(connstring);
             conn.Open();
@@ -1188,14 +1189,62 @@ namespace ArchNet
             cmd.CommandTimeout = timeout;
             try
             {
-                return cmd.ExecuteNonQuery();
+                ret = cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                conn.Close();
                 ex.Message.Trim();
-                return -1;
             }
+            finally
+            {
+                conn.Close();
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Выполняет скалярный запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <returns>Если вернул "-1" значит ошибка</returns>
+        /// <overloads>Cтрока подключения и таймаут по умолчанию</overloads>
+        public static int ExecuteScalarInt(string query)
+        {
+            return ExecuteScalarInt(query, Properties.Settings.Default.constr);
+        }
+
+        /// <summary>
+        /// Выполняет скалярный запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <param name="connstring">Строка подключения</param>
+        /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
+        /// <returns>Количество строк, "-1" - ошибка</returns>
+        /// <remarks>аааааа</remarks>
+        public static int ExecuteScalarInt(string query, string connstring, int timeout = 120)
+        {
+            int ret = -1;
+            SqlCommand cmd;
+            SqlConnection conn = new SqlConnection(connstring);
+            conn.Open();
+            cmd = new SqlCommand(query, conn);
+            cmd.CommandTimeout = timeout;
+            try
+            {
+                int resInt = 0;
+                var res = cmd.ExecuteScalar();
+                if (int.TryParse((res is DBNull || res == null ? "-1" : res.ToString()), out resInt))
+                    ret = resInt;
+            }
+            catch (Exception ex)
+            {
+                ex.Message.Trim();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return ret;
         }
 
         /// <summary>
