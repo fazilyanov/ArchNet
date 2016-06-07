@@ -9,55 +9,51 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routine", "Routine\Routine.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{4C30D414-D914-4094-91F6-CF32CBF31939}"
 	ProjectSection(SolutionItems) = preProject
-		Note.txt = Note.txt
+		Other\Note.txt = Other\Note.txt
+		Other\todo.snippet = Other\todo.snippet
+		Other\Шаблон Профайлера.tdf = Other\Шаблон Профайлера.tdf
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{4EBA99B0-587E-4F4D-B233-8DC89EED923D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init", "init", "{CE1916CF-1FB5-46CD-A10F-5E2C6C9E531C}"
 	ProjectSection(SolutionItems) = preProject
-		sql\Create Full-text Catalog1.sql = sql\Create Full-text Catalog1.sql
-		sql\Truncate.sql = sql\Truncate.sql
-		sql\Все месяцы года для пользователя.sql = sql\Все месяцы года для пользователя.sql
-		sql\Выгрузка за пол года Archive.sql = sql\Выгрузка за пол года Archive.sql
-		sql\Выгрузка использующихся из depart.sql = sql\Выгрузка использующихся из depart.sql
-		sql\Выгрузка использующихся из structur.sql = sql\Выгрузка использующихся из structur.sql
-		sql\Выгрузка файлов из версий.sql = sql\Выгрузка файлов из версий.sql
-		sql\Выгрузка файлов по Коду ЭА.sql = sql\Выгрузка файлов по Коду ЭА.sql
-		sql\Выгрузка файлов по пакету.sql = sql\Выгрузка файлов по пакету.sql
-		sql\Выгрузка файлов.sql = sql\Выгрузка файлов.sql
-		sql\Добавить все базы.sql = sql\Добавить все базы.sql
-		sql\Дубли основных версий.sql = sql\Дубли основных версий.sql
-		sql\Заменить доступ к базе.sql = sql\Заменить доступ к базе.sql
-		sql\Заполнение каталогов.sql = sql\Заполнение каталогов.sql
-		sql\Импорт кодов проектов.sql = sql\Импорт кодов проектов.sql
-		sql\История запросов.sql = sql\История запросов.sql
-		sql\Комплекты 4 новых поля.sql = sql\Комплекты 4 новых поля.sql
-		sql\Копирование таблиц.sql = sql\Копирование таблиц.sql
-		sql\Копия роли.sql = sql\Копия роли.sql
-		sql\Новое поле во всех базах.sql = sql\Новое поле во всех базах.sql
-		sql\Основные таблицы импорт.sql = sql\Основные таблицы импорт.sql
-		sql\Отчет для Кубатиной.sql = sql\Отчет для Кубатиной.sql
-		sql\Представление для всех баз.sql = sql\Представление для всех баз.sql
-		sql\Принят к учету замена и дефолт.sql = sql\Принят к учету замена и дефолт.sql
-		sql\Проверка на зацикливание в дереве.sql = sql\Проверка на зацикливание в дереве.sql
-		sql\РавильВыгрузка.sql = sql\РавильВыгрузка.sql
-		sql\Создание каталогов.sql = sql\Создание каталогов.sql
-		sql\Создание нового пользователя пока нет нового сервера.sql = sql\Создание нового пользователя пока нет нового сервера.sql
-		sql\Таблицы Архива Схема.sql = sql\Таблицы Архива Схема.sql
-		sql\Текущее время на сервере.sql = sql\Текущее время на сервере.sql
-		sql\Текущие подключения.sql = sql\Текущие подключения.sql
-		sql\Файлы для кодов ЭА.sql = sql\Файлы для кодов ЭА.sql
+		Other\init\Data.sql = Other\init\Data.sql
+		Other\init\Struct.sql = Other\init\Struct.sql
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{024D1875-40D5-49BC-832E-3ADE2EA1F1C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{21582C72-2137-44D0-BBAE-1F17B5BBD5C5}"
 	ProjectSection(SolutionItems) = preProject
-		Note.txt = Note.txt
-		Шаблон Профайлера.tdf = Шаблон Профайлера.tdf
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Init", "Init", "{E8698C16-78D3-4087-9307-4F3CFBAB0342}"
-	ProjectSection(SolutionItems) = preProject
-		init\Data.sql = init\Data.sql
-		init\Struct.sql = init\Struct.sql
+		Other\sql\Create Full-text Catalog1.sql = Other\sql\Create Full-text Catalog1.sql
+		Other\sql\Truncate.sql = Other\sql\Truncate.sql
+		Other\sql\Все месяцы года для пользователя.sql = Other\sql\Все месяцы года для пользователя.sql
+		Other\sql\Выгрузка за пол года Archive.sql = Other\sql\Выгрузка за пол года Archive.sql
+		Other\sql\Выгрузка использующихся из depart.sql = Other\sql\Выгрузка использующихся из depart.sql
+		Other\sql\Выгрузка использующихся из structur.sql = Other\sql\Выгрузка использующихся из structur.sql
+		Other\sql\Выгрузка файлов из версий.sql = Other\sql\Выгрузка файлов из версий.sql
+		Other\sql\Выгрузка файлов по Коду ЭА.sql = Other\sql\Выгрузка файлов по Коду ЭА.sql
+		Other\sql\Выгрузка файлов по пакету.sql = Other\sql\Выгрузка файлов по пакету.sql
+		Other\sql\Выгрузка файлов.sql = Other\sql\Выгрузка файлов.sql
+		Other\sql\Добавить все базы.sql = Other\sql\Добавить все базы.sql
+		Other\sql\Дубли основных версий.sql = Other\sql\Дубли основных версий.sql
+		Other\sql\Заменить доступ к базе.sql = Other\sql\Заменить доступ к базе.sql
+		Other\sql\Заполнение каталогов.sql = Other\sql\Заполнение каталогов.sql
+		Other\sql\Импорт кодов проектов.sql = Other\sql\Импорт кодов проектов.sql
+		Other\sql\История запросов.sql = Other\sql\История запросов.sql
+		Other\sql\Комплекты 4 новых поля.sql = Other\sql\Комплекты 4 новых поля.sql
+		Other\sql\Копирование таблиц.sql = Other\sql\Копирование таблиц.sql
+		Other\sql\Копия роли.sql = Other\sql\Копия роли.sql
+		Other\sql\Новое поле во всех базах.sql = Other\sql\Новое поле во всех базах.sql
+		Other\sql\Основные таблицы импорт.sql = Other\sql\Основные таблицы импорт.sql
+		Other\sql\Отчет для Кубатиной.sql = Other\sql\Отчет для Кубатиной.sql
+		Other\sql\Представление для всех баз.sql = Other\sql\Представление для всех баз.sql
+		Other\sql\Принят к учету замена и дефолт.sql = Other\sql\Принят к учету замена и дефолт.sql
+		Other\sql\Проверка на зацикливание в дереве.sql = Other\sql\Проверка на зацикливание в дереве.sql
+		Other\sql\РавильВыгрузка.sql = Other\sql\РавильВыгрузка.sql
+		Other\sql\Создание каталогов.sql = Other\sql\Создание каталогов.sql
+		Other\sql\Создание нового пользователя пока нет нового сервера.sql = Other\sql\Создание нового пользователя пока нет нового сервера.sql
+		Other\sql\Таблицы Архива Схема.sql = Other\sql\Таблицы Архива Схема.sql
+		Other\sql\Текущее время на сервере.sql = Other\sql\Текущее время на сервере.sql
+		Other\sql\Текущие подключения.sql = Other\sql\Текущие подключения.sql
+		Other\sql\Файлы для кодов ЭА.sql = Other\sql\Файлы для кодов ЭА.sql
 	EndProjectSection
 EndProject
 Global
@@ -89,7 +85,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4EBA99B0-587E-4F4D-B233-8DC89EED923D} = {024D1875-40D5-49BC-832E-3ADE2EA1F1C8}
-		{E8698C16-78D3-4087-9307-4F3CFBAB0342} = {024D1875-40D5-49BC-832E-3ADE2EA1F1C8}
+		{CE1916CF-1FB5-46CD-A10F-5E2C6C9E531C} = {4C30D414-D914-4094-91F6-CF32CBF31939}
+		{21582C72-2137-44D0-BBAE-1F17B5BBD5C5} = {4C30D414-D914-4094-91F6-CF32CBF31939}
 	EndGlobalSection
 EndGlobal

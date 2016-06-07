@@ -154,7 +154,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_doctree]=" + archive_id_doctree + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_doctree] " + r["id_doctree"].ToString() + " -> " + archive_id_doctree + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_doctree] " + r["id_doctree"].ToString() + " -> " + archive_id_doctree + "\n");
                             }
                         }
 
@@ -164,7 +164,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_doctype]=" + archive_id_doctype + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_doctype] " + r["id_doctype"].ToString() + " -> " + archive_id_doctype + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_doctype] " + r["id_doctype"].ToString() + " -> " + archive_id_doctype + "\n");
                             }
                         }
 
@@ -174,7 +174,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [hidden]=" + archive_hidden + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[hidden] " + r["hidden"].ToString() + " -> " + archive_hidden + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[hidden] " + r["hidden"].ToString() + " -> " + archive_hidden + "\n");
                             }
                         }
 
@@ -184,7 +184,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_frm_contr]=" + archive_id_frm_contr + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_frm_contr] " + r["id_frm_contr"].ToString() + " -> " + archive_id_frm_contr + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_frm_contr] " + r["id_frm_contr"].ToString() + " -> " + archive_id_frm_contr + "\n");
                             }
                         }
                         if (archive_docpack != "")
@@ -193,7 +193,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [docpack]=" + archive_docpack + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[docpack] " + r["docpack"].ToString() + " -> " + archive_docpack + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[docpack] " + r["docpack"].ToString() + " -> " + archive_docpack + "\n");
                             }
                         }
 
@@ -203,7 +203,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_prjcode]=" + archive_id_prjcode + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_prjcode] " + r["id_prjcode"].ToString() + " -> " + archive_id_prjcode + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_prjcode] " + r["id_prjcode"].ToString() + " -> " + archive_id_prjcode + "\n");
                             }
                         }
 
@@ -213,7 +213,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_parent]=" + archive_id_parent + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_parent] " + r["id_parent"].ToString() + " -> " + archive_id_parent + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_parent] " + r["id_parent"].ToString() + " -> " + archive_id_parent + "\n");
                             }
                         }
 
@@ -223,7 +223,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_perf]=" + archive_id_perf + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_perf] " + r["id_perf"].ToString() + " -> " + archive_id_perf + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_perf] " + r["id_perf"].ToString() + " -> " + archive_id_perf + "\n");
                             }
                         }
 
@@ -233,7 +233,7 @@ namespace ArchNet
                             {
                                 cmd.CommandText = "UPDATE [dbo].[" + Master.cur_basename + "_archive] SET [id_depart]=" + archive_id_depart + " where id = " + r["id"].ToString();
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_depart] " + r["id_depart"].ToString() + " -> " + archive_id_depart + "\n", 0);
+                                faFunc.ToJournal(cmd, (Session["user_id"] ?? "0").ToString(), 2, (int)r["id"], Session[Master.cur_basename + "_id"].ToString(), 1, "BulkEdit " + _stamp + "\n[id_depart] " + r["id_depart"].ToString() + " -> " + archive_id_depart + "\n");
                             }
                         }
 

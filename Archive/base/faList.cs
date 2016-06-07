@@ -4527,8 +4527,7 @@ namespace ArchNet
             #endregion Смена типа страницы в зависимости от выбранной формы документа
 
             conn.Open();
-
-            byte _all_score = 0, _sc = 0;
+            
             SqlTransaction trans = conn.BeginTransaction(MainCursor.Alias + "_tr");
             try
             {
@@ -4549,8 +4548,8 @@ namespace ArchNet
                             cmd.CommandText += "[" + fld.Data.FieldName + "],";
                             _tmp += "@p_" + fld.Data.FieldName + ",";
                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, fld.Edit.Value);
-                            changes += faFunc.GetChangeNew(fld.Data.FieldName, fld.Edit.Control != faControl.TextArea ? fld.Edit.Value : (fld.Edit.Value.Length > 0 ? "[new]" : ""), fld, out _sc, Page, _act);
-                            _all_score += _sc;
+                            changes += faFunc.GetChangeNew(fld.Data.FieldName, fld.Edit.Control != faControl.TextArea ? fld.Edit.Value : (fld.Edit.Value.Length > 0 ? "[new]" : ""), fld,  Page, _act);
+                            
                         }
                     }
                     cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1);
@@ -4598,8 +4597,7 @@ namespace ArchNet
                             cmd.CommandText += "[" + fld.Data.FieldName + "]=@p_" + fld.Data.FieldName + ",";
                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, fld.Edit.Value);
                             if (fld.Edit.Value == null) cmd.Parameters["@p_" + fld.Data.FieldName].Value = DBNull.Value;
-                            changes += faFunc.GetChange(fld.Data.FieldName, row, fld, out _sc, Page, _act);
-                            _all_score += _sc;
+                            changes += faFunc.GetChange(fld.Data.FieldName, row, fld,  Page, _act);
                         }
                     }
 
@@ -4677,7 +4675,7 @@ namespace ArchNet
 
                 #endregion Обработка галочек супервайзеров
 
-                faFunc.ToJournal(cmd, user_id, (_cid > 0 ? 2 : 1), (_cid > 0 ? _cid : new_id), IDBase, MainCursor.TableID, changes, _all_score);
+                faFunc.ToJournal(cmd, user_id, (_cid > 0 ? 2 : 1), (_cid > 0 ? _cid : new_id), IDBase, MainCursor.TableID, changes);
 
                 #endregion Сохранение шапки
 
@@ -4772,7 +4770,6 @@ namespace ArchNet
                         {
                             ///  ID в табличной части
                             int rid = (int)row_new["id"];
-                            _all_score = 0;
                             string status = row_new["status"].ToString();
 
                             #region Удаление
@@ -4783,7 +4780,7 @@ namespace ArchNet
                                 cmd.Parameters.Clear();
                                 cmd.Parameters.AddWithValue("@p_id", rid);
                                 cmd.ExecuteNonQuery();
-                                faFunc.ToJournal(cmd, user_id, 3, rid, IDBase, Cursors[k].TableID, "", 0);
+                                faFunc.ToJournal(cmd, user_id, 3, rid, IDBase, Cursors[k].TableID, "");
                                 //
                                 //if (ShowCheckBox)
                                 //{
@@ -4834,8 +4831,8 @@ namespace ArchNet
                                         {
                                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, row_new[fld.Data.FieldName]);
                                             cmd.CommandText += "[" + fld.Data.FieldName + "]=@p_" + fld.Data.FieldName + ",";
-                                            changes += faFunc.GetChange(fld.Data.FieldName, row_old[fld.Data.FieldName].ToString(), row_new[fld.Data.FieldName].ToString(), fld, out _sc, Page, _act);
-                                            _all_score += _sc;
+                                            changes += faFunc.GetChange(fld.Data.FieldName, row_old[fld.Data.FieldName].ToString(), row_new[fld.Data.FieldName].ToString(), fld, Page, _act);
+                                            
                                         }
                                     }
                                     //
@@ -4882,7 +4879,7 @@ namespace ArchNet
                                     //            }
                                     //        }
                                     //}
-                                    faFunc.ToJournal(cmd, user_id, 2, rid, IDBase, Cursors[k].TableID, changes, _all_score);
+                                    faFunc.ToJournal(cmd, user_id, 2, rid, IDBase, Cursors[k].TableID, changes);
                                 }
 
                                 #endregion Редактирование
@@ -4948,8 +4945,8 @@ namespace ArchNet
                                             cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                             _tmp += "@p_" + fld.Data.FieldName + ",";
                                             // if (fld.Edit.Auto == faAutoType.None && fld.Edit.Value != "") _score++;
-                                            changes += faFunc.GetChangeNew(fld.Data.FieldName, row_new[fld.Data.FieldName].ToString(), fld, out _sc, Page, _act);
-                                            _all_score += _sc;
+                                            changes += faFunc.GetChangeNew(fld.Data.FieldName, row_new[fld.Data.FieldName].ToString(), fld, Page, _act);
+                                            
                                         }
                                         switch (fld.Edit.Auto)
                                         {
@@ -4960,14 +4957,14 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, DateTime.Now.ToShortDateString());
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToShortDateString(), fld, out _sc, Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToShortDateString(), fld,  Page, _act);
                                                 break;
 
                                             case faAutoType.NowDateTime:
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, DateTime.Now.ToString());
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToString(), fld, out _sc, Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToString(), fld,  Page, _act);
                                                 break;
 
                                             case faAutoType.Version:
@@ -4975,7 +4972,7 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, next_ver);
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, next_ver.ToString(), fld, out _sc, Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, next_ver.ToString(), fld,  Page, _act);
                                                 break;
 
                                             case faAutoType.UserID:
@@ -4985,7 +4982,7 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, length);
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, length.ToString(), fld, out _sc, Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, length.ToString(), fld,  Page, _act);
                                                 break;
 
                                             default:
@@ -5021,7 +5018,7 @@ namespace ArchNet
                                         //}
                                     }
                                     //
-                                    changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1], out _sc, Page, _act) : "");
+                                    changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1],  Page, _act) : "");
 
                                     //if (ShowCheckBox)
                                     //    foreach (var fld in Cursors[k].Fields)
@@ -5046,7 +5043,7 @@ namespace ArchNet
                                     //            }
                                     //        }
                                     //_all_score += _sc;
-                                    faFunc.ToJournal(cmd, user_id, 1, nid, IDBase, Cursors[k].TableID, changes, _all_score);
+                                    faFunc.ToJournal(cmd, user_id, 1, nid, IDBase, Cursors[k].TableID, changes);
                                 }
 
                                 #endregion Новая запись
@@ -5261,7 +5258,7 @@ namespace ArchNet
                 cmd.CommandText += " WHERE id = @p_id";
                 cmd.Parameters.AddWithValue("@p_id", _cid);
                 cmd.ExecuteNonQuery();
-                faFunc.ToJournal(cmd, user_id, 3, _cid, IDBase, MainCursor.TableID, "", 0);
+                faFunc.ToJournal(cmd, user_id, 3, _cid, IDBase, MainCursor.TableID, "");
                 trans.Commit();
                 conn.Close();
                 ClearData(MainCursor);

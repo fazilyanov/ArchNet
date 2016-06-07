@@ -324,16 +324,12 @@ namespace ArchNet
         /// <param name="src">Исходное значение</param>
         /// <param name="dest">Новое значение</param>
         /// <param name="fld">Поле</param>
-        /// <param name="_score">Баллы для операторов</param>
         /// <param name="_page">Страница</param>
         /// <param name="_act">Действие на странице</param>
         /// <returns>Текстовое описание изменения</returns>
-        public static string GetChange(string name, string src, string dest, faField fld, out byte _score, faPage _page, string _act)
+        public static string GetChange(string name, string src, string dest, faField fld,  faPage _page, string _act)
         {
-            _score = 0;
-            if (fld.Edit.Auto == faAutoType.None && src != dest && (src != "" || (dest != fld.Edit.DefaultText && dest != fld.Edit.DefaultValue)))
-                _score += GetFieldScore(name, _page);
-            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest + " (" + _score + ")\n";
+            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest +"\n";
         }
 
         /// <summary>
@@ -346,10 +342,9 @@ namespace ArchNet
         /// <param name="_page">Страница</param>
         /// <param name="_act">Действие на странице</param>
         /// <returns>Текстовое описание изменения</returns>
-        public static string GetChange(string name, DataRow row, faField fld, out byte _score, faPage _page, string _act)
+        public static string GetChange(string name, DataRow row, faField fld, faPage _page, string _act)
         {
             string src = "", dest = "";
-            _score = 0;
             switch (fld.Edit.Control)
             {
                 case faControl.TextBox:
@@ -386,10 +381,8 @@ namespace ArchNet
                 default:
                     break;
             }
-            if (fld.Edit.Auto == faAutoType.None && src != dest && (src != "" || (dest != fld.Edit.DefaultText && dest != fld.Edit.DefaultValue)))
-                _score += GetFieldScore(name, _page);
-
-            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest + " (" + _score + ")\n";
+            
+            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest + "\n";
         }
 
         /// <summary>
@@ -398,30 +391,12 @@ namespace ArchNet
         /// <param name="name">Имя поля</param>
         /// <param name="dest">Новое значение</param>
         /// <param name="fld">Поле</param>
-        /// <param name="_score">Баллы для операторов</param>
         /// <param name="_page">Страница</param>
         /// <param name="_act">Действие на странице</param>
         /// <returns>Текстовое описание изменения</returns>
-        public static string GetChangeNew(string name, string dest, faField fld, out byte _score, faPage _page, string _act)
+        public static string GetChangeNew(string name, string dest, faField fld, faPage _page, string _act)
         {
-            _score = 0;
-            if (_act == "copy" || _act == "copybase")
-            {
-                if (dest != "" && dest != "0")// && fld.Edit.Auto == faAutoType.None
-                    if (dest != fld.Edit.DefaultText && dest != fld.Edit.DefaultValue)
-                        _score = GetFieldScore(name, _page);
-                    else
-                    {
-                        _score = GetFieldScore(name, _page);
-                        _score = _score > 0 ? (byte)Math.Ceiling((decimal)_score / 2) : _score;
-                    }
-            }
-            else
-            {
-                if (dest != "" && dest != "0" && fld.Edit.Auto == faAutoType.None && dest != fld.Edit.DefaultText && dest != fld.Edit.DefaultValue)
-                    _score = GetFieldScore(name, _page);
-            }
-            return dest != "" && dest != "0" ? "[" + name + "] -> " + dest + " (" + _score + ")\n" : "";
+            return dest != "" && dest != "0" ? "[" + name + "] -> " + dest + "\n" : "";
         }
 
         /// <summary>
@@ -1090,7 +1065,7 @@ namespace ArchNet
         /// <param name="p_id_table">ID Таблицы</param>
         /// <param name="p_changes">Текстовое описание изменения</param>
         /// <param name="p_score">Количество баллов за изменение</param>
-        public static void ToJournal(SqlCommand cmd, string p_id_user, int p_id_edittype, int p_change_id, string p_id_base, int p_id_table, string p_changes, byte p_score)
+        public static void ToJournal(SqlCommand cmd, string p_id_user, int p_id_edittype, int p_change_id, string p_id_base, int p_id_table, string p_changes)
         {
             cmd.Parameters.Clear();
             cmd.Parameters.AddWithValue("@p_id_user", int.Parse(p_id_user));
@@ -1099,10 +1074,9 @@ namespace ArchNet
             cmd.Parameters.AddWithValue("@p_id_base", p_id_base);
             cmd.Parameters.AddWithValue("@p_id_table", p_id_table);
             cmd.Parameters.AddWithValue("@p_changes", p_changes);
-            cmd.Parameters.AddWithValue("@p_score", p_score);
             cmd.CommandText =
-                "INSERT INTO [dbo].[_journal]([when],[id_user],[id_edittype],[change_id],[id_base],[id_table],[changes],[score])" +
-                "VALUES (GetDate(), @p_id_user, @p_id_edittype, @p_change_id, @p_id_base, @p_id_table, @p_changes, @p_score)";
+                "INSERT INTO [dbo].[_journal]([when],[id_user],[id_edittype],[change_id],[id_base],[id_table],[changes])" +
+                "VALUES (GetDate(), @p_id_user, @p_id_edittype, @p_change_id, @p_id_base, @p_id_table, @p_changes)";
             cmd.ExecuteNonQuery();
         }
 
