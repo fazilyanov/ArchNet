@@ -2,7 +2,7 @@
 using System.IO;
 using System.Web;
 
-namespace WebArchiveR6
+namespace ArchNet
 {
     public partial class UploadFile : System.Web.UI.Page
     {

@@ -312,7 +312,7 @@ namespace ArchNet
             _from = (RequestGet["from"] ?? "").ToString().Trim().ToLower();
             _fromBase = (RequestGet["frombase"] ?? "").ToString().Trim().ToLower();
 
-            #region Select - Страница выбора
+            #region Select
 
             if (_id == "" && (_act == "" || _act == "select"))
             {
@@ -324,7 +324,7 @@ namespace ArchNet
                 JS = System.Text.RegularExpressions.Regex.Replace(GenerateListJS(jqAlias), "  +", "");
             }
 
-            #endregion Select - Страница выбора
+            #endregion Select
 
             #region Setting - страница настроек
 
@@ -1423,12 +1423,11 @@ namespace ArchNet
 
             if (ShowFilterPanel)
             {
-               
                 _ret += "<div id=\"panel_search\" class=\"panel panel-default\" style=\"margin-bottom: 2px;\">";
                 _ret += "   <div class=\"panel-body\" style=\"padding:1px;\">";
                 _ret += "      <div class=\"row\" >";
                 _ret += "       <div class=\"col-md-6\" id=\"filterblock\" style=\"width:905px;margin-top:3px;margin-bottom: 1px;\">";
-                
+
                 for (int p = 0; p < 2; p++)
                 {
                     string fakeclass = p == 1 ? "hidethis" : "";
@@ -1443,7 +1442,7 @@ namespace ArchNet
                             {
                                 case faControl.TextBox:
                                 case faControl.TextBoxFullSearch:
-                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\""+ hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
+                                    _ret += "<div class=\"col-md-3 " + fakeclass + "\" style=\"" + hidestyle + "width: 271px;margin-top:3px;margin-bottom: 1px;\">";
                                     _ret += "   <div class=\"input-group\">";
                                     _ret += "       <div class=\"input-group-btn\">";
                                     _ret += "           <button type=\"button\" id=\"clear_" + n + "\" class=\"btn btn-xs btn-default\" ";
@@ -1629,7 +1628,7 @@ namespace ArchNet
                 _ret += "               <button type=\"button\" id=\"btn_clear_filter\" name=\"cph_btn_clear_filter\" class=\"btn btn-xs btn-default\" style=\"width: 132px;\" onclick=\"$('button[id^=\\'clear_\\']').click();\">Сбросить все</button>";//
                 _ret += "        </div>";//buttons 1
                 _ret += "        <div class=\"col-md-3\" style=\"width: 271px;margin-top:3px;margin-bottom: 1px;\">";
-                _ret += "               <button type=\"button\" id=\"all_filter\" name=\"cph_all_filter\" class=\"btn btn-xs btn-default\" style=\"width: 132px;\" onclick=\"ShowAllFilter();\">" + ((HttpContext.Current.Session["show_all_filter"] ?? "0").ToString()=="1"? "Скрыть": "Расширенный") + "</button>";//
+                _ret += "               <button type=\"button\" id=\"all_filter\" name=\"cph_all_filter\" class=\"btn btn-xs btn-default\" style=\"width: 132px;\" onclick=\"ShowAllFilter();\">" + ((HttpContext.Current.Session["show_all_filter"] ?? "0").ToString() == "1" ? "Скрыть" : "Расширенный") + "</button>";//
                 _ret += "               <input type=\"hidden\"  id=\"show_all_filter\" value=\"" + (HttpContext.Current.Session["show_all_filter"] ?? "0").ToString() + "\">";
                 _ret += "        </div>";//buttons 2
                 _ret += "       </div>";//buttons
@@ -2259,7 +2258,6 @@ namespace ArchNet
         {
             return "ViewRow" + _cn;
         }
-
         #region PrepareCursorJQGrid
 
         /// <summary>
@@ -2269,7 +2267,7 @@ namespace ArchNet
         /// <param name="jqGrid">Грид</param>
         public void PrepareCursorJQGrid(string _cn, out JQGrid jqGrid)
         {
-            #region Настройка
+            #region Settings
 
             string _n = "";
             faCursor cur = Cursors[_cn];
@@ -2293,7 +2291,7 @@ namespace ArchNet
             jqGrid.SortSettings.InitialSortColumn = cur.SortColumn;
             jqGrid.SortSettings.InitialSortDirection = (cur.SortDirection == "desc" ? SortDirection.Desc : SortDirection.Asc);
 
-            #endregion Настройка
+            #endregion Settings
 
             #region Основные кнопки
 
@@ -2675,7 +2673,7 @@ namespace ArchNet
 
             jqGrid.ClientSideEvents.RowDoubleClick = SetCursorJQGridRowDoubleClick(_cn);
 
-            #region Добавляем столбцы
+            #region ДобавляеCтолбцы
 
             JQGridColumn _c = new JQGridColumn();//cur.FieldCount
             foreach (var fld in cur.Fields)
@@ -2733,7 +2731,7 @@ namespace ArchNet
                 //}
             }
 
-            #endregion Добавляем столбцы
+            #endregion ДобавляеCтолбцы
 
             #region События
 
@@ -4527,7 +4525,7 @@ namespace ArchNet
             #endregion Смена типа страницы в зависимости от выбранной формы документа
 
             conn.Open();
-            
+
             SqlTransaction trans = conn.BeginTransaction(MainCursor.Alias + "_tr");
             try
             {
@@ -4548,8 +4546,7 @@ namespace ArchNet
                             cmd.CommandText += "[" + fld.Data.FieldName + "],";
                             _tmp += "@p_" + fld.Data.FieldName + ",";
                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, fld.Edit.Value);
-                            changes += faFunc.GetChangeNew(fld.Data.FieldName, fld.Edit.Control != faControl.TextArea ? fld.Edit.Value : (fld.Edit.Value.Length > 0 ? "[new]" : ""), fld,  Page, _act);
-                            
+                            changes += faFunc.GetChangeNew(fld.Data.FieldName, fld.Edit.Control != faControl.TextArea ? fld.Edit.Value : (fld.Edit.Value.Length > 0 ? "[new]" : ""), fld, Page, _act);
                         }
                     }
                     cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1);
@@ -4597,16 +4594,10 @@ namespace ArchNet
                             cmd.CommandText += "[" + fld.Data.FieldName + "]=@p_" + fld.Data.FieldName + ",";
                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, fld.Edit.Value);
                             if (fld.Edit.Value == null) cmd.Parameters["@p_" + fld.Data.FieldName].Value = DBNull.Value;
-                            changes += faFunc.GetChange(fld.Data.FieldName, row, fld,  Page, _act);
+                            changes += faFunc.GetChange(fld.Data.FieldName, row, fld, Page, _act);
                         }
                     }
 
-#warning убрать этот костыль
-                    if ((HttpContext.Current.Session[BaseName + "_id_role"] ?? "").ToString() != "8" && MainCursor.Alias == BaseName + "_archive")
-                    {
-                        cmd.CommandText += "[supervisor_checked]=@p_supervisor_checked,";
-                        cmd.Parameters.AddWithValue("@p_supervisor_checked", 1);
-                    }
                     cmd.CommandText = cmd.CommandText.Substring(0, cmd.CommandText.Length - 1);
                     cmd.CommandText += " WHERE id = @p_id";
                     cmd.Parameters.AddWithValue("@p_id", _cid);
@@ -4738,16 +4729,16 @@ namespace ArchNet
 
                         #region Проверка на заполненость статуса, при создании из комплектов
 
-                        if (k.Contains("_docversion"))
-                            foreach (DataRow row_new in dt_new.Rows)
-                            {
-                                if ((row_new["status"].ToString() == "1" || row_new["status"].ToString() == "2") && row_new["id_status"].ToString() == "0")
-                                {
-                                    result = "Не указан статус версии";
-                                    conn.Close();
-                                    return false;
-                                }
-                            }
+                        //if (k.Contains("_docversion"))
+                        //    foreach (DataRow row_new in dt_new.Rows)
+                        //    {
+                        //        if ((row_new["status"].ToString() == "1" || row_new["status"].ToString() == "2") && row_new["id_status"].ToString() == "0")
+                        //        {
+                        //            result = "Не указан статус версии";
+                        //            conn.Close();
+                        //            return false;
+                        //        }
+                        //    }
 
                         #endregion Проверка на заполненость статуса, при создании из комплектов
 
@@ -4832,7 +4823,6 @@ namespace ArchNet
                                             cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, row_new[fld.Data.FieldName]);
                                             cmd.CommandText += "[" + fld.Data.FieldName + "]=@p_" + fld.Data.FieldName + ",";
                                             changes += faFunc.GetChange(fld.Data.FieldName, row_old[fld.Data.FieldName].ToString(), row_new[fld.Data.FieldName].ToString(), fld, Page, _act);
-                                            
                                         }
                                     }
                                     //
@@ -4946,7 +4936,6 @@ namespace ArchNet
                                             _tmp += "@p_" + fld.Data.FieldName + ",";
                                             // if (fld.Edit.Auto == faAutoType.None && fld.Edit.Value != "") _score++;
                                             changes += faFunc.GetChangeNew(fld.Data.FieldName, row_new[fld.Data.FieldName].ToString(), fld, Page, _act);
-                                            
                                         }
                                         switch (fld.Edit.Auto)
                                         {
@@ -4957,14 +4946,14 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, DateTime.Now.ToShortDateString());
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToShortDateString(), fld,  Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToShortDateString(), fld, Page, _act);
                                                 break;
 
                                             case faAutoType.NowDateTime:
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, DateTime.Now.ToString());
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToString(), fld,  Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, DateTime.Now.ToString(), fld, Page, _act);
                                                 break;
 
                                             case faAutoType.Version:
@@ -4972,7 +4961,7 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, next_ver);
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, next_ver.ToString(), fld,  Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, next_ver.ToString(), fld, Page, _act);
                                                 break;
 
                                             case faAutoType.UserID:
@@ -4982,7 +4971,7 @@ namespace ArchNet
                                                 cmd.CommandText += "[" + fld.Data.FieldName + "],";
                                                 _tmp += "@p_" + fld.Data.FieldName + ",";
                                                 cmd.Parameters.AddWithValue("@p_" + fld.Data.FieldName, length);
-                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, length.ToString(), fld,  Page, _act);
+                                                changes += faFunc.GetChangeNew(fld.Data.FieldName, length.ToString(), fld, Page, _act);
                                                 break;
 
                                             default:
@@ -5018,7 +5007,7 @@ namespace ArchNet
                                         //}
                                     }
                                     //
-                                    changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1],  Page, _act) : "");
+                                    changes += (_cid == 0 ? faFunc.GetChangeNew(Cursors[k].Fields[1].Data.FieldName, new_id.ToString(), Cursors[k].Fields[1], Page, _act) : "");
 
                                     //if (ShowCheckBox)
                                     //    foreach (var fld in Cursors[k].Fields)
