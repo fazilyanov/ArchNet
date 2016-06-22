@@ -327,9 +327,9 @@ namespace ArchNet
         /// <param name="_page">Страница</param>
         /// <param name="_act">Действие на странице</param>
         /// <returns>Текстовое описание изменения</returns>
-        public static string GetChange(string name, string src, string dest, faField fld,  faPage _page, string _act)
+        public static string GetChange(string name, string src, string dest, faField fld, faPage _page, string _act)
         {
-            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest +"\n";
+            return src == dest ? "" : "[" + name + "] " + src + " -> " + dest + "\n";
         }
 
         /// <summary>
@@ -381,7 +381,7 @@ namespace ArchNet
                 default:
                     break;
             }
-            
+
             return src == dest ? "" : "[" + name + "] " + src + " -> " + dest + "\n";
         }
 
@@ -1177,6 +1177,95 @@ namespace ArchNet
         }
 
         /// <summary>
+        /// Выполняет запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <param name="connstring">Строка подключения</param>
+        /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
+        /// <returns>SqlDataReader , error</returns>
+
+        public static SqlDataReader ExecuteReader(string connstring, string query, SqlParameter[] sqlParameterArray, out string error, int timeout = 120)
+        {
+            error = string.Empty;
+            SqlConnection conn = new SqlConnection(connstring);
+            SqlDataReader rdr = null;
+            conn.Open();
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddRange(sqlParameterArray);
+                cmd.CommandTimeout = timeout;
+                rdr = cmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return rdr;
+        }
+
+        /// <summary>
+        /// Выполняет запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <param name="connstring">Строка подключения</param>
+        /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
+        /// <returns>SqlDataReader , error</returns>
+        public static SqlDataReader ExecuteReader(string query, SqlParameter[] sqlParameterArray, out string error)
+        {
+            error = string.Empty;
+            return ExecuteReader(Properties.Settings.Default.constr, query, sqlParameterArray, out error);
+        }
+
+        /// <summary>
+        /// Выполняет скалярный запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <param name="connstring">Строка подключения</param>
+        /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
+        /// <returns>Количество строк, "-1" - ошибка</returns>
+        /// <remarks>аааааа</remarks>
+        public static object ExecuteScalar(string query)
+        {
+            return ExecuteScalar(query, Properties.Settings.Default.constr);
+        }
+
+        /// <summary>
+        /// Выполняет скалярный запрос
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <param name="connstring">Строка подключения</param>
+        /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
+        /// <returns>Количество строк, "-1" - ошибка</returns>
+        /// <remarks>аааааа</remarks>
+        public static object ExecuteScalar(string query, string connstring, int timeout = 120)
+        {
+            SqlCommand cmd;
+            SqlConnection conn = new SqlConnection(connstring);
+            object ret = null;
+            conn.Open();
+            cmd = new SqlCommand(query, conn);
+            cmd.CommandTimeout = timeout;
+            try
+            {
+                ret = cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                ex.Message.Trim();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return ret;
+        }
+
+        /// <summary>
         /// Выполняет скалярный запрос
         /// </summary>
         /// <param name="query">SQL запрос</param>
@@ -1228,7 +1317,17 @@ namespace ArchNet
         /// <returns>DataTable.</returns>
         public static DataTable GetData(string query)
         {
-            return GetData(query, Properties.Settings.Default.constr);
+            return GetData(query, Properties.Settings.Default.constr, null);
+        }
+
+        /// <summary>
+        /// Возвращает таблицу - результат запроса, строка подключения и таймаут по умолчанию
+        /// </summary>
+        /// <param name="query">SQL запрос</param>
+        /// <returns>DataTable.</returns>
+        public static DataTable GetData(string query, SqlParameter[] sqlParameterArray)
+        {
+            return GetData(query, Properties.Settings.Default.constr, sqlParameterArray);
         }
 
         /// <summary>
@@ -1238,24 +1337,28 @@ namespace ArchNet
         /// <param name="connstring">Строка подключения</param>
         /// <param name="timeout">Таймаут (По умолчанию - 120)</param>
         /// <returns>DataTable.</returns>
-        public static DataTable GetData(string query, string connstring, int timeout = 120)
+        public static DataTable GetData(string query, string connstring, SqlParameter[] sqlParameterArray, int timeout = 120)
         {
             SqlCommand cmd;
             SqlConnection conn = new SqlConnection(connstring);
             conn.Open();
             cmd = new SqlCommand(query, conn);
+            if (sqlParameterArray != null) cmd.Parameters.AddRange(sqlParameterArray);
             cmd.CommandTimeout = timeout;
             DataTable dt = new DataTable();
             try
             {
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
                 sqlDataAdapter.Fill(dt);
-                conn.Close();
             }
-            catch
+            catch (Exception ex)
+            {
+                ex.Message.Trim();
+                dt = null;
+            }
+            finally
             {
                 conn.Close();
-                dt = null;
             }
             return dt;
         }

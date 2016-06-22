@@ -33,7 +33,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -155,6 +155,129 @@
     <Content Include="archive\ArchiveBulkEdit.aspx" />
     <Content Include="archive\ChangeDoctype.aspx" />
     <Content Include="archive\Docversion.aspx" />
+    <Content Include="content\Archive\archive.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.bootstrap.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.bootstrap.min.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.dataTables.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.dataTables.min.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.foundation.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.foundation.min.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.jqueryui.css" />
+    <Content Include="content\AutoFill-2.1.2\css\autoFill.jqueryui.min.css" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.bootstrap.js" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.bootstrap.min.js" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.foundation.js" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.foundation.min.js" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.jqueryui.js" />
+    <Content Include="content\AutoFill-2.1.2\js\autoFill.jqueryui.min.js" />
+    <Content Include="content\AutoFill-2.1.2\js\dataTables.autoFill.js" />
+    <Content Include="content\AutoFill-2.1.2\js\dataTables.autoFill.min.js" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.min.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.css" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.min.css" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\bootstrap-3.3.6\js\bootstrap.js" />
+    <Content Include="content\bootstrap-3.3.6\js\bootstrap.min.js" />
+    <Content Include="content\bootstrap-3.3.6\js\npm.js" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.bootstrap.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.bootstrap.min.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.dataTables.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.dataTables.min.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.foundation.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.foundation.min.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.jqueryui.css" />
+    <Content Include="content\Buttons-1.2.1\css\buttons.jqueryui.min.css" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.bootstrap.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.bootstrap.min.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.colVis.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.colVis.min.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.flash.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.flash.min.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.foundation.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.foundation.min.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.html5.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.jqueryui.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.jqueryui.min.js" />
+    <Content Include="content\Buttons-1.2.1\js\buttons.print.js" />
+    <Content Include="content\Buttons-1.2.1\js\dataTables.buttons.js" />
+    <Content Include="content\Buttons-1.2.1\js\dataTables.buttons.min.js" />
+    <Content Include="content\JSZip-2.5.0\jszip.js" />
+    <Content Include="content\JSZip-2.5.0\jszip.min.js" />
+    <Content Include="content\Buttons-1.2.1\swf\flashExport.swf" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.bootstrap.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.bootstrap.min.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.dataTables.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.dataTables.min.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.foundation.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.foundation.min.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.jqueryui.css" />
+    <Content Include="content\ColReorder-1.3.2\css\colReorder.jqueryui.min.css" />
+    <Content Include="content\ColReorder-1.3.2\js\dataTables.colReorder.js" />
+    <Content Include="content\ColReorder-1.3.2\js\dataTables.colReorder.min.js" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.bootstrap.css" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.bootstrap.min.css" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.foundation.css" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.foundation.min.css" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.jqueryui.css" />
+    <Content Include="content\DataTables-1.10.12\css\dataTables.jqueryui.min.css" />
+    <Content Include="content\DataTables-1.10.12\css\jquery.dataTables.css" />
+    <Content Include="content\DataTables-1.10.12\css\jquery.dataTables.min.css" />
+    <Content Include="content\DataTables-1.10.12\css\jquery.dataTables_themeroller.css" />
+    <Content Include="content\DataTables-1.10.12\images\sort_asc.png" />
+    <Content Include="content\DataTables-1.10.12\images\sort_asc_disabled.png" />
+    <Content Include="content\DataTables-1.10.12\images\sort_both.png" />
+    <Content Include="content\DataTables-1.10.12\images\sort_desc.png" />
+    <Content Include="content\DataTables-1.10.12\images\sort_desc_disabled.png" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.bootstrap.js" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.bootstrap.min.js" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.foundation.js" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.foundation.min.js" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.jqueryui.js" />
+    <Content Include="content\DataTables-1.10.12\js\dataTables.jqueryui.min.js" />
+    <Content Include="content\DataTables-1.10.12\js\jquery.dataTables.js" />
+    <Content Include="content\DataTables-1.10.12\js\jquery.dataTables.min.js" />
+    <Content Include="content\dataTables.colResize.js" />
+    <Content Include="content\datatables.css" />
+    <Content Include="content\datatables.js" />
+    <Content Include="content\datatables.min.css" />
+    <Content Include="content\datatables.min.js" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.bootstrap.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.dataTables.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.dataTables.min.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.foundation.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.foundation.min.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.jqueryui.css" />
+    <Content Include="content\FixedColumns-3.2.2\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="content\FixedColumns-3.2.2\js\dataTables.fixedColumns.js" />
+    <Content Include="content\FixedColumns-3.2.2\js\dataTables.fixedColumns.min.js" />
+    <Content Include="content\jQuery-2.2.3\jquery-2.2.3.js" />
+    <Content Include="content\jQuery-2.2.3\jquery-2.2.3.min.js" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.bootstrap.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.bootstrap.min.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.dataTables.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.dataTables.min.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.foundation.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.foundation.min.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.jqueryui.css" />
+    <Content Include="content\KeyTable-2.1.2\css\keyTable.jqueryui.min.css" />
+    <Content Include="content\KeyTable-2.1.2\js\dataTables.keyTable.js" />
+    <Content Include="content\KeyTable-2.1.2\js\dataTables.keyTable.min.js" />
+    <Content Include="content\pdfmake-0.1.18\build\pdfmake.js" />
+    <Content Include="content\pdfmake-0.1.18\build\pdfmake.min.js" />
+    <Content Include="content\pdfmake-0.1.18\build\vfs_fonts.js" />
+    <Content Include="content\Select-1.2.0\css\select.bootstrap.css" />
+    <Content Include="content\Select-1.2.0\css\select.bootstrap.min.css" />
+    <Content Include="content\Select-1.2.0\css\select.dataTables.css" />
+    <Content Include="content\Select-1.2.0\css\select.dataTables.min.css" />
+    <Content Include="content\Select-1.2.0\css\select.foundation.css" />
+    <Content Include="content\Select-1.2.0\css\select.foundation.min.css" />
+    <Content Include="content\Select-1.2.0\css\select.jqueryui.css" />
+    <Content Include="content\Select-1.2.0\css\select.jqueryui.min.css" />
+    <Content Include="content\Select-1.2.0\js\dataTables.select.js" />
+    <Content Include="content\Select-1.2.0\js\dataTables.select.min.js" />
+    <Content Include="DataTablesTestPage.aspx" />
     <Content Include="Logon.aspx" />
     <Content Include="scripts\accounting.min.js" />
     <Content Include="scripts\jquery-ui-timepicker-addon.js" />
@@ -447,6 +570,17 @@
     <Compile Include="archive\Docversion.aspx.designer.cs">
       <DependentUpon>Docversion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ComFunc.cs" />
+    <Compile Include="DataTablesTestPage.aspx.cs">
+      <DependentUpon>DataTablesTestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataTablesTestPage.aspx.designer.cs">
+      <DependentUpon>DataTablesTestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Logon.aspx.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,6 +709,18 @@
     <Content Include="fonts\glyphicons-social-regular.eot" />
     <Content Include="fonts\glyphicons-social-regular.ttf" />
     <Content Include="fonts\glyphicons-social-regular.woff" />
+    <Content Include="content\Buttons-1.2.1\css\common.scss" />
+    <Content Include="content\Buttons-1.2.1\css\mixins.scss" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap-theme.min.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.css.map" />
+    <Content Include="content\bootstrap-3.3.6\css\bootstrap.min.css.map" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\bootstrap-3.3.6\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Handler1.ashx" />
+    <Content Include="content\DataTables-1.10.12\js\Russian.json" />
     <None Include="Properties\PublishProfiles\Рабочий.pubxml" />
     <None Include="Properties\PublishProfiles\ТЕСТ.pubxml" />
     <None Include="Properties\Settings.settings">

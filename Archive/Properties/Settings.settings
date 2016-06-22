@@ -2,12 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArchNet.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="filepath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\SKY-SP-SQL1.STG.LAN\ArchiveScanFiles$\</Value>
-    </Setting>
-    <Setting Name="filepathalt" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">\\stg.lan\nfkdata\ArchiveScanFiles\</Value>
-    </Setting>
     <Setting Name="constr1c" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Data Source=MSK-SQL1;Initial Catalog=Users;User ID=user_helpdesk;Password=wU9xS\ZnLFL2;Max Pool Size=200;Connect Timeout=120;</Value>
     </Setting>
@@ -32,8 +26,14 @@
     <Setting Name="MailServerPort" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">587</Value>
     </Setting>
+    <Setting Name="filepath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\192.168.100.209\ScanFiles\</Value>
+    </Setting>
+    <Setting Name="filepathalt" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\\192.168.100.209\ScanFiles\</Value>
+    </Setting>
     <Setting Name="constr" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Data Source=SKY-SP-SQL1\SHAREPOINT;Initial Catalog=ArchNet;User ID=fazl;Password=52772;Max Pool Size=200;Connect Timeout=120;</Value>
+      <Value Profile="(Default)">Data Source=FAZL-PC;Initial Catalog=ArchNet;User ID=fazl;Password=52772;Max Pool Size=200;Connect Timeout=120;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -25,24 +25,6 @@ namespace ArchNet.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\SKY-SP-SQL1.STG.LAN\\ArchiveScanFiles$\\")]
-        public string filepath {
-            get {
-                return ((string)(this["filepath"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\stg.lan\\nfkdata\\ArchiveScanFiles\\")]
-        public string filepathalt {
-            get {
-                return ((string)(this["filepathalt"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSK-SQL1;Initial Catalog=Users;User ID=user_helpdesk;Password=wU9xS\\Z" +
             "nLFL2;Max Pool Size=200;Connect Timeout=120;")]
         public string constr1c {
@@ -116,8 +98,26 @@ namespace ArchNet.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SKY-SP-SQL1\\SHAREPOINT;Initial Catalog=ArchNet;User ID=fazl;Password=" +
-            "52772;Max Pool Size=200;Connect Timeout=120;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.100.209\\ScanFiles\\")]
+        public string filepath {
+            get {
+                return ((string)(this["filepath"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\\\192.168.100.209\\ScanFiles\\")]
+        public string filepathalt {
+            get {
+                return ((string)(this["filepathalt"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=FAZL-PC;Initial Catalog=ArchNet;User ID=fazl;Password=52772;Max Pool " +
+            "Size=200;Connect Timeout=120;")]
         public string constr {
             get {
                 return ((string)(this["constr"]));

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archive", "Archive\Archive.csproj", "{E4A7CBE0-0C8E-4CBC-87CD-0D73FE7C0C43}"
 EndProject
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routine", "Routine\Routine.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{4C30D414-D914-4094-91F6-CF32CBF31939}"
 	ProjectSection(SolutionItems) = preProject
+		Memo.cs = Memo.cs
 		Other\Note.txt = Other\Note.txt
 		Other\todo.snippet = Other\todo.snippet
 		Other\Шаблон Профайлера.tdf = Other\Шаблон Профайлера.tdf
